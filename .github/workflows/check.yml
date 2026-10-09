@@ -1,0 +1,148 @@
+name: Check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    name: HTML sanity + link/asset check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate HTML, meta, links, assets
+        run: |
+          python3 - <<'PY'
+          """Static-site sanity check: HTML structure, meta parity, links/assets, no Airo refs.
+
+          Runs locally and, verbatim, inside .github/workflows/check.yml (generated from
+          this file so the two never drift).
+          """
+          import json
+          import re
+          import sys
+          from html.parser import HTMLParser
+          from pathlib import Path
+
+          # Split here so this scan does not flag its own source (and the workflow that
+          # embeds it) as a live Airo reference.
+          AIRO_ASSET_PREFIX = "airo" + "-assets"
+
+          errors = []
+          index = Path("index.html")
+          html = index.read_text(encoding="utf-8") if index.is_file() else ""
+          if not html:
+              errors.append("index.html is missing or empty")
+
+          VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input",
+                  "link", "meta", "param", "source", "track", "wbr"}
+
+
+          class Sanity(HTMLParser):
+              def __init__(self):
+                  super().__init__(convert_charrefs=True)
+                  self.stack = []
+                  self.h1_count = 0
+
+              def handle_starttag(self, tag, attrs):
+                  if tag in VOID:
+                      return
+                  self.stack.append(tag)
+                  if tag == "h1":
+                      self.h1_count += 1
+
+              def handle_endtag(self, tag):
+                  if tag in VOID:
+                      return
+                  if not self.stack:
+                      errors.append(f"closing </{tag}> with nothing open")
+                      return
+                  opened = self.stack.pop()
+                  if opened != tag:
+                      errors.append(f"<{opened}> closed by </{tag}>")
+
+
+          if html:
+              parser = Sanity()
+              parser.feed(html)
+              parser.close()
+              if parser.stack:
+                  errors.append(f"unclosed tags: {parser.stack}")
+              if parser.h1_count != 1:
+                  errors.append(f"expected exactly one <h1>, found {parser.h1_count}")
+
+              # Copy parity with the live Airo page (captured Oct 9, 2026).
+              REQUIRED = [
+                  "<!doctype html",
+                  "<title>Parent Pep Talks — A daily note for tired parents</title>",
+                  'name="description" content="A thirty-second note in your inbox every morning. For the parent who\'s holding it together — mostly. Free daily email."',
+                  'rel="canonical" href="https://parentpeptalks.com/"',
+                  'property="og:title" content="Parent Pep Talks"',
+                  'property="og:description" content="A thirty-second note in your inbox every morning. For the parent who\'s holding it together — mostly."',
+                  'property="og:type" content="website"',
+                  'property="og:url" content="https://parentpeptalks.com"',
+                  'name="twitter:card" content="summary_large_image"',
+                  'name="twitter:title" content="Parent Pep Talks"',
+                  'name="twitter:description" content="A thirty-second note in your inbox every morning. For the parent who\'s holding it together — mostly."',
+                  "You're doing better than you think.",
+                  "A thirty-second note in your inbox every morning.",
+                  "For the parent who's mostly holding it together.",
+                  'placeholder="First name"',
+                  'placeholder="Email address"',
+                  "Send me the notes",
+                  "Free. No spam. Unsubscribe whenever.",
+                  "Made for the parents in the thick of it.",
+                  "© 2026 parentpeptalks.com",
+                  "data-kit-form",
+                  "data-kit-fallback",
+                  'src="kit-form.js"',
+                  'src="assets/logo.png"',
+                  'src="assets/hero.png"',
+                  'href="assets/favicon.png"',
+                  "https://daily.parentpeptalks.com",
+              ]
+              haystack = html.lower()
+              for needle in REQUIRED:
+                  if needle.lower() not in haystack:
+                      errors.append(f"missing required string: {needle}")
+
+              ld_blocks = re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)
+              if len(ld_blocks) != 2:
+                  errors.append(f"expected 2 JSON-LD blocks, found {len(ld_blocks)}")
+              else:
+                  found_types = []
+                  for block in ld_blocks:
+                      try:
+                          found_types.append(json.loads(block).get("@type"))
+                      except json.JSONDecodeError as exc:
+                          errors.append(f"JSON-LD does not parse: {exc}")
+                  if found_types and found_types != ["Organization", "WebSite"]:
+                      errors.append(f"JSON-LD @type order wrong: {found_types}")
+
+              for url in re.findall(r'(?:src|href)="([^"]+)"', html):
+                  if url.startswith(("http://", "https://")):
+                      if not url.startswith("https://"):
+                          errors.append(f"insecure absolute URL: {url}")
+                  elif url.endswith("/") or url.startswith(("#", "mailto:", "data:")):
+                      continue  # directory or non-file reference
+                  elif not Path(url).is_file():
+                      errors.append(f"local reference does not exist: {url}")
+
+          for path in Path(".").rglob("*"):
+              if ".git" in path.parts or not path.is_file():
+                  continue
+              if AIRO_ASSET_PREFIX in path.read_text(encoding="utf-8", errors="ignore").lower():
+                  errors.append(f"Airo asset reference in {path}")
+
+          if errors:
+              print("CHECK FAILED:")
+              for error in errors:
+                  print(f"  - {error}")
+              sys.exit(1)
+          print("check passed: doctype/tag balance, single h1, meta parity, links/assets, no Airo references")
+          PY
+
+      - name: JS syntax check
+        run: node --check kit-form.js
