@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="canonical" href="https://parentpeptalks.com/">
+    <title>Parent Pep Talks — A daily note for tired parents</title>
+    <meta name="description" content="A thirty-second note in your inbox every morning. For the parent who's holding it together — mostly. Free daily email.">
+    <meta property="og:title" content="Parent Pep Talks">
+    <meta property="og:description" content="A thirty-second note in your inbox every morning. For the parent who's holding it together — mostly.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://parentpeptalks.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Parent Pep Talks">
+    <meta name="twitter:description" content="A thirty-second note in your inbox every morning. For the parent who's holding it together — mostly.">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://parentpeptalks.com/#organization","name":"parentpeptalks.com","url":"https://parentpeptalks.com/"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://parentpeptalks.com/#website","name":"Parent Pep Talks","url":"https://parentpeptalks.com","description":"A daily email for tired parents — short, affirming notes that make you feel less alone."}</script>
+    <style>
+      /* Palette and metrics mirror the live Airo page (tokens read from its
+         stylesheet); fonts are the system stack on purpose — no webfonts. */
+      :root {
+        --background: hsl(40 37% 97%);
+        --foreground: hsl(0 0% 4%);
+        --muted-foreground: hsl(40 7% 51%);
+        --border: hsl(42 16% 84%);
+        --primary: hsl(129 9% 46%);
+        --primary-foreground: hsl(0 0% 100%);
+        --success: hsl(160 84% 30%);
+        --destructive: hsl(0 84% 45%);
+        --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        --font-heading: Georgia, "Times New Roman", serif;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background: var(--background);
+        color: var(--foreground);
+        font-family: var(--font-sans);
+      }
+      .site-header {
+        display: flex;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid hsl(42 16% 84% / .4);
+      }
+      .logo { display: block; height: 2rem; width: auto; }
+      @media (min-width: 768px) {
+        .site-header { padding: 1rem 2.5rem; }
+        .logo { height: 2.25rem; }
+      }
+      main { flex: 1; display: flex; flex-direction: column; }
+      .hero { position: relative; width: 100%; overflow: hidden; height: min(62vw, 72vh); }
+      .hero-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: bottom;
+        pointer-events: none;
+      }
+      .hero-line {
+        position: absolute;
+        top: 7%;
+        right: 4%;
+        max-width: 38%;
+        margin: 0;
+        text-align: right;
+        pointer-events: none;
+        font-family: var(--font-heading);
+        font-style: italic;
+        font-weight: 400;
+        font-size: clamp(0.8rem, 1.8vw, 1.25rem);
+        line-height: 1.4;
+        letter-spacing: -0.01em;
+        color: hsl(0 0% 4% / .78);
+      }
+      @media (max-width: 640px) { .hero-line { max-width: 60%; } }
+      .signup {
+        width: 100%;
+        padding: clamp(1.5rem, 3vh, 2.5rem) 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .signup-inner { width: 100%; max-width: 32rem; text-align: center; }
+      .tagline {
+        margin: 0 0 1.5rem;
+        line-height: 1.625;
+        font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+        font-weight: 300;
+        color: var(--muted-foreground);
+      }
+      .fields { display: flex; flex-direction: column; gap: .625rem; margin-bottom: .625rem; }
+      .field {
+        width: 100%;
+        padding: .75rem 1rem;
+        border-radius: .5rem;
+        border: 1px solid var(--border);
+        background: var(--background);
+        color: var(--foreground);
+        font-family: var(--font-sans);
+        font-size: .875rem;
+        outline: none;
+        min-width: 0;
+        transition: border-color .2s;
+      }
+      .field:focus { border-color: var(--primary); }
+      @media (min-width: 640px) {
+        .fields { flex-direction: row; }
+        .field.first-name { flex: 1; }
+        .field.email { flex: 2; }
+      }
+      .submit {
+        width: 100%;
+        padding: .75rem 2rem;
+        border: none;
+        border-radius: .5rem;
+        background: var(--primary);
+        color: var(--primary-foreground);
+        font-family: var(--font-sans);
+        font-size: .875rem;
+        font-weight: 500;
+        letter-spacing: .02em;
+        cursor: pointer;
+        transition: opacity .2s;
+      }
+      .submit:hover { opacity: .9; }
+      .submit:disabled { opacity: .6; cursor: default; }
+      .fine-print { margin: .625rem 0 0; font-size: .75rem; color: hsl(40 7% 51% / .6); }
+      .fallback-cta {
+        display: block;
+        width: 100%;
+        padding: .75rem 2rem;
+        border-radius: .5rem;
+        background: var(--primary);
+        color: var(--primary-foreground);
+        text-decoration: none;
+        text-align: center;
+        font-size: .875rem;
+        font-weight: 500;
+        letter-spacing: .02em;
+        transition: opacity .2s;
+      }
+      .fallback-cta:hover { opacity: .9; }
+      .form-status { margin: .75rem 0 0; font-size: .875rem; }
+      .form-status[data-state="success"] { color: var(--success); }
+      .form-status[data-state="error"] { color: var(--destructive); }
+      .site-footer {
+        padding: 2rem 1.5rem;
+        border-top: 1px solid hsl(42 16% 84% / .4);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .5rem;
+      }
+      .site-footer p { margin: 0; }
+      .footer-note { font-size: .875rem; color: var(--muted-foreground); }
+      .footer-copyright { font-size: .75rem; color: hsl(40 7% 51% / .6); }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="./"><img src="assets/logo.png" alt="Parent Pep Talks" class="logo"></a>
+    </header>
+    <main>
+      <section class="hero">
+        <img src="assets/hero.png" alt="" width="1248" height="832" loading="eager" fetchpriority="high" class="hero-image">
+        <h1 class="hero-line">You're doing better than you think.</h1>
+      </section>
+      <section class="signup">
+        <div class="signup-inner">
+          <p class="tagline">A thirty-second note in your inbox every morning.<br>For the parent who's mostly holding it together.</p>
+          <form data-kit-form>
+            <div class="fields">
+              <input type="text" name="firstName" placeholder="First name" aria-label="First name" autocomplete="given-name" required class="field first-name">
+              <input type="email" name="email" placeholder="Email address" aria-label="Email address" autocomplete="email" required class="field email">
+            </div>
+            <button type="submit" class="submit">Send me the notes</button>
+            <p class="fine-print">Free. No spam. Unsubscribe whenever.</p>
+          </form>
+          <template data-kit-fallback>
+            <a class="fallback-cta" href="https://daily.parentpeptalks.com">Send me the notes</a>
+          </template>
+          <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p class="footer-note">Made for the parents in the thick of it.</p>
+      <p class="footer-copyright">© 2026 parentpeptalks.com</p>
+    </footer>
+    <script src="kit-form.js"></script>
+  </body>
+</html>
