@@ -101,7 +101,7 @@ jobs:
                   'src="assets/logo.png"',
                   'src="assets/hero.png"',
                   'href="assets/favicon.png"',
-                  "https://daily.parentpeptalks.com",
+                  "https://parent-pep-talks.kit.com",
               ]
               haystack = html.lower()
               for needle in REQUIRED:
