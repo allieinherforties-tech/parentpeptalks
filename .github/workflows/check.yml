@@ -99,7 +99,7 @@ jobs:
                   "data-kit-fallback",
                   'src="kit-form.js"',
                   'src="assets/logo.png"',
-                  'src="assets/hero.png"',
+                  'src="assets/hero.webp"',
                   'href="assets/favicon.png"',
                   "https://parent-pep-talks.kit.com",
               ]

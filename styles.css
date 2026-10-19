@@ -1,0 +1,149 @@
+/* Parent Pep Talks brand system — shared by every page on parentpeptalks.com.
+   Charcoal field, bone type, and the tiny duck's gold for actions; final values
+   tuned against the approved Great Wave hero artwork. Fonts stay the system
+   stack on purpose — no webfonts. */
+:root {
+  --background: hsl(30 5% 9%);
+  --foreground: hsl(40 27% 92%);
+  --muted-foreground: hsl(40 9% 62%);
+  --border: hsl(40 10% 20%);
+  --primary: hsl(40 70% 60%);
+  --primary-foreground: hsl(30 8% 10%);
+  --success: hsl(40 70% 60%);
+  --destructive: hsl(8 75% 60%);
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: Georgia, "Times New Roman", serif;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+.site-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.logo { display: block; height: 2rem; width: auto; }
+@media (min-width: 768px) {
+  .site-header { padding: 1rem 2.5rem; }
+  .logo { height: 2.25rem; }
+}
+main { flex: 1; display: flex; flex-direction: column; }
+.hero { position: relative; width: 100%; overflow: hidden; height: min(62vw, 72vh); }
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  pointer-events: none;
+}
+.hero-line {
+  position: absolute;
+  top: 7%;
+  right: 4%;
+  max-width: 38%;
+  margin: 0;
+  text-align: right;
+  pointer-events: none;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(0.8rem, 1.8vw, 1.25rem);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  /* Bone ink on the hero's dark sky — the dark-theme counterpart of the
+     old dark-ink-on-cream overlay. */
+  color: hsl(40 27% 92% / .92);
+}
+@media (max-width: 640px) { .hero-line { max-width: 60%; } }
+.signup {
+  width: 100%;
+  padding: clamp(1.5rem, 3vh, 2.5rem) 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.signup-inner { width: 100%; max-width: 32rem; text-align: center; }
+.tagline {
+  margin: 0 0 1.5rem;
+  line-height: 1.625;
+  font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+  font-weight: 300;
+  color: var(--muted-foreground);
+}
+.fields { display: flex; flex-direction: column; gap: .625rem; margin-bottom: .625rem; }
+.field {
+  width: 100%;
+  padding: .75rem 1rem;
+  border-radius: .5rem;
+  border: 1px solid var(--border);
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: .875rem;
+  outline: none;
+  min-width: 0;
+  transition: border-color .2s;
+}
+.field::placeholder { color: var(--muted-foreground); opacity: 1; }
+.field:focus { border-color: var(--primary); }
+@media (min-width: 640px) {
+  .fields { flex-direction: row; }
+  .field.first-name { flex: 1; }
+  .field.email { flex: 2; }
+}
+.submit {
+  width: 100%;
+  padding: .75rem 2rem;
+  border: none;
+  border-radius: .5rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-family: var(--font-sans);
+  font-size: .875rem;
+  font-weight: 500;
+  letter-spacing: .02em;
+  cursor: pointer;
+  transition: opacity .2s;
+}
+.submit:hover { opacity: .9; }
+.submit:disabled { opacity: .6; cursor: default; }
+.fine-print { margin: .625rem 0 0; font-size: .75rem; color: hsl(40 9% 62% / .7); }
+.fallback-cta {
+  display: block;
+  width: 100%;
+  padding: .75rem 2rem;
+  border-radius: .5rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  text-decoration: none;
+  text-align: center;
+  font-size: .875rem;
+  font-weight: 500;
+  letter-spacing: .02em;
+  transition: opacity .2s;
+}
+.fallback-cta:hover { opacity: .9; }
+.form-status { margin: .75rem 0 0; font-size: .875rem; }
+.form-status[data-state="success"] { color: var(--success); }
+.form-status[data-state="error"] { color: var(--destructive); }
+.site-footer {
+  padding: 2rem 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+}
+.site-footer p { margin: 0; }
+.footer-note { font-size: .875rem; color: var(--muted-foreground); }
+.footer-copyright { font-size: .75rem; color: hsl(40 9% 62% / .7); }
