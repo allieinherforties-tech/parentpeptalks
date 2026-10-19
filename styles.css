@@ -60,7 +60,9 @@ main { flex: 1; display: flex; flex-direction: column; }
   font-size: clamp(0.8rem, 1.8vw, 1.25rem);
   line-height: 1.4;
   letter-spacing: -0.01em;
-  color: hsl(0 0% 4% / .78);
+  /* Bone ink on the hero's dark sky — the dark-theme counterpart of the
+     old dark-ink-on-cream overlay. */
+  color: hsl(40 27% 92% / .92);
 }
 @media (max-width: 640px) { .hero-line { max-width: 60%; } }
 .signup {
