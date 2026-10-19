@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="canonical" href="https://parentpeptalks.com/signup">
+    <title>Parent Pep Talks — Sign up for the daily notes</title>
+    <meta name="description" content="Sign up free — one short note in your inbox every morning, starting tomorrow.">
+    <meta property="og:title" content="Parent Pep Talks">
+    <meta property="og:description" content="Sign up free — one short note in your inbox every morning, starting tomorrow.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://parentpeptalks.com/signup">
+    <meta property="og:image" content="https://parentpeptalks.com/assets/hero.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Parent Pep Talks">
+    <meta name="twitter:description" content="Sign up free — one short note in your inbox every morning, starting tomorrow.">
+    <meta name="twitter:image" content="https://parentpeptalks.com/assets/hero.webp">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="./"><img src="assets/logo.png" alt="Parent Pep Talks" class="logo"></a>
+    </header>
+    <main>
+      <section class="signup signup-centered">
+        <div class="signup-inner">
+          <h1 class="signup-title">You're doing better than you think.</h1>
+          <form data-kit-form>
+            <div class="fields">
+              <input type="text" name="firstName" placeholder="First name" aria-label="First name" autocomplete="given-name" required class="field first-name">
+              <input type="email" name="email" placeholder="Email address" aria-label="Email address" autocomplete="email" required class="field email">
+            </div>
+            <button type="submit" class="submit">Send me the notes</button>
+            <p class="fine-print">Free. No spam. Unsubscribe whenever.</p>
+          </form>
+          <template data-kit-fallback>
+            <a class="fallback-cta" href="https://parent-pep-talks.kit.com">Send me the notes</a>
+          </template>
+          <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p class="footer-note">Made for the parents in the thick of it.</p>
+      <p class="footer-copyright">© 2026 parentpeptalks.com</p>
+    </footer>
+    <script src="kit-form.js"></script>
+  </body>
+</html>
