@@ -10,7 +10,7 @@ const KIT_FORM_UID = ""; // e.g. "1234567" — empty means "not wired yet"
 const KIT_POST_TEMPLATE = "https://app.kit.com/forms/{uid}/subscriptions";
 
 const STATUS_MESSAGES = {
-  success: "You're in — check your inbox for a first note from Parent Pep Talks.",
+  success: "You're in. Your first note lands tomorrow morning — one short note a day, not a course. Rest tonight.",
   error: "That didn't go through. Give it a moment and try again.",
 };
 
@@ -53,6 +53,8 @@ if (!form || !fallback) {
   console.error("kit-form: expected [data-kit-form] and [data-kit-fallback] in the document");
 } else if (KIT_FORM_UID === "") {
   // Not wired yet: hide the fake-submit path, surface the real destination.
+  // Each page's [data-kit-fallback] template carries its own target — the
+  // homepage hands off to /signup, /signup hands off to Kit's hosted page.
   form.replaceWith(fallback.content.cloneNode(true));
 } else {
   form.addEventListener("submit", async (event) => {
