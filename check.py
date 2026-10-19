@@ -47,7 +47,8 @@ PAGES = {
             'src="assets/logo.png"',
             'src="assets/hero.webp"',
             'href="assets/favicon.png"',
-            "https://parent-pep-talks.kit.com",
+            # While the UID is unwired, the homepage hands off to /signup.
+            'href="signup"',
         ],
         # The homepage carries structured-data blocks; /signup stays minimal.
         "jsonld_types": ["Organization", "WebSite"],
