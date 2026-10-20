@@ -29,6 +29,8 @@ PAGES = {
             'property="og:description" content="A thirty-second note in your inbox every morning. For the parent who\'s holding it together — mostly."',
             'property="og:type" content="website"',
             'property="og:url" content="https://parentpeptalks.com"',
+            'property="og:image" content="https://parentpeptalks.com/assets/hero-band.webp"',
+            'name="twitter:image" content="https://parentpeptalks.com/assets/hero-band.webp"',
             'name="twitter:card" content="summary_large_image"',
             'name="twitter:title" content="Parent Pep Talks"',
             'name="twitter:description" content="A thirty-second note in your inbox every morning. For the parent who\'s holding it together — mostly."',
@@ -47,8 +49,8 @@ PAGES = {
             # (Two-Step Signup Build Sheet, Section 1).
             'data-kit-redirect="welcome"',
             'src="kit-form.js"',
-            'src="assets/logo.png"',
-            'src="assets/hero.webp"',
+            'src="assets/logo-cream.png"',
+            'src="assets/hero-band.webp"',
             'href="assets/favicon.png"',
             # While the UID is unwired, the homepage fallback hands off straight
             # to Kit's hosted page — one hop, no /signup screen in between.
