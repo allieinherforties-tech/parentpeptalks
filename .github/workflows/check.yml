@@ -82,6 +82,9 @@ jobs:
                       "© 2026 parentpeptalks.com",
                       "data-kit-form",
                       "data-kit-fallback",
+                      # Wired success leaves for page two; /welcome takes the handoff
+                      # (Two-Step Signup Build Sheet, Section 1).
+                      'data-kit-redirect="welcome"',
                       'src="kit-form.js"',
                       'src="assets/logo.png"',
                       'src="assets/hero.webp"',
@@ -125,12 +128,84 @@ jobs:
                       "https://parent-pep-talks.kit.com",
                   ],
               },
+              "welcome.html": {
+                  "required": [
+                      "<!doctype html",
+                      "<title>Parent Pep Talks — Welcome</title>",
+                      'name="description" content="You\'re in — your first note lands tomorrow morning. Finish your profile (every question is optional) to unlock the weekly child-insights email."',
+                      'rel="canonical" href="https://parentpeptalks.com/welcome"',
+                      'property="og:title" content="Parent Pep Talks"',
+                      'property="og:description" content="You\'re in — your first note lands tomorrow morning. Finish your profile to unlock the weekly child-insights email."',
+                      'property="og:type" content="website"',
+                      'property="og:url" content="https://parentpeptalks.com/welcome"',
+                      'property="og:image" content="https://parentpeptalks.com/assets/hero.webp"',
+                      'name="twitter:card" content="summary_large_image"',
+                      'name="twitter:title" content="Parent Pep Talks"',
+                      'name="twitter:description" content="You\'re in — your first note lands tomorrow morning. Finish your profile to unlock the weekly child-insights email."',
+                      'name="twitter:image" content="https://parentpeptalks.com/assets/hero.webp"',
+                      # Celebration header — the homepage's old on-page success line,
+                      # verbatim, moved here when the handoff shipped (Build Sheet §2).
+                      "You're in.",
+                      "Your first note lands tomorrow morning — one short note a day, not a course. Rest tonight.",
+                      "Now make it yours.",
+                      "Complete your profile to unlock the weekly child-insights email: one short email a week about your kid — what's normal for their age, what's worth a closer look, and what you can officially stop worrying about.",
+                      "Every question is optional. The daily note doesn't change either way — this just makes the weekly email possible.",
+                      "Not seeing the first note by breakfast tomorrow? Check spam, then add us to your contacts — after that, everything lands on time.",
+                      "This is where your notes go.",
+                      "Your kid's first name (first names only)",
+                      "How old is your kid?",
+                      # Age-band dropdown: the milestone library's eight band strings
+                      # verbatim, so Kit segments can key off identical text later.
+                      "Newborn–3 months",
+                      "4–9 months",
+                      "9–18 months",
+                      "18 months–3 years",
+                      "3–5 years",
+                      "5–7 years",
+                      "7–10 years",
+                      "10–13 years",
+                      "What's the hardest part of most days right now?",
+                      # Hardest-part dropdown: the eight parent-facing chips, each saved
+                      # as a Tag.
+                      "Bedtime",
+                      "Mornings",
+                      "Mealtimes",
+                      "The mess",
+                      "My own patience",
+                      "Sibling fights",
+                      "Screen time",
+                      "Something else",
+                      "Finish the sentence: “The kind of parent I’m trying to be is…”",
+                      'maxlength="50"',
+                      "50 characters is plenty.",
+                      "How did you hear about us? (optional)",
+                      "Save my profile &amp; unlock the weekly insights",
+                      "data-kit-form",
+                      "data-kit-fallback",
+                      'src="welcome-form.js"',
+                      'href="styles.css"',
+                      'src="assets/logo.png"',
+                      'href="assets/favicon.png"',
+                      # While the profile UID is unwired, /welcome hands off to Kit.
+                      "https://parent-pep-talks.kit.com",
+                  ],
+              },
           }
 
           # The confirmation must speak the Day-1 register (Onboarding Arc, Day 1):
           # tomorrow's note, no course-speak.
           KIT_FORM_COPY = [
               "You're in. Your first note lands tomorrow morning — one short note a day, not a course. Rest tonight.",
+              "That didn't go through. Give it a moment and try again.",
+          ]
+
+          # The wired homepage success redirects to /welcome with the signup fields in
+          # the query string (Build Sheet Section 1); /welcome's confirmation copy lives
+          # in welcome-form.js. Strings match the source files byte-for-byte.
+          KIT_HANDOFF_COPY = ["data-kit-redirect"]
+
+          WELCOME_FORM_COPY = [
+              "Saved. Your first note lands tomorrow morning — and the weekly child-insights email is on its way.",
               "That didn't go through. Give it a moment and try again.",
           ]
 
@@ -169,6 +244,15 @@ jobs:
           for copy in KIT_FORM_COPY:
               if copy not in kit_source:
                   errors.append(f"kit-form.js: missing required copy: {copy}")
+          for needle in KIT_HANDOFF_COPY:
+              if needle not in kit_source:
+                  errors.append(f"kit-form.js: missing handoff wiring: {needle}")
+
+          welcome_form = Path("welcome-form.js")
+          welcome_source = welcome_form.read_text(encoding="utf-8") if welcome_form.is_file() else ""
+          for copy in WELCOME_FORM_COPY:
+              if copy not in welcome_source:
+                  errors.append(f"welcome-form.js: missing required copy: {copy}")
 
           for page_path, page in PAGES.items():
               source = Path(page_path)
@@ -227,7 +311,7 @@ jobs:
               for error in errors:
                   print(f"  - {error}")
               sys.exit(1)
-          print("check passed: doctype/tag balance, single h1, meta parity, links/assets, kit copy, no Airo references")
+          print("check passed: doctype/tag balance, single h1, meta parity, links/assets, kit copy, welcome handoff, no Airo references")
           PY
 
       - name: JS syntax check

@@ -57,16 +57,31 @@ if (!form || !fallback) {
   // link straight to Kit's hosted page, no intermediate screen.
   form.replaceWith(fallback.content.cloneNode(true));
 } else {
+  // The homepage marks the two-step handoff with data-kit-redirect: wired
+  // success leaves for /welcome with the signup fields riding the query
+  // string, and page two takes over (prefill + profile form). Pages without
+  // the attribute — /signup — keep the on-page confirmation.
+  const handoff = form.dataset.kitRedirect;
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const button = form.querySelector("button");
     if (button) button.disabled = true;
     try {
-      const response = await postToKit(KIT_FORM_UID, {
+      const fields = {
         first_name: form.firstName.value,
         email: form.email.value,
-      });
-      showState((await submitWorked(response)) ? "success" : "error");
+      };
+      const response = await postToKit(KIT_FORM_UID, fields);
+      if (await submitWorked(response)) {
+        if (handoff) {
+          const params = new URLSearchParams(fields);
+          window.location.assign(`${handoff}?${params.toString()}`);
+        } else {
+          showState("success");
+        }
+      } else {
+        showState("error");
+      }
     } catch {
       showState("error"); // network failure reads the same as a rejection
     } finally {
