@@ -53,8 +53,8 @@ if (!form || !fallback) {
   console.error("kit-form: expected [data-kit-form] and [data-kit-fallback] in the document");
 } else if (KIT_FORM_UID === "") {
   // Not wired yet: hide the fake-submit path, surface the real destination.
-  // Each page's [data-kit-fallback] template carries its own target — the
-  // homepage hands off to /signup, /signup hands off to Kit's hosted page.
+  // Each page's [data-kit-fallback] template carries its own target — both
+  // link straight to Kit's hosted page, no intermediate screen.
   form.replaceWith(fallback.content.cloneNode(true));
 } else {
   form.addEventListener("submit", async (event) => {
