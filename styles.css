@@ -1,11 +1,17 @@
 /* Parent Pep Talks brand system — shared by every page on parentpeptalks.com.
-   Light-first: a warm bone field, charcoal ink for type, the footer band, and
-   the hero frame; the tiny duck's gold is reserved for the primary action. The
-   Great Wave artwork hangs like a framed print under the header — rounded,
-   hairline border, soft shadow, never full-bleed — and the tagline is set in
-   charcoal serif-italic in the warm space below it, never on the artwork.
-   The dark direction from PR #3 is parked, not deleted. Fonts stay the system
-   stack on purpose — no webfonts. */
+   Two worlds. The warm paper world is the interface: bone field, charcoal ink,
+   1px hairlines. The black night world is the artwork, used exactly as Allie
+   painted it — field #000000, ice-blue foam hsl(197 100% 95%), lemon glow
+   hsl(54 77% 66%) — hung full-bleed as a band from the very top of the page,
+   cropping at the viewport edges (the framed-print staging from PR #5 is
+   retired). Gold bridges the worlds: one gold family, and the CTA --primary
+   is the duck's light on the page — actions only. The artwork's thick carved
+   linocut lines against the UI's 1px hairlines are an intentional contrast,
+   not a mismatch. There are no navy tokens — the navy idea was declined.
+   On the band the header floats transparent and the wordmark is recolored to
+   bone (the life ring stays red-orange); the tagline and email capture stay
+   in the warm world below, never overlaid on the artwork. Fonts stay the
+   system stack on purpose — no webfonts. */
 :root {
   --background: hsl(39 36% 94%);   /* warm bone */
   --surface: hsl(42 40% 98%);      /* inputs and panel backing, a step lighter */
@@ -41,41 +47,47 @@ body {
   .site-header { padding: 1rem 2.5rem; }
   .logo { height: 2.25rem; }
 }
+/* Homepage header floats over the band: transparent, no hairline, and the
+   cream logo variant (the life ring keeps its red-orange). /signup and
+   /welcome keep the bone-backed header. */
+.site-header.hero-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: transparent;
+  border-bottom: none;
+}
 main { flex: 1; display: flex; flex-direction: column; }
 
-/* The hero hangs like a framed print: capped height keeps the tagline and the
-   email capture inside the first screenful on desktop, and the bone margins on
-   either side keep it a figure on the page, never full-bleed. */
+/* The hero is a full-bleed band from the very top of the page: edge-to-edge
+   artwork, no border, no shadow, no rounded corners — the wave crops at the
+   viewport edges. Height stays capped so the tagline and email capture still
+   peek into the first screenful, and object-position holds the duck in frame
+   from 360px up through 1440px and beyond. */
 .hero {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: clamp(1rem, 3vw, 2rem) clamp(1rem, 4vw, 2.5rem) 0;
 }
-.hero-panel {
-  margin: 0;
-  width: min(100%, 56rem);
-  height: min(46vh, 26rem);
-  border-radius: 1rem;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  box-shadow: 0 1.5rem 3rem hsl(30 12% 25% / .14), 0 .25rem .5rem hsl(30 12% 25% / .08);
+.hero-band {
+  width: 100%;
+  height: clamp(320px, 44vh, 440px);
   overflow: hidden;
 }
-.hero-panel picture { display: block; width: 100%; height: 100%; }
-.hero-image {
+.hero-band .hero-image {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: bottom;
+  object-position: center;
   pointer-events: none;
 }
-/* Tall crop of the same artwork on phones, per the light-first staging. */
 @media (max-width: 640px) {
-  .hero-panel { height: min(58vh, 30rem); }
+  .hero-band { height: clamp(240px, 34vh, 320px); }
 }
-/* The promise line lives in the warm space below the panel — charcoal
+/* The promise line lives in the warm space below the band — charcoal
    serif-italic ink on bone, never overlaid on the artwork. */
 .hero-line {
   margin: clamp(1.25rem, 3vh, 2rem) 0 0;
