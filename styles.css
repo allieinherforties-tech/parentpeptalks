@@ -1,16 +1,22 @@
 /* Parent Pep Talks brand system — shared by every page on parentpeptalks.com.
-   Charcoal field, bone type, and the tiny duck's gold for actions; final values
-   tuned against the approved Great Wave hero artwork. Fonts stay the system
+   Light-first: a warm bone field, charcoal ink for type, the footer band, and
+   the hero frame; the tiny duck's gold is reserved for the primary action. The
+   Great Wave artwork hangs like a framed print under the header — rounded,
+   hairline border, soft shadow, never full-bleed — and the tagline is set in
+   charcoal serif-italic in the warm space below it, never on the artwork.
+   The dark direction from PR #3 is parked, not deleted. Fonts stay the system
    stack on purpose — no webfonts. */
 :root {
-  --background: hsl(30 5% 9%);
-  --foreground: hsl(40 27% 92%);
-  --muted-foreground: hsl(40 9% 62%);
-  --border: hsl(40 10% 20%);
-  --primary: hsl(40 70% 60%);
+  --background: hsl(39 36% 94%);   /* warm bone */
+  --surface: hsl(42 40% 98%);      /* inputs and panel backing, a step lighter */
+  --foreground: hsl(30 7% 13%);    /* charcoal ink */
+  --muted-foreground: hsl(30 6% 38%);
+  --border: hsl(35 16% 82%);       /* hairline */
+  --primary: hsl(40 70% 60%);      /* the duck's gold — actions only */
   --primary-foreground: hsl(30 8% 10%);
-  --success: hsl(40 70% 60%);
-  --destructive: hsl(8 75% 60%);
+  --success: hsl(33 55% 32%);      /* deep gold-amber, legible on bone */
+  --destructive: hsl(8 65% 40%);
+  --footer-ink: hsl(40 27% 92%);
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-heading: Georgia, "Times New Roman", serif;
 }
@@ -36,38 +42,56 @@ body {
   .logo { height: 2.25rem; }
 }
 main { flex: 1; display: flex; flex-direction: column; }
-.hero { position: relative; width: 100%; overflow: hidden; height: min(62vw, 72vh); }
+
+/* The hero hangs like a framed print: capped height keeps the tagline and the
+   email capture inside the first screenful on desktop, and the bone margins on
+   either side keep it a figure on the page, never full-bleed. */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(1rem, 3vw, 2rem) clamp(1rem, 4vw, 2.5rem) 0;
+}
+.hero-panel {
+  margin: 0;
+  width: min(100%, 56rem);
+  height: min(46vh, 26rem);
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: 0 1.5rem 3rem hsl(30 12% 25% / .14), 0 .25rem .5rem hsl(30 12% 25% / .08);
+  overflow: hidden;
+}
+.hero-panel picture { display: block; width: 100%; height: 100%; }
 .hero-image {
-  position: absolute;
-  inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: bottom;
   pointer-events: none;
 }
+/* Tall crop of the same artwork on phones, per the light-first staging. */
+@media (max-width: 640px) {
+  .hero-panel { height: min(58vh, 30rem); }
+}
+/* The promise line lives in the warm space below the panel — charcoal
+   serif-italic ink on bone, never overlaid on the artwork. */
 .hero-line {
-  position: absolute;
-  top: 7%;
-  right: 4%;
-  max-width: 38%;
-  margin: 0;
-  text-align: right;
-  pointer-events: none;
+  margin: clamp(1.25rem, 3vh, 2rem) 0 0;
+  max-width: 34rem;
+  padding: 0 1.5rem;
+  text-align: center;
   font-family: var(--font-heading);
   font-style: italic;
   font-weight: 400;
-  font-size: clamp(0.8rem, 1.8vw, 1.25rem);
-  line-height: 1.4;
+  font-size: clamp(1.25rem, 2.6vw, 1.875rem);
+  line-height: 1.35;
   letter-spacing: -0.01em;
-  /* Bone ink on the hero's dark sky — the dark-theme counterpart of the
-     old dark-ink-on-cream overlay. */
-  color: hsl(40 27% 92% / .92);
 }
-@media (max-width: 640px) { .hero-line { max-width: 60%; } }
 .signup {
   width: 100%;
-  padding: clamp(1.5rem, 3vh, 2.5rem) 1.5rem;
+  padding: clamp(1.5rem, 4vh, 3rem) 1.5rem 2.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -82,8 +106,8 @@ main { flex: 1; display: flex; flex-direction: column; }
   font-weight: 300;
   color: var(--muted-foreground);
 }
-/* The promise headline on /signup — same serif-italic voice as the hero line,
-   but in document flow and scaled up for a page with nothing else in it. */
+/* The promise headline on /signup — same serif-italic voice as the homepage
+   caption, but in document flow and scaled up for a page with nothing else in it. */
 .signup-title {
   margin: 0 0 1.5rem;
   font-family: var(--font-heading);
@@ -99,7 +123,7 @@ main { flex: 1; display: flex; flex-direction: column; }
   padding: .75rem 1rem;
   border-radius: .5rem;
   border: 1px solid var(--border);
-  background: var(--background);
+  background: var(--surface);
   color: var(--foreground);
   font-family: var(--font-sans);
   font-size: .875rem;
@@ -108,7 +132,8 @@ main { flex: 1; display: flex; flex-direction: column; }
   transition: border-color .2s;
 }
 .field::placeholder { color: var(--muted-foreground); opacity: 1; }
-.field:focus { border-color: var(--primary); }
+/* Focus goes to ink, not gold — gold stays exclusively on the primary action. */
+.field:focus { border-color: var(--foreground); }
 @media (min-width: 640px) {
   .fields { flex-direction: row; }
   .field.first-name { flex: 1; }
@@ -130,7 +155,7 @@ main { flex: 1; display: flex; flex-direction: column; }
 }
 .submit:hover { opacity: .9; }
 .submit:disabled { opacity: .6; cursor: default; }
-.fine-print { margin: .625rem 0 0; font-size: .75rem; color: hsl(40 9% 62% / .7); }
+.fine-print { margin: .625rem 0 0; font-size: .75rem; color: hsl(30 6% 38% / .75); }
 .fallback-cta {
   display: block;
   width: 100%;
@@ -149,14 +174,16 @@ main { flex: 1; display: flex; flex-direction: column; }
 .form-status { margin: .75rem 0 0; font-size: .875rem; }
 .form-status[data-state="success"] { color: var(--success); }
 .form-status[data-state="error"] { color: var(--destructive); }
+/* Charcoal concentrates in the footer band — the page's dark anchor on bone. */
 .site-footer {
   padding: 2rem 1.5rem;
-  border-top: 1px solid var(--border);
+  background: var(--foreground);
+  color: var(--footer-ink);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: .5rem;
 }
 .site-footer p { margin: 0; }
-.footer-note { font-size: .875rem; color: var(--muted-foreground); }
-.footer-copyright { font-size: .75rem; color: hsl(40 9% 62% / .7); }
+.footer-note { font-size: .875rem; opacity: .85; }
+.footer-copyright { font-size: .75rem; opacity: .6; }
