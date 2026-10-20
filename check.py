@@ -47,8 +47,9 @@ PAGES = {
             'src="assets/logo.png"',
             'src="assets/hero.webp"',
             'href="assets/favicon.png"',
-            # While the UID is unwired, the homepage hands off to /signup.
-            'href="signup"',
+            # While the UID is unwired, the homepage fallback hands off straight
+            # to Kit's hosted page — one hop, no /signup screen in between.
+            'href="https://parent-pep-talks.kit.com"',
         ],
         # The homepage carries structured-data blocks; /signup stays minimal.
         "jsonld_types": ["Organization", "WebSite"],
