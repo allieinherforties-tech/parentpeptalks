@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="canonical" href="https://parentpeptalks.com/welcome">
+    <title>Parent Pep Talks — Welcome</title>
+    <meta name="description" content="You're in — your first note lands tomorrow morning. Finish your profile (every question is optional) to unlock the weekly child-insights email.">
+    <meta property="og:title" content="Parent Pep Talks">
+    <meta property="og:description" content="You're in — your first note lands tomorrow morning. Finish your profile to unlock the weekly child-insights email.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://parentpeptalks.com/welcome">
+    <meta property="og:image" content="https://parentpeptalks.com/assets/hero.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Parent Pep Talks">
+    <meta name="twitter:description" content="You're in — your first note lands tomorrow morning. Finish your profile to unlock the weekly child-insights email.">
+    <meta name="twitter:image" content="https://parentpeptalks.com/assets/hero.webp">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="./"><img src="assets/logo.png" alt="Parent Pep Talks" class="logo"></a>
+    </header>
+    <main>
+      <section class="signup signup-centered">
+        <div class="signup-inner">
+          <h1 class="welcome-title">You're in.</h1>
+          <p class="welcome-lead">Your first note lands tomorrow morning — one short note a day, not a course. Rest tonight.</p>
+          <div class="incentive">
+            <h2 class="incentive-title">Now make it yours.</h2>
+            <p class="incentive-copy">Complete your profile to unlock the weekly child-insights email: one short email a week about your kid — what's normal for their age, what's worth a closer look, and what you can officially stop worrying about.</p>
+            <p class="optionality">Every question is optional. The daily note doesn't change either way — this just makes the weekly email possible.</p>
+          </div>
+          <form data-kit-form class="welcome-form">
+            <div class="fields">
+              <label class="field-label" for="welcome-first-name">First name</label>
+              <input type="text" name="firstName" id="welcome-first-name" class="field" autocomplete="given-name">
+              <label class="field-label" for="welcome-email">Email address</label>
+              <input type="email" name="email" id="welcome-email" class="field" autocomplete="email" required>
+              <p class="field-help">This is where your notes go.</p>
+              <label class="field-label" for="welcome-child-name">Your kid's first name (first names only)</label>
+              <input type="text" name="childName" id="welcome-child-name" class="field" autocomplete="off">
+              <label class="field-label" for="welcome-age-band">How old is your kid?</label>
+              <select name="ageBand" id="welcome-age-band" class="field">
+                <option value="">Choose one</option>
+                <option value="Newborn–3 months">Newborn–3 months</option>
+                <option value="4–9 months">4–9 months</option>
+                <option value="9–18 months">9–18 months</option>
+                <option value="18 months–3 years">18 months–3 years</option>
+                <option value="3–5 years">3–5 years</option>
+                <option value="5–7 years">5–7 years</option>
+                <option value="7–10 years">7–10 years</option>
+                <option value="10–13 years">10–13 years</option>
+              </select>
+              <label class="field-label" for="welcome-hardest-part">What's the hardest part of most days right now?</label>
+              <select name="hardestPart" id="welcome-hardest-part" class="field">
+                <option value="">Choose one</option>
+                <option value="Bedtime">Bedtime</option>
+                <option value="Mornings">Mornings</option>
+                <option value="Mealtimes">Mealtimes</option>
+                <option value="The mess">The mess</option>
+                <option value="My own patience">My own patience</option>
+                <option value="Sibling fights">Sibling fights</option>
+                <option value="Screen time">Screen time</option>
+                <option value="Something else">Something else</option>
+              </select>
+              <label class="field-label" for="welcome-goal-2">Finish the sentence: “The kind of parent I’m trying to be is…”</label>
+              <input type="text" name="goal2" id="welcome-goal-2" class="field" maxlength="50" autocomplete="off">
+              <p class="field-help" data-char-counter>0 / 50</p>
+              <p class="field-help">50 characters is plenty.</p>
+              <label class="field-label" for="welcome-referral">How did you hear about us? (optional)</label>
+              <input type="text" name="referral" id="welcome-referral" class="field" autocomplete="off">
+            </div>
+            <button type="submit" class="submit">Save my profile &amp; unlock the weekly insights</button>
+          </form>
+          <template data-kit-fallback>
+            <a class="fallback-cta" href="https://parent-pep-talks.kit.com">Send me the notes</a>
+          </template>
+          <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
+          <p class="fine-print">Not seeing the first note by breakfast tomorrow? Check spam, then add us to your contacts — after that, everything lands on time.</p>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p class="footer-note">Made for the parents in the thick of it.</p>
+      <p class="footer-copyright">© 2026 parentpeptalks.com</p>
+    </footer>
+    <script src="welcome-form.js"></script>
+  </body>
+</html>
