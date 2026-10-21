@@ -27,7 +27,10 @@
     <main>
       <section class="hero">
         <div class="hero-band">
-          <img src="assets/hero-band.webp" alt="" width="1000" height="676" loading="eager" fetchpriority="high" class="hero-image">
+          <picture>
+            <source media="(max-width: 640px) and (orientation: portrait)" srcset="assets/hero-tall.webp">
+            <img src="assets/hero-band.webp" alt="" width="1376" height="768" loading="eager" fetchpriority="high" class="hero-image">
+          </picture>
         </div>
         <h1 class="hero-line">You're doing better than you think.</h1>
       </section>

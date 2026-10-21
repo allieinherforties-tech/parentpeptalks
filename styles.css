@@ -1,8 +1,9 @@
 /* Parent Pep Talks brand system — shared by every page on parentpeptalks.com.
    Two worlds. The warm paper world is the interface: bone field, charcoal ink,
    1px hairlines. The black night world is the artwork, used exactly as Allie
-   painted it — field #000000, ice-blue foam hsl(197 100% 95%), lemon glow
-   hsl(54 77% 66%) — hung full-bleed as a band from the very top of the page,
+   painted it — deep-navy night field, ice-blue foam hsl(197 100% 95%),
+   lemon glow hsl(54 77% 66%) — hung full-bleed as a band from the very top
+   of the page,
    cropping at the viewport edges (the framed-print staging from PR #5 is
    retired). Gold bridges the worlds: one gold family, and the CTA --primary
    is the duck's light on the page — actions only. The artwork's thick carved
@@ -63,9 +64,11 @@ main { flex: 1; display: flex; flex-direction: column; }
 
 /* The hero is a full-bleed band from the very top of the page: edge-to-edge
    artwork, no border, no shadow, no rounded corners — the wave crops at the
-   viewport edges. Height stays capped so the tagline and email capture still
-   peek into the first screenful, and object-position holds the duck in frame
-   from 360px up through 1440px and beyond. */
+   viewport edges. The wide artwork carries desktop and landscape; portrait
+   phones swap to the tall artwork via the index.html <picture>. Height stays
+   generous so the vast-ocean scope reads, but capped so the tagline and email
+   capture still peek into the first screenful, and object-position holds the
+   duck in frame. */
 .hero {
   display: flex;
   flex-direction: column;
@@ -73,7 +76,7 @@ main { flex: 1; display: flex; flex-direction: column; }
 }
 .hero-band {
   width: 100%;
-  height: clamp(320px, 44vh, 440px);
+  height: clamp(420px, 58vh, 640px);
   overflow: hidden;
 }
 .hero-band .hero-image {
@@ -81,11 +84,21 @@ main { flex: 1; display: flex; flex-direction: column; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  /* Wide artwork: horizon at ~23% of frame height, duck at ~73% — the center
+     window keeps both in frame across desktop sizes. */
+  object-position: center 50%;
   pointer-events: none;
 }
 @media (max-width: 640px) {
+  /* Landscape phones: short band on the wide artwork — today's crop. */
   .hero-band { height: clamp(240px, 34vh, 320px); }
+}
+@media (max-width: 640px) and (orientation: portrait) {
+  /* Portrait phones get the tall artwork: a taller band opens up the ocean
+     expanse; a low anchor keeps the duck and main crest in frame — the duck
+     sits at ~86% of the tall frame. */
+  .hero-band { height: clamp(380px, 56vh, 520px); }
+  .hero-band .hero-image { object-position: center 78%; }
 }
 /* The promise line lives in the warm space below the band — charcoal
    serif-italic ink on bone, never overlaid on the artwork. */
