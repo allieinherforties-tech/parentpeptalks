@@ -49,7 +49,10 @@ PAGES = {
             # (Two-Step Signup Build Sheet, Section 1).
             'data-kit-redirect="welcome"',
             'src="kit-form.js"',
-            'src="assets/logo-cream.png"',
+            # Inline SVG lockup — cream variant over the band (navy fold lines).
+            'class="logo-mark"',
+            'aria-label="Parent Pep Talks — home"',
+            'stroke="#0b192d"',
             'src="assets/hero-band.webp"',
             'href="assets/favicon.png"',
             # While the UID is unwired, the homepage fallback hands off straight
@@ -85,7 +88,10 @@ PAGES = {
             "data-kit-fallback",
             'src="kit-form.js"',
             'href="styles.css"',
-            'src="assets/logo.png"',
+            # Inline SVG lockup — standard variant (bone fold lines).
+            'class="logo-mark"',
+            'aria-label="Parent Pep Talks — home"',
+            'stroke="#f5f1ea"',
             'href="assets/favicon.png"',
             # While the UID is unwired, /signup's fallback hands off to Kit.
             "https://parent-pep-talks.kit.com",
@@ -143,7 +149,10 @@ PAGES = {
             "data-kit-fallback",
             'src="welcome-form.js"',
             'href="styles.css"',
-            'src="assets/logo.png"',
+            # Inline SVG lockup — standard variant (bone fold lines).
+            'class="logo-mark"',
+            'aria-label="Parent Pep Talks — home"',
+            'stroke="#f5f1ea"',
             'href="assets/favicon.png"',
             # While the profile UID is unwired, /welcome hands off to Kit.
             "https://parent-pep-talks.kit.com",
