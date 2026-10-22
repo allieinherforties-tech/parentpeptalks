@@ -161,6 +161,9 @@ jobs:
                       "Not seeing the first note by breakfast tomorrow? Check spam, then add us to your contacts — after that, everything lands on time.",
                       "This is where your notes go.",
                       "Your kid's first name (first names only)",
+                      # Sibling rotation hint (Oct 22): one kid to start; siblings join
+                      # by replying to any note with names and birthdays.
+                      "Just one kid to start is plenty — if you've got more, reply to any note with their names and birthdays and we'll add them to the rotation.",
                       "Your kid's birthday?",
                       # Birth-date field (Oct 20 decision): the optional date input
                       # replaces the age-band dropdown — the weekly child-insight derives
