@@ -155,17 +155,13 @@ jobs:
                       "Not seeing the first note by breakfast tomorrow? Check spam, then add us to your contacts — after that, everything lands on time.",
                       "This is where your notes go.",
                       "Your kid's first name (first names only)",
-                      "How old is your kid?",
-                      # Age-band dropdown: the milestone library's eight band strings
-                      # verbatim, so Kit segments can key off identical text later.
-                      "Newborn–3 months",
-                      "4–9 months",
-                      "9–18 months",
-                      "18 months–3 years",
-                      "3–5 years",
-                      "5–7 years",
-                      "7–10 years",
-                      "10–13 years",
+                      "Your kid's birthday?",
+                      # Birth-date field (Oct 20 decision): the optional date input
+                      # replaces the age-band dropdown — the weekly child-insight derives
+                      # the band at send time from the Milestones sheet, and BDAY-01
+                      # triggers yearly off the collected date.
+                      'type="date"',
+                      "So the weekly note matches their exact age — and we never miss their birthday.",
                       "What's the hardest part of most days right now?",
                       # Hardest-part dropdown: the eight parent-facing chips, each saved
                       # as a Tag.

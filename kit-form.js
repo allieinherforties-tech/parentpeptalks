@@ -1,12 +1,25 @@
 // Kit signup wiring for the Parent Pep Talks landing page.
 //
-// Paste the form UID from Kit's embed snippet once the signup form exists.
-// Kit's embed code shows the exact POST target; derive both from it, never guess.
-const KIT_FORM_UID = ""; // e.g. "1234567" — empty means "not wired yet"
+// UID pasted from Allie's embed snippet, received Oct 20, 2026 (loader:
+// https://parent-pep-talks.kit.com/10d73dff83/index.js — Cloudflare-gated
+// against datacenter fetches, so field keys were verified against the live
+// endpoint directly, see the POST notes below).
+const KIT_FORM_UID = "10d73dff83"; // homepage inline form — live POST verified Oct 20, 2026
 
 // Kit's custom-HTML embed posts to this template with the form UID filled in.
-// When the real embed snippet exists, confirm this URL against it and update
-// this one constant if Kit's contract differs.
+// Probed against the real form Oct 20, 2026:
+//   - JSON POST {first_name, email} → 302 redirect to app.kit.com/forms/success
+//     (reproduced twice; matches the Oct 9 observation).
+//   - Kit's JSON-negotiated variant (POST /subscriptions.json) speaks a
+//     stricter dialect: it wants email_address (not email), nests custom
+//     fields under fields{}, and takes tags[] — that shape passed validation
+//     on the live form. The plain route this page posts to accepted
+//     {first_name, email}; if Kit ever tightens it, flip the key here first.
+//   - Kit bot-quarantines datacenter/scripted requests on the .json route,
+//     and during the Oct 20 session Kit returned "Account is cancelled and
+//     can not accept new subscribers" on one probe — subscriber creation
+//     could not be confirmed from here until the account billing/downgrade
+//     (checklist step 1) is settled.
 const KIT_POST_TEMPLATE = "https://app.kit.com/forms/{uid}/subscriptions";
 
 const STATUS_MESSAGES = {
