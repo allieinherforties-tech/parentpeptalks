@@ -6,12 +6,13 @@
    of the page,
    cropping at the viewport edges (the framed-print staging from PR #5 is
    retired). Gold bridges the worlds: one gold family, and the CTA --primary
-   is the duck's light on the page — actions only. The brand mark carries the
-   duck's own gold (#e6da6f, sampled from hero-band.webp) in every context.
+   is the brand's single gold — Allie's Oct 23 pick anchors everything on the
+   button's own gold (#e0b051, hsl(40 70% 60%)): the mark carries the CTA gold
+   in every context, and the duck artwork converges on the same gold.
    The artwork's thick carved linocut lines against the UI's 1px hairlines are
    an intentional contrast, not a mismatch. There are no navy tokens — the
    navy idea was declined. On the band the header floats transparent and the
-   lockup switches to its cream variant (gold ring, cream envelope and
+   lockup switches to its cream variant (CTA-gold ring, cream envelope and
    wordmark); the tagline and email capture stay in the warm world below,
    never overlaid on the artwork. Fonts stay the system stack on purpose — no
    webfonts. */
@@ -21,7 +22,7 @@
   --foreground: hsl(30 7% 13%);    /* charcoal ink */
   --muted-foreground: hsl(30 6% 38%);
   --border: hsl(35 16% 82%);       /* hairline */
-  --primary: hsl(40 70% 60%);      /* the duck's gold — actions only */
+  --primary: hsl(40 70% 60%);      /* the brand gold — ring and duck follow this token */
   --primary-foreground: hsl(30 8% 10%);
   --success: hsl(33 55% 32%);      /* deep gold-amber, legible on bone */
   --destructive: hsl(8 65% 40%);
@@ -73,8 +74,8 @@ body {
   .logo { height: 2.25rem; font-size: 2.25rem; }
 }
 /* Homepage header floats over the band: transparent, no hairline, and the
-   cream logo variant (gold ring, cream envelope and wordmark — the duck keeps
-   its gold). /signup and /welcome keep the bone-backed header. */
+   cream logo variant (CTA-gold ring, cream envelope and wordmark).
+   /signup and /welcome keep the bone-backed header. */
 .site-header.hero-header {
   position: absolute;
   top: 0;
