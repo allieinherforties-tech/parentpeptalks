@@ -49,7 +49,10 @@ PAGES = {
             # (Two-Step Signup Build Sheet, Section 1).
             'data-kit-redirect="welcome"',
             'src="kit-form.js"',
-            'src="assets/logo-cream.png"',
+            # Inline SVG lockup — cream variant over the band (navy fold lines).
+            'class="logo-mark"',
+            'aria-label="Parent Pep Talks — home"',
+            'stroke="#0b192d"',
             'src="assets/hero-band.webp"',
             'href="assets/favicon.png"',
             # While the UID is unwired, the homepage fallback hands off straight
@@ -85,7 +88,10 @@ PAGES = {
             "data-kit-fallback",
             'src="kit-form.js"',
             'href="styles.css"',
-            'src="assets/logo.png"',
+            # Inline SVG lockup — standard variant (bone fold lines).
+            'class="logo-mark"',
+            'aria-label="Parent Pep Talks — home"',
+            'stroke="#f5f1ea"',
             'href="assets/favicon.png"',
             # While the UID is unwired, /signup's fallback hands off to Kit.
             "https://parent-pep-talks.kit.com",
@@ -116,6 +122,9 @@ PAGES = {
             "Not seeing the first note by breakfast tomorrow? Check spam, then add us to your contacts — after that, everything lands on time.",
             "This is where your notes go.",
             "Your kid's first name (first names only)",
+            # Sibling rotation hint (Oct 22): one kid to start; siblings join
+            # by replying to any note with names and birthdays.
+            "Just one kid to start is plenty — if you've got more, reply to any note with their names and birthdays and we'll add them to the rotation.",
             "Your kid's birthday?",
             # Birth-date field (Oct 20 decision): the optional date input
             # replaces the age-band dropdown — the weekly child-insight derives
@@ -143,7 +152,10 @@ PAGES = {
             "data-kit-fallback",
             'src="welcome-form.js"',
             'href="styles.css"',
-            'src="assets/logo.png"',
+            # Inline SVG lockup — standard variant (bone fold lines).
+            'class="logo-mark"',
+            'aria-label="Parent Pep Talks — home"',
+            'stroke="#f5f1ea"',
             'href="assets/favicon.png"',
             # While the profile UID is unwired, /welcome hands off to Kit.
             "https://parent-pep-talks.kit.com",
