@@ -1,20 +1,24 @@
 // Kit profile wiring for /welcome — page two of the two-step signup
-// (Two-Step Signup Build Sheet, Section 2).
+// (Two-Step Signup Build Sheet, Section 2). The post carries the four custom
+// fields (child name, child birth date, Goal 2, referral source) plus the
+// hardest-part answer, which Kit saves as a Tag.
 //
-// The profile form posts to its OWN Kit form endpoint so the homepage form's
-// endpoint never touches profile data: the four custom fields (child name,
-// child birth date, Goal 2, referral source) plus the hardest-part answer,
-// which Kit saves as a Tag. UID pasted from Allie's embed snippet, received
-// Oct 20, 2026 (loader: https://parent-pep-talks.kit.com/c6cf175e6d/index.js
-// — Cloudflare-gated against datacenter fetches, so the embed could not be
-// read from here).
-//
-// ⚠️ DELTA REPORTED Oct 20, 2026: Kit's subscriptions endpoint answered every
-// POST to this UID with "Couldn't find a form for this request" — the UID does
-// not resolve to a live (published) inline Form. The wiring below is real and
-// follows the verified contract, but capture stays dead until the Kit-side
-// form exists/publishes under this UID (or Allie sends a corrected UID).
-const KIT_PROFILE_FORM_UID = "c6cf175e6d";
+// ⚠️ MAPPING CORRECTED Oct 24, 2026: Kit's form NAMES are swapped relative to
+// their CONTENTS, and this file had the dead one. Allie verified both hosted
+// pages in her browser:
+//   • parent-pep-talks.kit.com/10d73dff83 (Kit name "Form 1") shows the FULL
+//     profile questions (child name, birthday, hardest part) and is live —
+//     its app route accepts POSTs (302 → /forms/success).
+//   • parent-pep-talks.kit.com/c6cf175e6d (Kit name "Profile Form") shows
+//     only first name + email, and its embed route is dead — POSTing to
+//     app.kit.com/forms/c6cf175e6d/subscriptions.json returns
+//     {"status":"failed","errors":{"form":"Couldn't find a form for this
+//     request"}} — unchanged since Oct 20.
+// Both flow steps now target 10d73dff83: the homepage (kit-form.js) sends
+// first_name + email, which that form accepts (verified in production), and
+// this page then posts the full payload — Kit matches the email and updates
+// the same subscriber on the second post rather than creating a duplicate.
+const KIT_PROFILE_FORM_UID = "10d73dff83";
 
 // Same endpoint template and success contract as the homepage form
 // (kit-form.js): trust Kit's JSON status when the endpoint speaks JSON,
