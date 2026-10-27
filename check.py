@@ -68,13 +68,13 @@ PAGES = {
             "<title>Parent Pep Talks — Sign up for the daily notes</title>",
             'name="description" content="Sign up free — one short note in your inbox every morning, starting tomorrow."',
             'rel="canonical" href="https://parentpeptalks.com/signup"',
-            'property="og:title" content="Parent Pep Talks"',
+            'property="og:title" content="A thirty-second note every morning"',
             'property="og:description" content="Sign up free — one short note in your inbox every morning, starting tomorrow."',
             'property="og:type" content="website"',
             'property="og:url" content="https://parentpeptalks.com/signup"',
             'property="og:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
             'name="twitter:card" content="summary_large_image"',
-            'name="twitter:title" content="Parent Pep Talks"',
+            'name="twitter:title" content="A thirty-second note every morning"',
             'name="twitter:description" content="Sign up free — one short note in your inbox every morning, starting tomorrow."',
             'name="twitter:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
             "You're doing better than you think.",
@@ -100,16 +100,19 @@ PAGES = {
     "welcome.html": {
         "required": [
             "<!doctype html",
-            "<title>Parent Pep Talks — Welcome</title>",
+            "<title>Parent Pep Talks — You're in</title>",
+            # Post-signup page: kept crawlable but noindexed (robots.txt does
+            # not disallow it — a disallowed URL can still be indexed).
+            'name="robots" content="noindex"',
             'name="description" content="You\'re in — your first note lands tomorrow morning. Finish your profile (every question is optional) to unlock the weekly child-insights email."',
             'rel="canonical" href="https://parentpeptalks.com/welcome"',
-            'property="og:title" content="Parent Pep Talks"',
+            'property="og:title" content="You\'re in."',
             'property="og:description" content="You\'re in — your first note lands tomorrow morning. Finish your profile to unlock the weekly child-insights email."',
             'property="og:type" content="website"',
             'property="og:url" content="https://parentpeptalks.com/welcome"',
             'property="og:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
             'name="twitter:card" content="summary_large_image"',
-            'name="twitter:title" content="Parent Pep Talks"',
+            'name="twitter:title" content="You\'re in."',
             'name="twitter:description" content="You\'re in — your first note lands tomorrow morning. Finish your profile to unlock the weekly child-insights email."',
             'name="twitter:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
             # Celebration header — the homepage's old on-page success line,
@@ -160,6 +163,32 @@ PAGES = {
             # While the profile UID is unwired, /welcome hands off to Kit.
             "https://parent-pep-talks.kit.com",
         ],
+    },
+    "notes/example/index.html": {
+        "required": [
+            "<!doctype html",
+            "<title>The dishes can wait — Parent Pep Talks</title>",
+            'name="robots" content="noindex"',
+            'rel="canonical" href="https://parentpeptalks.com/notes/example/"',
+            'name="description" content="A thirty-second note about the dishes that can wait until morning — and the parent who should too. This page is the template example, not a real note."',
+            # The banner is what keeps the example honest — a page that has
+            # stopped saying "template, not a real note" has stopped being one.
+            "This page is the template, not a real note",
+            "data-kit-form",
+            "data-kit-fallback",
+            # Note CTAs hand off to /welcome like the homepage form does —
+            # a signup from any note gets the profile page too.
+            'data-kit-redirect="welcome"',
+            'src="../../kit-form.js"',
+            'href="../../styles.css"',
+            'href="../../assets/favicon.png"',
+            "Send me the notes",
+            "Free. No spam. Unsubscribe whenever.",
+            "Made for the parents in the thick of it.",
+            "© 2026 parentpeptalks.com",
+        ],
+        # The Article block is the archive's structured-data pattern.
+        "jsonld_types": ["Article"],
     },
 }
 
@@ -225,20 +254,44 @@ for copy in WELCOME_FORM_COPY:
     if copy not in welcome_source:
         errors.append(f"welcome-form.js: missing required copy: {copy}")
 
+# Structural sanity runs for EVERY HTML file in the repo — the notes archive
+# included — so a broken page fails CI the day it lands, not when someone
+# pins it here. Links and assets resolve relative to the page's own
+# directory, the way the browser does (a note at notes/<slug>/ references
+# ../../styles.css, which the old repo-root resolution could never see).
+for html_path in sorted(Path(".").rglob("*.html")):
+    if ".git" in html_path.parts:
+        continue
+    html = html_path.read_text(encoding="utf-8")
+
+    parser = Sanity()
+    parser.feed(html)
+    parser.close()
+    if parser.stack:
+        errors.append(f"{html_path}: unclosed tags: {parser.stack}")
+    if parser.h1_count != 1:
+        errors.append(f"{html_path}: expected exactly one <h1>, found {parser.h1_count}")
+
+    base = html_path.parent
+    for url in re.findall(r'(?:src|href)="([^"]+)"', html):
+        if url.startswith(("http://", "https://")):
+            if not url.startswith("https://"):
+                errors.append(f"{html_path}: insecure absolute URL: {url}")
+        elif url.endswith("/") or url.startswith(("#", "mailto:", "data:")):
+            continue  # directory or non-file reference
+        elif not ((base / url).is_file() or (base / (url + ".html")).is_file()):
+            # GitHub Pages serves /signup from signup.html (clean links to an
+            # existing .html file resolve), so mirror that tolerance here.
+            errors.append(f"{html_path}: local reference does not exist: {url}")
+
+# Pinned strings stay per-page: shared tags and signup copy are enforced
+# verbatim so edits that break them fail here, not on the live site.
 for page_path, page in PAGES.items():
     source = Path(page_path)
     html = source.read_text(encoding="utf-8") if source.is_file() else ""
     if not html:
         errors.append(f"{page_path} is missing or empty")
         continue
-
-    parser = Sanity()
-    parser.feed(html)
-    parser.close()
-    if parser.stack:
-        errors.append(f"{page_path}: unclosed tags: {parser.stack}")
-    if parser.h1_count != 1:
-        errors.append(f"{page_path}: expected exactly one <h1>, found {parser.h1_count}")
 
     haystack = html.lower()
     for needle in page["required"]:
@@ -260,17 +313,6 @@ for page_path, page in PAGES.items():
             if found_types and found_types != expected_types:
                 errors.append(f"{page_path}: JSON-LD @type order wrong: {found_types}")
 
-    for url in re.findall(r'(?:src|href)="([^"]+)"', html):
-        if url.startswith(("http://", "https://")):
-            if not url.startswith("https://"):
-                errors.append(f"{page_path}: insecure absolute URL: {url}")
-        elif url.endswith("/") or url.startswith(("#", "mailto:", "data:")):
-            continue  # directory or non-file reference
-        elif not (Path(url).is_file() or Path(url + ".html").is_file()):
-            # GitHub Pages serves /signup from signup.html (clean links to an
-            # existing .html file resolve), so mirror that tolerance here.
-            errors.append(f"{page_path}: local reference does not exist: {url}")
-
 for path in Path(".").rglob("*"):
     if ".git" in path.parts or not path.is_file():
         continue
@@ -282,4 +324,4 @@ if errors:
     for error in errors:
         print(f"  - {error}")
     sys.exit(1)
-print("check passed: doctype/tag balance, single h1, meta parity, links/assets, kit copy, welcome handoff, no Airo references")
+print("check passed: tag balance + one h1 on every page, meta parity, page-relative links/assets, kit copy, welcome handoff, no Airo references")
