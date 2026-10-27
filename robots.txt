@@ -1,0 +1,9 @@
+# Everything on parentpeptalks.com is meant to be found — the notes archive
+# is how tired parents meet the daily email. /welcome is kept crawlable on
+# purpose: it carries a noindex meta, which robots.txt disallowing would hide
+# from crawlers (a disallowed URL can still be indexed; a noindexed one can't).
+
+User-agent: *
+Allow: /
+
+Sitemap: https://parentpeptalks.com/sitemap.xml
