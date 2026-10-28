@@ -203,6 +203,53 @@ jobs:
                       "https://parent-pep-talks.kit.com",
                   ],
               },
+              "sleep.html": {
+                  "required": [
+                      "<!doctype html",
+                      "<title>Is it a sleep regression — or the clock change? — Parent Pep Talks</title>",
+                      'name="description" content="Enter your kid\'s birth date and what\'s happening at night. Get the likely window — the 4-month regression, the 18-month wave, the clock change — and one script for tonight. Free, about 30 seconds."',
+                      'rel="canonical" href="https://parentpeptalks.com/sleep"',
+                      'property="og:title" content="Is it a sleep regression — or the clock change?"',
+                      'property="og:description" content="Enter your kid\'s birth date and what\'s happening at night. Get the likely window and one script for tonight. Free, about 30 seconds."',
+                      'property="og:type" content="website"',
+                      'property="og:url" content="https://parentpeptalks.com/sleep"',
+                      'property="og:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
+                      'name="twitter:card" content="summary_large_image"',
+                      'name="twitter:title" content="Is it a sleep regression — or the clock change?"',
+                      'name="twitter:description" content="Enter your kid\'s birth date and what\'s happening at night. Get the likely window and one script for tonight. Free, about 30 seconds."',
+                      'name="twitter:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
+                      # Plausible ships with the page (strategy prerequisite #2) —
+                      # event names live in sleep.js; this pins the loader.
+                      'data-domain="parentpeptalks.com"',
+                      'src="https://plausible.io/js/script.js"',
+                      "Something changed with their sleep. Let's find out what.",
+                      "How old is the bad sleeper?",
+                      "What's happening?",
+                      "The clock change scrambled everything",
+                      "Show me the likely window",
+                      "We never send the birth date anywhere — it stays in your browser.",
+                      # Capture — the homepage's verified contract, untouched.
+                      "data-kit-form",
+                      "data-kit-fallback",
+                      'data-kit-redirect="welcome"',
+                      'src="kit-form.js"',
+                      'src="sleep.js"',
+                      'href="styles.css"',
+                      # Inline SVG lockup — standard variant (bone fold lines).
+                      'class="logo-mark"',
+                      'aria-label="Parent Pep Talks — home"',
+                      'stroke="#f5f1ea"',
+                      'href="assets/favicon.png"',
+                      # While the UID is unwired, /sleep's fallback hands off to Kit.
+                      "https://parent-pep-talks.kit.com",
+                      'placeholder="First name"',
+                      'placeholder="Email address"',
+                      "Send me the notes",
+                      "Free. No spam. Unsubscribe whenever.",
+                      "Made for the parents in the thick of it.",
+                      "© 2026 parentpeptalks.com",
+                  ],
+              },
               "notes/example/index.html": {
                   "required": [
                       "<!doctype html",
@@ -368,4 +415,4 @@ jobs:
           PY
 
       - name: JS syntax check
-        run: node --check kit-form.js
+        run: node --check kit-form.js && node --check sleep.js
