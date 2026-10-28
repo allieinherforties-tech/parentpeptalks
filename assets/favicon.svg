@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Brand favicon: the header life-ring mark (index.html .logo-mark) on a
+       rounded-square tile. Tile navy #091628 is the dominant flat-water
+       color sampled from assets/hero-band.webp; ring gold #e0b051, cream
+       #f0ece5, and fold-line navy #0b192d match the header mark exactly.
+       The mark's 96-unit geometry is embedded unchanged at 0.5 scale. -->
+  <rect width="64" height="64" rx="13" fill="#091628"/>
+  <g transform="translate(8 8) scale(.5)">
+    <g fill="#e0b051">
+      <path d="M20.32 11.26A46 46 0 0 1 75.68 11.26L65.15 25.24A28.5 28.5 0 0 0 30.85 25.24Z"/>
+      <path d="M84.74 20.32A46 46 0 0 1 84.74 75.68L70.76 65.15A28.5 28.5 0 0 0 70.76 30.85Z"/>
+      <path d="M75.68 84.74A46 46 0 0 1 20.32 84.74L30.85 70.76A28.5 28.5 0 0 0 65.15 70.76Z"/>
+      <path d="M11.26 75.68A46 46 0 0 1 11.26 20.32L25.24 30.85A28.5 28.5 0 0 0 25.24 65.15Z"/>
+    </g>
+    <rect x="28" y="35.5" width="40" height="25" rx="2" fill="#f0ece5"/>
+    <g fill="none" stroke="#0b192d" stroke-width="3.25">
+      <path d="M29.5 37.5L48 48L66.5 37.5"/>
+      <path d="M29.5 58.5L48 48L66.5 58.5"/>
+    </g>
+  </g>
+</svg>
