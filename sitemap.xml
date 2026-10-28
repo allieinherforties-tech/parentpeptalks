@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hand-maintained: when a note publishes, add
+     https://parentpeptalks.com/notes/<slug>/ below (see notes/README.md).
+     The example note (notes/example/) is noindex and stays off this list,
+     as does /welcome — it is noindexed because it is the post-signup page,
+     not a page anyone should meet in a search result. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://parentpeptalks.com/</loc>
+    <lastmod>2026-10-27</lastmod>
+  </url>
+  <url>
+    <loc>https://parentpeptalks.com/signup</loc>
+    <lastmod>2026-10-27</lastmod>
+  </url>
+</urlset>
