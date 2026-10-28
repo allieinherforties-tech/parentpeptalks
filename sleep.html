@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="canonical" href="https://parentpeptalks.com/sleep">
+    <title>Is it a sleep regression — or the clock change? — Parent Pep Talks</title>
+    <meta name="description" content="Enter your kid's birth date and what's happening at night. Get the likely window — the 4-month regression, the 18-month wave, the clock change — and one script for tonight. Free, about 30 seconds.">
+    <meta property="og:title" content="Is it a sleep regression — or the clock change?">
+    <meta property="og:description" content="Enter your kid's birth date and what's happening at night. Get the likely window and one script for tonight. Free, about 30 seconds.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://parentpeptalks.com/sleep">
+    <meta property="og:image" content="https://parentpeptalks.com/assets/og-hero.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Is it a sleep regression — or the clock change?">
+    <meta name="twitter:description" content="Enter your kid's birth date and what's happening at night. Get the likely window and one script for tonight. Free, about 30 seconds.">
+    <meta name="twitter:image" content="https://parentpeptalks.com/assets/og-hero.webp">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Analytics ships with /sleep per the strategy doc's prerequisite —
+         Plausible, cookieless, no consent banner. Events are fired from
+         sleep.js; if the site doesn't exist on the Plausible account yet,
+         these requests quietly no-op and the page is unaffected. -->
+    <script defer data-domain="parentpeptalks.com" src="https://plausible.io/js/script.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="./" class="logo" aria-label="Parent Pep Talks — home">
+        <!-- Standard variant on bone: CTA-gold ring, charcoal envelope,
+             fold lines in the bone field color. -->
+        <svg class="logo-mark" viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+          <g fill="#e0b051">
+            <path d="M20.32 11.26A46 46 0 0 1 75.68 11.26L65.15 25.24A28.5 28.5 0 0 0 30.85 25.24Z"/>
+            <path d="M84.74 20.32A46 46 0 0 1 84.74 75.68L70.76 65.15A28.5 28.5 0 0 0 70.76 30.85Z"/>
+            <path d="M75.68 84.74A46 46 0 0 1 20.32 84.74L30.85 70.76A28.5 28.5 0 0 0 65.15 70.76Z"/>
+            <path d="M11.26 75.68A46 46 0 0 1 11.26 20.32L25.24 30.85A28.5 28.5 0 0 0 25.24 65.15Z"/>
+          </g>
+          <rect x="28" y="35.5" width="40" height="25" rx="2" fill="#26211d"/>
+          <g fill="none" stroke="#f5f1ea" stroke-width="3.25">
+            <path d="M29.5 37.5L48 48L66.5 37.5"/>
+            <path d="M29.5 58.5L48 48L66.5 58.5"/>
+          </g>
+        </svg>
+        <span class="logo-word" aria-hidden="true">Parent Pep Talks</span>
+      </a>
+    </header>
+    <main>
+      <section class="signup sleep">
+        <div class="signup-inner sleep-inner">
+          <h1 class="signup-title">Something changed with their sleep. Let's find out what.</h1>
+          <p class="sleep-lead">Two answers — how old they are and what's happening — and you'll get the likely window plus one script for tonight. Free, about 30 seconds, and the birth date never leaves this page.</p>
+          <!-- Surfaced by sleep.js only inside the DST active window
+               (sleep/data/regression-timeline.json → dst.activeWindow). -->
+          <div class="dst-banner" data-dst-banner hidden>
+            <p><strong>The clocks fall back this Sunday, November 1.</strong> If sleep got scrambled, start with the clock-change chip — there's a shift plan for the week before and a morning plan for the week after. (In most of Arizona or Hawaii? Skip that chip — the rest works for you.)</p>
+          </div>
+          <div class="sleep-form">
+            <label class="field-label" for="birth-date">How old is the bad sleeper?</label>
+            <input type="date" id="birth-date" class="field sleep-date" data-birth-date>
+            <p class="field-help">We never send the birth date anywhere — it stays in your browser.</p>
+            <p class="field-label" id="chips-label">What's happening?</p>
+            <div class="chips" data-chips role="group" aria-labelledby="chips-label">
+              <button type="button" class="chip" data-trigger="night-waking">Waking at night</button>
+              <button type="button" class="chip" data-trigger="bedtime-fights">Fighting bedtime</button>
+              <button type="button" class="chip" data-trigger="short-naps">Naps fell apart</button>
+              <button type="button" class="chip" data-trigger="early-rising">Up before dawn</button>
+              <button type="button" class="chip" data-trigger="clock-shift">The clock change scrambled everything</button>
+            </div>
+            <button type="button" class="submit" data-compute>Show me the likely window</button>
+          </div>
+          <section class="result" data-result hidden aria-live="polite"></section>
+          <div class="capture">
+            <h2 class="capture-title">Want a note like this every morning?</h2>
+            <form data-kit-form data-kit-redirect="welcome">
+              <div class="fields">
+                <input type="text" name="firstName" placeholder="First name" aria-label="First name" autocomplete="given-name" required class="field first-name">
+                <input type="email" name="email" placeholder="Email address" aria-label="Email address" autocomplete="email" required class="field email">
+              </div>
+              <button type="submit" class="submit">Send me the notes</button>
+              <p class="fine-print">Free. No spam. Unsubscribe whenever.</p>
+            </form>
+            <template data-kit-fallback>
+              <a class="fallback-cta" href="https://parent-pep-talks.kit.com">Send me the notes</a>
+            </template>
+            <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p class="footer-note">Made for the parents in the thick of it.</p>
+      <p class="footer-copyright">© 2026 parentpeptalks.com</p>
+    </footer>
+    <script src="kit-form.js"></script>
+    <script src="sleep.js"></script>
+  </body>
+</html>

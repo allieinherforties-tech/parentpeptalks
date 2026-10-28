@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "meta": {
+    "name": "sleep-regression-timeline",
+    "version": "1.0.0",
+    "contentStatus": "v1 — the 8-row fallback timeline (sourced rows only), approved by Allie for the Nov 1, 2026 DST window; the full 14-row pass comes later",
+    "builtFrom": "Content Library wb_MWwXShaC — Milestones sh_aq4ocQyf, Seasonality Windows sh_vzi6jWcJ (queried 2026-10-23, re-verified 2026-10-28); content pass 2026-10-28 against HealthyChildren.org (AAP) and Merck Manual",
+    "citationFloor": ["HealthyChildren.org (AAP)", "Merck Manual"],
+    "bandBounds": "bandStartMonths/bandEndMonths in calendar months, inclusive; the library's bands run 0–156",
+    "normalizeFirstRule": "Milestones M-156: copy normalizes before it advises — every summary leads with 'this is expected', then technique",
+    "sleepTrainingRule": "Milestones M-056 is CONTESTED/DEBATED — scripts give a routine for tonight, never a method endorsement"
+  },
+  "dst": {
+    "observesRule": "US: DST ends the first Sunday of November; 2026 fall-back = 2026-11-01 (calendar-verified)",
+    "activeWindow": { "start": "2026-10-17", "end": "2026-11-08" },
+    "changeDate": "2026-11-01",
+    "nonObservers": "Most of Arizona and Hawaii do not observe DST (S-006 climate note) — the page says so in one line; the other symptom chips work for anyone",
+    "note": "Dates are hardcoded for the 2026 window; revisit in October 2027 (registered as a post-launch risk, not a launch blocker)"
+  },
+  "triggers": ["night-waking", "bedtime-fights", "short-naps", "early-rising", "clock-shift"],
+  "scripts": [
+    {
+      "id": "stay-and-settle",
+      "label": "The stay-and-settle",
+      "covers": "night waking, roughly 4–24 months",
+      "body": "Go in. You're not starting a habit you'll regret — you're answering a kid who's mid-wave. Keep the lights off and your voice boring-calm. Feed or change them if they genuinely need it, then settle them back down and leave while they're drowsy, not fully asleep — that drowsy-but-awake exit is what makes the next wake-up shorter. If they're up again ten minutes later, do the exact same thing: same room, same voice, same ending. The AAP's night guidance for babies is exactly this shape — stay calm and quiet at night, put them down drowsy but awake — and it's normal for a 6-month-old to wake and drift back off within minutes. This wave passes. Nothing you do tonight decides whether it does."
+    },
+    {
+      "id": "earlier-bedtime",
+      "label": "The earlier bedtime",
+      "covers": "the overtired cascade, 4 months–5 years",
+      "body": "When naps fall apart, the fix usually isn't a later bedtime — it's earlier. A kid who naps badly piles up sleep pressure they can't carry, and an overtired kid sleeps worse, not better. For the next three or four nights, move bedtime 30 minutes earlier and start the wind-down before that: dim lights, a book, no screens. Keep the morning wake-up time steady so the whole rhythm can re-anchor. That's the AAP's bedtime-battle spine too — the same bedtime every night and a quiet routine that tells the body sleep is coming. Expect night one to look worse and night three to look better."
+    },
+    {
+      "id": "shift-fifteen",
+      "label": "The 15-minute shift",
+      "covers": "the week BEFORE the clocks change",
+      "body": "You have a week, so use it. Starting about five days before the change, push everything 10–15 minutes later each day — bedtime, yes, but also naps, dinner, and the morning wake-up if you can manage it. By Saturday night their body clock sits an hour later, so when the clocks fall back Sunday morning, 7 a.m. is still 7 a.m. Can't face a full week of it? Shift what you can — a half-hour still halves the damage. This is the AAP's own plan: nudge naps and bedtime a few minutes later each day, starting about a week before the change, and lean on daylight to pull the internal clock along."
+    },
+    {
+      "id": "hold-the-morning",
+      "label": "The hold-the-morning",
+      "covers": "the week AFTER — early risers",
+      "body": "The extra hour is a myth if you've got an early riser — the fall-back change makes young kids crash before bedtime and wake up earlier than usual. Don't negotiate at 5 a.m.; hold the clock times instead. Keep the room dark until your real wake-up time, serve breakfast and naps at their usual clock times, and get outside into the morning light as early as you can stand it — daylight is what resets their internal clock. The AAP's reassurance: most kids adjust within about a week. Until then — early dinner, early bedtime to protect the night, and coffee."
+    }
+  ],
+  "windows": [
+    {
+      "id": "R-01",
+      "ageBand": "3–5 months",
+      "bandStartMonths": 3,
+      "bandEndMonths": 5,
+      "triggers": ["night-waking"],
+      "title": "The 4-month sleep regression",
+      "summary": "This is the most well-known sleep disruption there is, and it's a sign their sleep is maturing — not falling apart.",
+      "why": "Around 4 months, babies' sleep cycles reorganize into adult-style cycles — the AAP notes babies don't have regular sleep cycles until about then — so they surface more easily between cycles.",
+      "durationWeeks": "2–4 weeks",
+      "script": "stay-and-settle",
+      "milestonesRefs": ["M-033"],
+      "confidence": "CONSENSUS — HealthyChildren.org (AAP): 'Babies do not have regular sleep cycles until about 4 months of age'; Merck Manual: infants usually adapt to a day-night schedule between 4 and 6 months. Verified 2026-10-28",
+      "source": "DESIGNED 2026-10-23 — content pass 2026-10-28 (AAP + Merck Manual); Milestones refs as listed"
+    },
+    {
+      "id": "R-03",
+      "ageBand": "8–10 months",
+      "bandStartMonths": 8,
+      "bandEndMonths": 10,
+      "triggers": ["night-waking", "bedtime-fights"],
+      "title": "The 8–10 month wave",
+      "summary": "This wave shows up right on schedule for a very good reason: their brain and body are leveling up, and sleep is the casualty.",
+      "why": "New motor skills (crawling, pulling to stand) give them something to practice at 2 a.m., and separation anxiety typically begins around 8 months — you leaving the room is suddenly A Thing.",
+      "durationWeeks": "2–4 weeks",
+      "script": "stay-and-settle",
+      "milestonesRefs": ["M-033", "M-035", "M-050"],
+      "confidence": "CONSENSUS — Merck Manual: separation anxiety typically begins about 8 months; M-033 cites 8–9-month regressions tied to cognitive and motor leaps. Verified 2026-10-28",
+      "source": "DESIGNED 2026-10-23 — content pass 2026-10-28 (AAP + Merck Manual); Milestones refs as listed"
+    },
+    {
+      "id": "R-04",
+      "ageBand": "12–16 months",
+      "bandStartMonths": 12,
+      "bandEndMonths": 16,
+      "triggers": ["short-naps"],
+      "title": "The one-nap transition",
+      "summary": "The nap crash isn't a nap failure — it's the two-nap schedule outgrowing itself, which is expected somewhere in this window.",
+      "why": "Most kids consolidate from two naps to one somewhere in this stretch, and the in-between weeks wreck nights too — an under-napped kid fights bedtime and wakes more.",
+      "durationWeeks": "2–6 weeks",
+      "script": "earlier-bedtime",
+      "milestonesRefs": ["M-058"],
+      "confidence": "Common concern (descriptive) — M-058 (transition to one nap, 9–18-month band); Merck Manual lists atypical daytime napping among common early-childhood sleep problems. Verified 2026-10-28",
+      "source": "DESIGNED 2026-10-23 — content pass 2026-10-28 (AAP + Merck Manual); Milestones refs as listed"
+    },
+    {
+      "id": "R-05",
+      "ageBand": "13–18 months",
+      "bandStartMonths": 13,
+      "bandEndMonths": 18,
+      "triggers": ["night-waking", "bedtime-fights"],
+      "title": "The 14–18 month wave",
+      "summary": "This is the separation-anxiety peak doing exactly what the textbooks say it does — including the part where it happens at night.",
+      "why": "Separation anxiety peaks between 10 and 18 months, and the AAP notes it can wake a child several times a night, crying for you specifically — then fades around the second birthday.",
+      "durationWeeks": "2–6 weeks",
+      "script": "stay-and-settle",
+      "milestonesRefs": ["M-050", "M-061"],
+      "confidence": "CONSENSUS — Merck Manual: separation anxiety peaks 10–18 months and resolves about 24 months; HealthyChildren.org (AAP): disrupted sleep with anxious night waking; M-050 CONSENSUS row. Verified 2026-10-28",
+      "source": "DESIGNED 2026-10-23 — content pass 2026-10-28 (AAP + Merck Manual); Milestones refs as listed"
+    },
+    {
+      "id": "R-06",
+      "ageBand": "17–21 months",
+      "bandStartMonths": 17,
+      "bandEndMonths": 21,
+      "triggers": ["bedtime-fights"],
+      "title": "The 18-month wave",
+      "summary": "The 18-month wave is real, and it's usually a toddler with a brand-new sense of self and no off switch.",
+      "why": "Autonomy surges around this age — tantrums and 'I do it myself' are the library's own flagged pattern — and separation anxiety keeps resurfacing in waves through age 2–3, so bedtime is where both land.",
+      "durationWeeks": "2–4 weeks",
+      "script": "earlier-bedtime",
+      "milestonesRefs": ["M-050", "M-078"],
+      "confidence": "Common concern (descriptive) — M-050 (separation waves through age 2–3), M-078 (tantrums/meltdowns, 18-months–3 band); HealthyChildren.org bedtime-battles guidance. Verified 2026-10-28",
+      "source": "DESIGNED 2026-10-23 — content pass 2026-10-28 (AAP + Merck Manual); Milestones refs as listed"
+    },
+    {
+      "id": "R-07",
+      "ageBand": "22–30 months",
+      "bandStartMonths": 22,
+      "bandEndMonths": 30,
+      "triggers": ["night-waking", "bedtime-fights"],
+      "title": "The 2-year window",
+      "summary": "Two-year-olds are supposed to have a rocky sleep window — imagination, big feelings, and big changes all land in the same crib.",
+      "why": "Night fears show up as imagination blooms, and a change in routine — a new sibling is the classic — reliably stirs night waking; the Merck Manual ties night-waking periods to exactly such changes.",
+      "durationWeeks": "2–6 weeks",
+      "script": "stay-and-settle",
+      "milestonesRefs": ["M-050", "M-082", "M-103"],
+      "confidence": "Common concern (descriptive) — M-103 (fears and nightmares), M-082 (adjusting to a new baby's arrival), M-050 (separation waves through age 2–3). Verified 2026-10-28",
+      "source": "DESIGNED 2026-10-23 — content pass 2026-10-28 (AAP + Merck Manual); Milestones refs as listed"
+    },
+    {
+      "id": "R-DST-01",
+      "ageBand": "All ages (0–5 strongest)",
+      "bandStartMonths": 0,
+      "bandEndMonths": 156,
+      "triggers": ["clock-shift"],
+      "title": "The week before the clocks fall back",
+      "summary": "The clocks fall back this Sunday — an hour is survivable if you shift their whole day 15 minutes at a time starting now.",
+      "why": "Kids' internal clocks don't move just because ours did; the AAP recommends nudging naps and bedtime a few minutes later each day, starting about a week before the change.",
+      "durationWeeks": "About a week",
+      "script": "shift-fifteen",
+      "milestonesRefs": [],
+      "confidence": "CONSENSUS — HealthyChildren.org (AAP) 'Daylight Saving Time: Don't Lose Sleep Over It' (updated 10/26/2026); Seasonality row S-006. Verified 2026-10-28",
+      "source": "DESIGNED 2026-10-23 — DST rows are library-native: S-006 Content Angle and Example Ideas, sourced 2026-10-28 to the AAP DST guidance"
+    },
+    {
+      "id": "R-DST-02",
+      "ageBand": "All ages (0–5 strongest)",
+      "bandStartMonths": 0,
+      "bandEndMonths": 156,
+      "triggers": ["clock-shift", "early-rising"],
+      "title": "The week after — the extra hour is a myth",
+      "summary": "The extra hour is a myth for parents of early risers — the fall-back change genuinely makes young kids wake earlier, and it's temporary.",
+      "why": "The AAP says the fall time change makes younger kids crash before bedtime and wake earlier than usual; most kids adjust within about a week, and morning daylight is what resets the clock.",
+      "durationWeeks": "About a week",
+      "script": "hold-the-morning",
+      "milestonesRefs": [],
+      "confidence": "CONSENSUS — HealthyChildren.org (AAP) 'Daylight Saving Time: Don't Lose Sleep Over It' (updated 10/26/2026); Seasonality row S-006 ('the extra hour is a myth' humor for parents of early risers). Verified 2026-10-28",
+      "source": "DESIGNED 2026-10-23 — DST rows are library-native: S-006 Content Angle and Example Ideas, sourced 2026-10-28 to the AAP DST guidance"
+    }
+  ]
+}
