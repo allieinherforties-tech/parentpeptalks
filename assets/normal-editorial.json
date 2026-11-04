@@ -1,0 +1,2081 @@
+{
+  "safetyNet": "You know your kid. If your gut says something’s off — if they’re losing skills they had, in real distress, or you’re worried for their safety — that’s what pediatricians are for. Calling is never an overreaction.",
+  "noMatch": {
+    "title": "I didn’t find that exact one — here’s the closest thing we cover.",
+    "body": "Wide normal ranges are the rule in child development, not the exception — most of what parents worry about lands inside one. Here’s the nearest thing this tool covers, and the daily notes below are built for exactly the in-between cases."
+  },
+  "counterNote": "How we estimate: counts are order-of-magnitude figures — US children per age band, from about 3.6 million births a year (CDC/NCHS, Births: Final Data for 2023), rounded to one significant figure. They are reassurance, not measurement.",
+  "confidenceShort": {
+    "Common concern (descriptive)": "One of the most common worries parents bring to us — you're in very large company.",
+    "CONSENSUS (CDC checklist)": "Pediatric checklists set ‘normal’ wide on purpose: by the checklist age, at least 3 in 4 kids have it — so ‘not yet’ is not ‘behind.’",
+    "Trigger moment (framework flag)": "This one is a known transition in the developmental frameworks — expected when it arrives, not a sign something’s wrong.",
+    "ESTABLISHED THEORY (Piaget)": "Grounded in Piaget’s stage framework — the sequence is well-established; the exact ages are soft.",
+    "Framework-drawn typical skill (§1)": "A typical skill of this band, drawn from the developmental framework.",
+    "ESTABLISHED THEORY (Erikson)": "Grounded in Erikson’s stage framework — the task is well-established; the timing is soft.",
+    "CONSENSUS — Tanner staging, widely replicated pediatric endocrinology (Cleveland Clinic, NCBI StatPearls)": "Grounded in widely replicated pediatric endocrinology (Tanner staging).",
+    "ESTABLISHED THEORY (Piaget — substages are theoretical, not independently validated age cutoffs)": "Grounded in Piaget’s framework — the sequence is well-established, and the substage ages are theoretical rather than tested cutoffs.",
+    "ESTABLISHED THEORY (Bowlby/Ainsworth)": "Grounded in attachment theory (Bowlby and Ainsworth) — one of the field’s long-standing frameworks.",
+    "ESTABLISHED THEORY / CONSENSUS — one of the best-replicated attachment-theory findings": "One of the best-replicated findings in attachment theory.",
+    "CONSENSUS — peak window well-documented (AAP/HealthyChildren.org, Merck Manual)": "The peak window is well-documented (AAP and the Merck Manual).",
+    "CONTESTED/DEBATED — sleep-training efficacy/safety and attachment-impact debates are active in the literature": "The experts genuinely disagree on the best approach here — the reassurance doesn’t change.",
+    "ESTABLISHED THEORY (Piaget — stage boundaries individually variable; some sources place the start closer to 18 months)": "Grounded in Piaget’s framework — the sequence is well-established, and the stage ages are individually variable.",
+    "CONSENSUS — prefrontal/limbic maturation mismatch is well-established neurodevelopment": "The underlying brain development (prefrontal/limbic maturation) is well-established science.",
+    "CONSENSUS — AAP 'Media and Young Minds,' Pediatrics 2016": "Backed by the AAP’s published screen guidance (‘Media and Young Minds,’ Pediatrics 2016).",
+    "ESTABLISHED THEORY context (preoperational magical thinking — Piaget)": "Grounded in Piaget’s preoperational-stage framework — magical thinking is the stage’s signature.",
+    "ESTABLISHED THEORY (Piaget); universality CONTESTED — not all adolescents or adults reliably reach full formal-operational reasoning": "Grounded in Piaget’s framework — the stages are well-established, and reaching the final one is not universal (experts disagree on how far it goes)."
+  },
+  "counters": {
+    "nb-3m": "You’re one of the roughly 900,000 US parents with a newborn right now — whatever today looked like, you’re not the only one in it.",
+    "4-9m": "You’re one of the roughly 1.8 million US parents with a baby this age — whatever today looked like, you’re not the only one in it.",
+    "9-18m": "You’re one of the roughly 2.7 million US parents with a baby this age — whatever today looked like, you’re not the only one in it.",
+    "18m-3y": "You’re one of the roughly 5 million US parents of a 2-year-old — whatever today looked like, you’re not the only one in it.",
+    "3-5y": "You’re one of the roughly 7 million US parents of a preschooler — whatever today looked like, you’re not the only one in it.",
+    "5-7y": "You’re one of the roughly 7 million US parents of a 5-to-7-year-old — whatever today looked like, you’re not the only one in it.",
+    "7-10y": "You’re one of the roughly 11 million US parents of a 7-to-10-year-old — whatever today looked like, you’re not the only one in it.",
+    "10-13y": "You’re one of the roughly 11 million US parents of a 10-to-13-year-old — whatever today looked like, you’re not the only one in it."
+  },
+  "items": {
+    "M-001": {
+      "keywords": [
+        "briefly",
+        "head",
+        "lifts",
+        "time",
+        "tummy"
+      ]
+    },
+    "M-002": {
+      "keywords": [
+        "brings",
+        "hands",
+        "mouth"
+      ]
+    },
+    "M-003": {
+      "keywords": [
+        "eyes",
+        "faces",
+        "follows",
+        "objects"
+      ]
+    },
+    "M-004": {
+      "keywords": [
+        "closes",
+        "hands",
+        "opens"
+      ]
+    },
+    "M-005": {
+      "keywords": [
+        "calms",
+        "spoken"
+      ]
+    },
+    "M-006": {
+      "keywords": [
+        "cooing",
+        "makes",
+        "sounds"
+      ]
+    },
+    "M-007": {
+      "keywords": [
+        "head",
+        "sounds",
+        "toward",
+        "turns"
+      ]
+    },
+    "M-008": {
+      "keywords": [
+        "actions",
+        "body",
+        "centered",
+        "circular",
+        "feel",
+        "functionally",
+        "good",
+        "mind",
+        "object",
+        "out",
+        "permanence",
+        "piaget",
+        "primary",
+        "reactions",
+        "reflexive",
+        "repeats",
+        "schemes",
+        "sensorimotor",
+        "sight",
+        "substages",
+        "yet"
+      ]
+    },
+    "M-009": {
+      "keywords": [
+        "'hope'",
+        "builds",
+        "caregiving",
+        "chronic",
+        "erikson",
+        "meet",
+        "mistrust",
+        "needs",
+        "reliably",
+        "responsive",
+        "seeds",
+        "stage",
+        "trust",
+        "unresponsiveness",
+        "virtue",
+        "world"
+      ]
+    },
+    "M-010": {
+      "keywords": [
+        "attachment",
+        "begins",
+        "but",
+        "caregivers",
+        "discriminated",
+        "familiar",
+        "figure",
+        "formed",
+        "has",
+        "making",
+        "moving",
+        "one",
+        "onward",
+        "phase",
+        "pre",
+        "prefer",
+        "protesting",
+        "weeks",
+        "yet"
+      ]
+    },
+    "M-011": {
+      "keywords": [
+        "exhaustion",
+        "fragmentation",
+        "sleep",
+        "waking",
+        "night",
+        "exhausted",
+        "tired",
+        "up all night"
+      ],
+      "normal": "Yes — waking in scraps through the night is the expected pattern here, and so is being flattened by it. That's the stage doing what it does, not a mistake you're making."
+    },
+    "M-012": {
+      "keywords": [
+        "bottle",
+        "breast",
+        "feeding",
+        "latch",
+        "supply",
+        "nursing",
+        "bottle",
+        "latch",
+        "supply",
+        "milk",
+        "formula"
+      ],
+      "normal": "Feeding worries — supply, latch, breast vs. bottle, all of it — are one of the expected rough edges of these months, not a verdict on you or on how much you care. However feeding is going, the fact that you're this invested is the part that's going right."
+    },
+    "M-013": {
+      "keywords": [
+        "'is",
+        "crying",
+        "normal",
+        "colicky",
+        "fussing",
+        "inconsolable",
+        "witching hour",
+        "won't stop"
+      ],
+      "normal": "Almost always, yes. Crying is a newborn's one tool for everything, so it comes in amounts that feel alarming — expected for this band, not a red flag on its own."
+    },
+    "M-014": {
+      "keywords": [
+        "adjustment",
+        "postpartum",
+        "overwhelmed",
+        "teary",
+        "not myself",
+        "baby blues",
+        "ppd"
+      ],
+      "normal": "The overwhelmed, teary, not-quite-yourself stretch after a baby arrives is a normal adjustment, not a failure of grit or love. You're allowed to need support on the rough days — and if the rough isn't lifting, the note below is exactly what it's for."
+    },
+    "M-015": {
+      "keywords": [
+        "fear",
+        "sids",
+        "sids",
+        "safe sleep",
+        "crib",
+        "breathing",
+        "worried"
+      ],
+      "normal": "This fear is heavy, and it's one of the most honest ones new parents carry — love doing overtime, not anxiety to argue yourself out of. The safe-sleep basics from the AAP are concrete and non-blaming; checking them once gives the worry a job to do, and then it can rest."
+    },
+    "M-016": {
+      "keywords": [
+        "birth",
+        "itself"
+      ]
+    },
+    "M-017": {
+      "keywords": [
+        "end",
+        "leave",
+        "parental",
+        "return",
+        "weeks",
+        "work"
+      ]
+    },
+    "M-018": {
+      "keywords": [
+        "bout",
+        "colic",
+        "first",
+        "hour",
+        "witching"
+      ]
+    },
+    "M-019": {
+      "keywords": [
+        "first",
+        "illness"
+      ]
+    },
+    "M-020": {
+      "keywords": [
+        "over",
+        "rolls"
+      ]
+    },
+    "M-021": {
+      "keywords": [
+        "arms",
+        "pushes"
+      ]
+    },
+    "M-022": {
+      "keywords": [
+        "hand",
+        "objects",
+        "reaches",
+        "transfers"
+      ]
+    },
+    "M-023": {
+      "keywords": [
+        "briefly",
+        "sits",
+        "support",
+        "then"
+      ]
+    },
+    "M-024": {
+      "keywords": [
+        "band",
+        "begin",
+        "crawling",
+        "end",
+        "infants"
+      ]
+    },
+    "M-025": {
+      "keywords": [
+        "'ba",
+        "'da",
+        "babbles",
+        "da'",
+        "meaning",
+        "without",
+        "yet"
+      ]
+    },
+    "M-026": {
+      "keywords": [
+        "name",
+        "own",
+        "responds"
+      ]
+    },
+    "M-027": {
+      "keywords": [
+        "'no'",
+        "months",
+        "understands"
+      ]
+    },
+    "M-028": {
+      "keywords": [
+        "copies",
+        "gestures",
+        "sounds"
+      ]
+    },
+    "M-029": {
+      "keywords": [
+        "'do",
+        "actions",
+        "again'",
+        "intentionally",
+        "objects",
+        "piaget",
+        "repeats",
+        "sensorimotor",
+        "substages"
+      ]
+    },
+    "M-030": {
+      "keywords": [
+        "consolidate",
+        "displacement",
+        "early",
+        "emerges",
+        "full",
+        "hidden",
+        "including",
+        "invisible",
+        "months",
+        "object",
+        "partially",
+        "permanence",
+        "searches",
+        "until"
+      ]
+    },
+    "M-031": {
+      "keywords": [
+        "emerge",
+        "mistrust",
+        "protest",
+        "separation",
+        "still",
+        "stranger",
+        "trust",
+        "typically",
+        "wariness",
+        "window"
+      ]
+    },
+    "M-032": {
+      "keywords": [
+        "'clear",
+        "anxiety",
+        "appears",
+        "attachment'",
+        "begins",
+        "caregivers",
+        "clear",
+        "cut",
+        "months",
+        "phase",
+        "preference",
+        "primary",
+        "protest",
+        "proximity",
+        "reliably",
+        "seeking",
+        "separation",
+        "stranger"
+      ]
+    },
+    "M-033": {
+      "keywords": [
+        "around",
+        "cited",
+        "cognitive",
+        "leaps",
+        "months",
+        "motor",
+        "regressions",
+        "sleep",
+        "tied",
+        "regression",
+        "4 month regression",
+        "8 month regression",
+        "waking"
+      ],
+      "normal": "Yes. These regressions line up with the cognitive and motor leaps happening at the same time — a wave that passes, not a sleep-training failure."
+    },
+    "M-034": {
+      "keywords": [
+        "solids",
+        "starting",
+        "food",
+        "refusing",
+        "purees",
+        "baby led weaning",
+        "solids"
+      ],
+      "normal": "Yes — the refusals, the mess, the opinions that change by the hour: all expected at this stage. Solids are a brand-new skill under construction, not a test your baby is failing."
+    },
+    "M-035": {
+      "keywords": [
+        "'she",
+        "anxiety",
+        "anyone",
+        "now",
+        "onset",
+        "screams'",
+        "separation",
+        "stranger",
+        "used",
+        "clingy",
+        "strangers",
+        "separation",
+        "won't let me leave"
+      ],
+      "normal": "Yes — that new clinginess is a milestone wearing a fuss. Noticing who belongs to her is the skill arriving on schedule; the screaming at once-friendly faces is the expected side effect, not a step backward."
+    },
+    "M-036": {
+      "keywords": [
+        "anxiety",
+        "daycare",
+        "transition",
+        "daycare",
+        "drop off",
+        "caregiver",
+        "daycare drop-offs"
+      ],
+      "normal": "Yes. Rough drop-offs and extra clinging during a daycare transition are the expected pattern for this band — a wave that settles as the new routine becomes the normal one, not a sign the arrangement is wrong."
+    },
+    "M-037": {
+      "keywords": [
+        "teething",
+        "teeth",
+        "gums",
+        "drooling",
+        "molars",
+        "chewing"
+      ],
+      "normal": "Yes — the fussing, the chewing on everything, the nights that undo you. Teething is an expected part of these months, and it's allowed to be miserable even when it's normal."
+    },
+    "M-038": {
+      "keywords": [
+        "caregiver",
+        "daycare",
+        "new",
+        "starting"
+      ]
+    },
+    "M-039": {
+      "keywords": [
+        "foods",
+        "introduction",
+        "solid"
+      ]
+    },
+    "M-040": {
+      "keywords": [
+        "advance",
+        "alarming",
+        "anxiety",
+        "feel",
+        "flagged",
+        "onset",
+        "parents",
+        "stranger",
+        "sudden"
+      ]
+    },
+    "M-041": {
+      "keywords": [
+        "first",
+        "long",
+        "parental",
+        "separation",
+        "trip"
+      ]
+    },
+    "M-042": {
+      "keywords": [
+        "pulls",
+        "stand"
+      ]
+    },
+    "M-043": {
+      "keywords": [
+        "cruises",
+        "furniture",
+        "holding",
+        "walks"
+      ]
+    },
+    "M-044": {
+      "keywords": [
+        "independently",
+        "months",
+        "normal",
+        "range",
+        "through",
+        "walks",
+        "wide"
+      ]
+    },
+    "M-045": {
+      "keywords": [
+        "grasp",
+        "pincer"
+      ]
+    },
+    "M-046": {
+      "keywords": [
+        "begin",
+        "feeding",
+        "fingers",
+        "may",
+        "self",
+        "utensils"
+      ]
+    },
+    "M-047": {
+      "keywords": [
+        "circular",
+        "different",
+        "dropping",
+        "experiments",
+        "food",
+        "heights",
+        "piaget",
+        "reactions",
+        "substage",
+        "tertiary",
+        "variations"
+      ]
+    },
+    "M-048": {
+      "keywords": [
+        "becomes",
+        "beginning",
+        "mental",
+        "object",
+        "permanence",
+        "piaget",
+        "representation",
+        "robust",
+        "substage"
+      ]
+    },
+    "M-049": {
+      "keywords": [
+        "'me",
+        "'will'",
+        "autonomy",
+        "control",
+        "doubt",
+        "encouragement",
+        "it'",
+        "over",
+        "parental",
+        "response",
+        "shame",
+        "shaming",
+        "shapes",
+        "transition",
+        "virtue",
+        "years"
+      ]
+    },
+    "M-050": {
+      "keywords": [
+        "age",
+        "anxiety",
+        "around",
+        "developmentally",
+        "failure",
+        "months",
+        "normal",
+        "parenting",
+        "pattern",
+        "peaks",
+        "regression",
+        "resurfaces",
+        "separation",
+        "through",
+        "typically",
+        "waves"
+      ]
+    },
+    "M-051": {
+      "keywords": [
+        "first",
+        "months",
+        "typically",
+        "words"
+      ]
+    },
+    "M-052": {
+      "keywords": [
+        "directions",
+        "follows",
+        "months",
+        "one",
+        "simple",
+        "step"
+      ]
+    },
+    "M-053": {
+      "keywords": [
+        "ask",
+        "attention",
+        "get",
+        "points",
+        "things"
+      ]
+    },
+    "M-054": {
+      "keywords": [
+        "explosion",
+        "months",
+        "near",
+        "starts",
+        "vocabulary"
+      ]
+    },
+    "M-055": {
+      "keywords": [
+        "anxiety",
+        "drop",
+        "off",
+        "separation",
+        "daycare",
+        "drop off",
+        "clingy",
+        "tears at drop-off"
+      ],
+      "normal": "Yes. Drop-off tears at this age are the expected pattern — they're the attachment doing exactly what it's supposed to do, and they're a wave that passes, not a problem to fix."
+    },
+    "M-056": {
+      "keywords": [
+        "decisions",
+        "sleep",
+        "training",
+        "sleep training",
+        "crying it out",
+        "ferber",
+        "extinction"
+      ],
+      "normal": "Honest answer: the experts genuinely disagree — responsive-night-parenting and structured sleep-training really do conflict, and you're allowed to weigh both without pretending they're the same. What's not in dispute: the worry is normal, and so is wanting everyone to sleep."
+    },
+    "M-057": {
+      "keywords": [
+        "'is",
+        "behind",
+        "milestones",
+        "walking",
+        "walk",
+        "cruising",
+        "not walking yet",
+        "late walker"
+      ],
+      "normal": "The range is wide on purpose: walking has a wide normal window through 18 months, so 'not yet' is not 'behind,' and there's no single on-time date to miss."
+    },
+    "M-058": {
+      "keywords": [
+        "nap",
+        "one",
+        "transition",
+        "nap",
+        "naps",
+        "nap strike",
+        "nap schedule",
+        "two to one"
+      ],
+      "normal": "Yes. The nap strike that comes with dropping to one nap is the expected pattern for this band — the schedule wobbles while it settles, and that's the transition, not a regression."
+    },
+    "M-059": {
+      "keywords": [
+        "biting",
+        "communication",
+        "hitting",
+        "bites",
+        "hitting",
+        "aggression",
+        "throws"
+      ],
+      "normal": "Yes — unwelcome, and still expected. Biting and hitting at this age are communication arriving before words do; it's the band's normal pattern, not a sign of something meaner underneath."
+    },
+    "M-060": {
+      "keywords": [
+        "weaning",
+        "breastfeeding",
+        "bottle",
+        "formula",
+        "stopping",
+        "night weaning"
+      ],
+      "normal": "Yes — however you're weaning, and whenever. The second-guessing that comes with it is the expected pattern here, not a verdict on how you've fed your baby so far."
+    },
+    "M-061": {
+      "keywords": [
+        "anxiety",
+        "date",
+        "daycare",
+        "drop",
+        "nights",
+        "offs",
+        "peak",
+        "separation"
+      ]
+    },
+    "M-062": {
+      "keywords": [
+        "first",
+        "steps"
+      ]
+    },
+    "M-063": {
+      "keywords": [
+        "'no'",
+        "defiance",
+        "first"
+      ]
+    },
+    "M-064": {
+      "keywords": [
+        "bottle",
+        "crib",
+        "horizon",
+        "looming",
+        "out",
+        "transition"
+      ]
+    },
+    "M-065": {
+      "keywords": [
+        "runs"
+      ]
+    },
+    "M-066": {
+      "keywords": [
+        "ball",
+        "kicks"
+      ]
+    },
+    "M-067": {
+      "keywords": [
+        "climbs"
+      ]
+    },
+    "M-068": {
+      "keywords": [
+        "scribbles"
+      ]
+    },
+    "M-069": {
+      "keywords": [
+        "blocks",
+        "builds",
+        "small",
+        "towers"
+      ]
+    },
+    "M-070": {
+      "keywords": [
+        "begin",
+        "interest",
+        "may",
+        "months",
+        "normal",
+        "potty",
+        "range",
+        "readiness",
+        "showing",
+        "signals",
+        "training",
+        "typically",
+        "wide"
+      ]
+    },
+    "M-071": {
+      "keywords": [
+        "begins",
+        "emerge",
+        "explodes",
+        "language",
+        "piaget",
+        "play",
+        "preoperational",
+        "pretend",
+        "stage",
+        "symbolic"
+      ]
+    },
+    "M-072": {
+      "keywords": [
+        "across",
+        "changes",
+        "conservation",
+        "constant",
+        "container",
+        "difficulty",
+        "egocentrism",
+        "lack",
+        "logical",
+        "others'",
+        "perspective",
+        "pre",
+        "quantity",
+        "shape",
+        "stays",
+        "taking",
+        "thinking"
+      ]
+    },
+    "M-073": {
+      "keywords": [
+        "20s",
+        "adult",
+        "ahead",
+        "appropriate",
+        "autonomy",
+        "big",
+        "calm",
+        "control",
+        "cortex",
+        "developed",
+        "developmentally",
+        "doubt",
+        "emotional",
+        "equipped",
+        "feelings",
+        "fully",
+        "impulse",
+        "lecture",
+        "limbic",
+        "matures",
+        "mid",
+        "peak",
+        "prefrontal",
+        "presence",
+        "reactivity",
+        "regulate",
+        "regulation",
+        "response",
+        "self",
+        "shame",
+        "system",
+        "toddlers",
+        "until",
+        "well",
+        "yet"
+      ]
+    },
+    "M-074": {
+      "keywords": [
+        "age",
+        "phrases",
+        "two",
+        "word"
+      ]
+    },
+    "M-075": {
+      "keywords": [
+        "age",
+        "sentences",
+        "three",
+        "word"
+      ]
+    },
+    "M-076": {
+      "keywords": [
+        "hundred",
+        "several",
+        "vocabulary",
+        "words"
+      ]
+    },
+    "M-077": {
+      "keywords": [
+        "age",
+        "child's",
+        "speech",
+        "strangers",
+        "understand"
+      ]
+    },
+    "M-078": {
+      "keywords": [
+        "meltdowns",
+        "tantrums",
+        "tantrum",
+        "meltdowns",
+        "screaming",
+        "kicking",
+        "big feelings",
+        "threenager"
+      ],
+      "normal": "Short answer: yes. Meltdowns are how a two-year-old's nervous system lets off steam — a developmentally expected wave that passes, not a discipline failure."
+    },
+    "M-079": {
+      "keywords": [
+        "biting",
+        "hitting",
+        "peers",
+        "bites",
+        "hitting",
+        "daycare",
+        "kicked out",
+        "other kids"
+      ],
+      "normal": "Yes — mortifying at pickup, and still expected. Words are still loading at this age, so biting and hitting peers is the band's expected pattern, not a marker that something's wrong with your kid or your parenting."
+    },
+    "M-080": {
+      "keywords": [
+        "'no'",
+        "autonomy",
+        "becomes",
+        "coincides",
+        "eating",
+        "favorite",
+        "food",
+        "growing",
+        "growth",
+        "including",
+        "onset",
+        "picky",
+        "rate",
+        "slowing",
+        "word",
+        "food",
+        "refuses",
+        "meals",
+        "won't eat",
+        "eating"
+      ],
+      "normal": "Yes. Picky eating tends to arrive right as growth steadies and the word 'no' gets powerful — food refusal here is autonomy doing its job, the expected pattern, not a feeding failure."
+    },
+    "M-081": {
+      "keywords": [
+        "method",
+        "potty",
+        "timing",
+        "training",
+        "potty",
+        "toilet",
+        "training",
+        "accidents",
+        "pull-ups",
+        "ready"
+      ],
+      "normal": "Yes — including the guilt about starting too early or too late. Timing and method worries are the expected pattern of this band, and the range of normal is wider than the internet makes it look."
+    },
+    "M-082": {
+      "keywords": [
+        "arrival",
+        "baby's",
+        "conflict",
+        "early",
+        "new",
+        "sharing",
+        "sibling",
+        "new baby",
+        "jealous",
+        "regression",
+        "grabbing",
+        "older child"
+      ],
+      "normal": "Yes. A toddler wrestling with a new baby's existence is the expected pattern of this band — the jealousy and the grabbing are the adjustment, not a character problem."
+    },
+    "M-083": {
+      "keywords": [
+        "aap",
+        "ages",
+        "avoiding",
+        "chatting",
+        "children",
+        "day",
+        "high",
+        "hour",
+        "limiting",
+        "media",
+        "months",
+        "programming",
+        "quality",
+        "recommends",
+        "screen",
+        "time",
+        "under",
+        "video",
+        "screens",
+        "tablet",
+        "tv",
+        "aap",
+        "hours"
+      ],
+      "normal": "Yes — the guilt is nearly universal, and so is the juggling. This one comes with published backup: the AAP's guidance for these ages is specific enough to follow, so you can trade the guilt for a rule you can actually run."
+    },
+    "M-084": {
+      "keywords": [
+        "arrival",
+        "sibling"
+      ]
+    },
+    "M-085": {
+      "keywords": [
+        "potty",
+        "start",
+        "training"
+      ]
+    },
+    "M-086": {
+      "keywords": [
+        "bed",
+        "crib",
+        "transition"
+      ]
+    },
+    "M-087": {
+      "keywords": [
+        "daycare",
+        "preschool",
+        "program",
+        "start"
+      ]
+    },
+    "M-088": {
+      "keywords": [
+        "eating",
+        "onset",
+        "picky"
+      ]
+    },
+    "M-089": {
+      "keywords": [
+        "hops"
+      ]
+    },
+    "M-090": {
+      "keywords": [
+        "alternating",
+        "climbs",
+        "feet",
+        "stairs"
+      ]
+    },
+    "M-091": {
+      "keywords": [
+        "pedals",
+        "tricycle"
+      ]
+    },
+    "M-092": {
+      "keywords": [
+        "body",
+        "draws",
+        "parts",
+        "person",
+        "several"
+      ]
+    },
+    "M-093": {
+      "keywords": [
+        "scissors",
+        "uses"
+      ]
+    },
+    "M-094": {
+      "keywords": [
+        "dresses",
+        "help",
+        "undresses"
+      ]
+    },
+    "M-095": {
+      "keywords": [
+        "believe",
+        "cause",
+        "events",
+        "genuinely",
+        "magical",
+        "may",
+        "old",
+        "prominent",
+        "thinking",
+        "wishing",
+        "year"
+      ]
+    },
+    "M-096": {
+      "keywords": [
+        "'why'",
+        "but",
+        "causal",
+        "develops",
+        "egocentrism",
+        "exploratory",
+        "persists",
+        "proliferate",
+        "questions",
+        "reasoning",
+        "softens",
+        "undisciplined",
+        "way"
+      ]
+    },
+    "M-097": {
+      "keywords": [
+        "action",
+        "activities",
+        "asserting",
+        "begins",
+        "control",
+        "criticism",
+        "environment",
+        "erikson",
+        "excessive",
+        "guilt",
+        "initiated",
+        "initiative",
+        "interaction",
+        "over",
+        "planning",
+        "play",
+        "pretend",
+        "primary",
+        "risks",
+        "self",
+        "social",
+        "sociodramatic",
+        "stage",
+        "through",
+        "vehicle"
+      ]
+    },
+    "M-098": {
+      "keywords": [
+        "past",
+        "sentences",
+        "simple",
+        "stories",
+        "tells",
+        "tense",
+        "uses",
+        "words"
+      ]
+    },
+    "M-099": {
+      "keywords": [
+        "'why",
+        "asks",
+        "constantly",
+        "how'",
+        "questions",
+        "strangers",
+        "time",
+        "understood"
+      ]
+    },
+    "M-100": {
+      "keywords": [
+        "preschool",
+        "separation",
+        "starting",
+        "preschool",
+        "drop off",
+        "separation",
+        "school start",
+        "clingy"
+      ],
+      "normal": "Yes. Rough preschool drop-offs are the expected pattern for this band — a wave that passes as the new room becomes their room, not a sign preschool is too much for them."
+    },
+    "M-101": {
+      "keywords": [
+        "peers",
+        "sharing",
+        "taking",
+        "turn",
+        "sharing",
+        "turns",
+        "mine",
+        "grabbing",
+        "playdates"
+      ],
+      "normal": "Yes. Sharing and turn-taking are skills under construction at this age — the grabbing and the 'MINE' are the expected pattern, not an early warning about anyone's character."
+    },
+    "M-102": {
+      "keywords": [
+        "but",
+        "combined",
+        "deception",
+        "fulfillment",
+        "immature",
+        "lying",
+        "moral",
+        "reality",
+        "stretching",
+        "testing",
+        "truth",
+        "wish",
+        "lies",
+        "fibs",
+        "made up",
+        "stories",
+        "truth"
+      ],
+      "normal": "Yes — and here's the flag worth keeping: at this age, 'lying' is usually not deception at all. It's wishes and reality getting tangled while the skill is still being built, so the intent you're reading into it probably isn't there."
+    },
+    "M-103": {
+      "keywords": [
+        "fears",
+        "nightmares",
+        "nightmares",
+        "monsters",
+        "scared",
+        "dark",
+        "afraid",
+        "bedtime fears"
+      ],
+      "normal": "Yes. Fears and nightmares at this age are the expected pattern — imagination is growing faster than the off-switch, and that's development, not damage."
+    },
+    "M-104": {
+      "keywords": [
+        "conflicts",
+        "first",
+        "friendships",
+        "real",
+        "within",
+        "friends",
+        "playdates",
+        "left out",
+        "best friend",
+        "fighting"
+      ],
+      "normal": "Yes. First friendships come with first conflicts built in — the falling-outs are the expected pattern at this age, practice runs for real friendship, not a crisis in anyone's social life."
+    },
+    "M-105": {
+      "keywords": [
+        "screen",
+        "time",
+        "screens",
+        "tablet",
+        "tv",
+        "limits",
+        "hours"
+      ],
+      "normal": "Yes. The screen-time negotiation is an expected battle of this band — wanting a number that feels right is normal, and so is discovering the number keeps moving as they do."
+    },
+    "M-106": {
+      "keywords": [
+        "continued",
+        "eating",
+        "picky",
+        "food",
+        "won't eat",
+        "meals",
+        "beige food",
+        "eating"
+      ],
+      "normal": "Yes — the beige-food phase can absolutely continue here, and it's still the expected pattern, not a failure of your cooking. Persistent at this age is common; it is not a report card on your feeding."
+    },
+    "M-107": {
+      "keywords": [
+        "first",
+        "formal",
+        "preschool",
+        "school",
+        "starting",
+        "time"
+      ]
+    },
+    "M-108": {
+      "keywords": [
+        "first",
+        "friendships",
+        "real",
+        "rejections",
+        "social"
+      ]
+    },
+    "M-109": {
+      "keywords": [
+        "arrival",
+        "attention",
+        "new",
+        "reshaping",
+        "sibling's"
+      ]
+    },
+    "M-110": {
+      "keywords": [
+        "'lost'",
+        "abstractions",
+        "concrete",
+        "confusing",
+        "death",
+        "explained",
+        "frightening",
+        "illness",
+        "language",
+        "like",
+        "literal",
+        "magical",
+        "matters",
+        "news",
+        "scary",
+        "thinking",
+        "window"
+      ]
+    },
+    "M-111": {
+      "keywords": [
+        "bike",
+        "riding",
+        "skipping",
+        "training",
+        "wheels",
+        "without"
+      ]
+    },
+    "M-112": {
+      "keywords": [
+        "buttoning",
+        "letters",
+        "printing"
+      ]
+    },
+    "M-113": {
+      "keywords": [
+        "baby",
+        "first",
+        "losing",
+        "teeth",
+        "typically",
+        "years"
+      ]
+    },
+    "M-114": {
+      "keywords": [
+        "abstract",
+        "begins",
+        "but",
+        "concrete",
+        "conservation",
+        "early",
+        "formally",
+        "gradual",
+        "grasp",
+        "light",
+        "logical",
+        "operational",
+        "operations",
+        "preoperational",
+        "reasoning",
+        "shift",
+        "still",
+        "switch",
+        "though",
+        "thought",
+        "transition"
+      ]
+    },
+    "M-115": {
+      "keywords": [
+        "'competence'",
+        "becomes",
+        "build",
+        "comparison",
+        "competence",
+        "criticism",
+        "durable",
+        "erikson",
+        "excessive",
+        "experiences",
+        "failure",
+        "increasingly",
+        "industry",
+        "inferiority",
+        "mastery",
+        "peers",
+        "repeated",
+        "risks",
+        "schoolwork",
+        "self",
+        "sense",
+        "skills",
+        "social",
+        "sports",
+        "stage",
+        "tied",
+        "transition",
+        "virtue",
+        "worth"
+      ]
+    },
+    "M-116": {
+      "keywords": [
+        "complex",
+        "event",
+        "growing",
+        "jokes",
+        "narrative",
+        "retells",
+        "riddles",
+        "sentences",
+        "sequence",
+        "skill",
+        "understands",
+        "wordplay"
+      ]
+    },
+    "M-117": {
+      "keywords": [
+        "acquisition",
+        "begins",
+        "earnest",
+        "reading"
+      ]
+    },
+    "M-118": {
+      "keywords": [
+        "adjusting",
+        "first",
+        "formal",
+        "grade",
+        "kindergarten",
+        "schooling",
+        "kindergarten",
+        "first grade",
+        "school",
+        "adjusting",
+        "teacher"
+      ],
+      "normal": "Yes. Struggling to adjust to formal school is the expected pattern for this band — the wobble is the transition, not a sign the year is going wrong or your kid can't handle it."
+    },
+    "M-119": {
+      "keywords": [
+        "habits",
+        "homework",
+        "homework",
+        "routine",
+        "after school",
+        "meltdowns over homework"
+      ],
+      "normal": "Yes. Homework friction in the early years is the expected pattern — a brand-new routine is a new skill for everyone in the house, and wobbling at it isn't a discipline failure."
+    },
+    "M-120": {
+      "keywords": [
+        "comparison",
+        "early",
+        "esteem",
+        "issues",
+        "peer",
+        "self",
+        "compare",
+        "self esteem",
+        "confidence",
+        "i'm stupid",
+        "gave up"
+      ],
+      "normal": "Yes. Noticing how they measure up to other kids — and stinging a little — is the expected pattern at this age: the comparison machinery switching on is development, not a self-esteem problem to panic over."
+    },
+    "M-121": {
+      "keywords": [
+        "losing",
+        "teeth",
+        "wobbly tooth",
+        "tooth",
+        "tooth fairy",
+        "gap",
+        "adult teeth"
+      ],
+      "normal": "Yes. Wobbly teeth and a gap-toothed grin are the expected pattern for this band — teeth come out on their own wide schedule, and early or late is still the range of normal."
+    },
+    "M-122": {
+      "keywords": [
+        "device",
+        "early",
+        "requests",
+        "screen",
+        "time",
+        "screens",
+        "device",
+        "tablet",
+        "phone",
+        "video games",
+        "limits"
+      ],
+      "normal": "Yes. The device drumbeat starting this early is the expected pattern of the band — you're not behind for dreading the negotiation, and having clear limits doesn't make you the strict house."
+    },
+    "M-123": {
+      "keywords": [
+        "conflict",
+        "have",
+        "independent",
+        "intensifying",
+        "kids",
+        "lives",
+        "sibling",
+        "social",
+        "siblings",
+        "fighting",
+        "bickering",
+        "friends over"
+      ],
+      "normal": "Yes. Siblings with bigger social worlds fight bigger fights — the intensifying bickering is the expected pattern at this age, not proof they hate each other or the house is running wrong."
+    },
+    "M-124": {
+      "keywords": [
+        "but",
+        "eating",
+        "persisting",
+        "picky",
+        "resolving",
+        "food",
+        "won't eat",
+        "meals",
+        "still picky",
+        "eating"
+      ],
+      "normal": "Yes — and here's the honest version: picky eating usually resolves around now, though sometimes it lingers, and lingering is still inside normal. Neither the resolving nor the persisting is a report card on your feeding."
+    },
+    "M-125": {
+      "keywords": [
+        "autonomy",
+        "elementary",
+        "expectations",
+        "exposure",
+        "kindergarten",
+        "major",
+        "routine",
+        "school",
+        "social",
+        "start",
+        "transition"
+      ]
+    },
+    "M-126": {
+      "keywords": [
+        "academic",
+        "adults",
+        "cards",
+        "dynamic",
+        "feedback",
+        "first",
+        "flashpoint",
+        "formal",
+        "handled",
+        "industry",
+        "inferiority",
+        "levels",
+        "poorly",
+        "reading",
+        "report"
+      ]
+    },
+    "M-127": {
+      "keywords": [
+        "athletic",
+        "coordination",
+        "growth",
+        "increasing",
+        "linear",
+        "skill",
+        "steady"
+      ]
+    },
+    "M-128": {
+      "keywords": [
+        "control",
+        "fine",
+        "handwriting",
+        "motor",
+        "solidify"
+      ]
+    },
+    "M-129": {
+      "keywords": [
+        "abstract",
+        "classification",
+        "concrete",
+        "conservation",
+        "events",
+        "hypothetical",
+        "logical",
+        "mastery",
+        "objects",
+        "operational",
+        "piaget",
+        "real",
+        "reasoning",
+        "referents",
+        "reliable",
+        "reversibility",
+        "seriation",
+        "stage",
+        "still",
+        "tangible",
+        "tied",
+        "world",
+        "yet"
+      ]
+    },
+    "M-130": {
+      "keywords": [
+        "'am",
+        "based",
+        "become",
+        "compared",
+        "comparison",
+        "continues",
+        "erikson",
+        "fairness",
+        "friendship",
+        "games",
+        "good",
+        "greater",
+        "group",
+        "important",
+        "includes",
+        "increasingly",
+        "industry",
+        "inferiority",
+        "learning",
+        "losing",
+        "negotiation",
+        "others'",
+        "peer",
+        "peers",
+        "resilience",
+        "rule",
+        "self",
+        "sense",
+        "social",
+        "take",
+        "weight"
+      ]
+    },
+    "M-131": {
+      "keywords": [
+        "abstract",
+        "band",
+        "end",
+        "growth",
+        "increase",
+        "language",
+        "meanings",
+        "multiple",
+        "reading",
+        "sarcasm",
+        "sophisticated",
+        "toward",
+        "understanding",
+        "use",
+        "via",
+        "vocabulary"
+      ]
+    },
+    "M-132": {
+      "keywords": [
+        "based",
+        "conflict",
+        "now",
+        "physical",
+        "sibling",
+        "status",
+        "verbal",
+        "siblings",
+        "fighting",
+        "verbal",
+        "name calling",
+        "rivalry"
+      ],
+      "normal": "Yes. When sibling fights go verbal and status-based instead of physical, that's the expected pattern for this band — the arguments got more grown-up, which is (annoyingly) growth, not a broken relationship."
+    },
+    "M-133": {
+      "keywords": [
+        "drama",
+        "exclusion",
+        "friendship",
+        "social",
+        "friends",
+        "left out",
+        "excluded",
+        "drama",
+        "best friend",
+        "bullying"
+      ],
+      "normal": "Yes. Friendship drama is the terrain at this age — the social world gets complicated now, and rough patches in it are the expected pattern. That doesn't make the hurt small; it makes it normal, and normal is something you can help with."
+    },
+    "M-134": {
+      "keywords": [
+        "academic",
+        "homework",
+        "pressure",
+        "homework",
+        "grades",
+        "stress",
+        "school pressure",
+        "tests"
+      ],
+      "normal": "Yes. Homework battles and school pressure are the expected pattern for this band — the workload grows and so does the pushback, and neither is a verdict on your kid's brain or your structure."
+    },
+    "M-135": {
+      "keywords": [
+        "device",
+        "early",
+        "gaming",
+        "requests",
+        "screen",
+        "social",
+        "time",
+        "gaming",
+        "devices",
+        "screens",
+        "fortnite",
+        "online",
+        "limits"
+      ],
+      "normal": "Yes. The gaming-and-devices pressure arriving now is the expected pattern of the band — the requests get more social and more strategic, and feeling outgunned by them is the normal part, not a parenting gap."
+    },
+    "M-136": {
+      "keywords": [
+        "alone",
+        "briefly",
+        "friend's",
+        "home",
+        "house",
+        "independence",
+        "requests",
+        "staying",
+        "walking",
+        "home alone",
+        "walk to school",
+        "freedom",
+        "independence",
+        "let go"
+      ],
+      "normal": "Yes — the stomach-flip is the expected part. This one is a calibration dilemma, not a pass/fail: the honest move is a concrete, condition-based yes ('yes, when…'), and weighing the specific situation carefully is doing it right, not hovering."
+    },
+    "M-137": {
+      "keywords": [
+        "awareness",
+        "body",
+        "early",
+        "esteem",
+        "image",
+        "self",
+        "body talk",
+        "self conscious",
+        "mirror",
+        "comparing",
+        "weight"
+      ],
+      "normal": "Yes. Body talk and self-consciousness arriving this early is the expected pattern for the band — awareness shows up before the confidence to hold it, and that gap is the age, not something you caused."
+    },
+    "M-138": {
+      "keywords": [
+        "band",
+        "elementary",
+        "end",
+        "middle",
+        "new",
+        "school",
+        "stage",
+        "systems",
+        "tail",
+        "transition"
+      ]
+    },
+    "M-139": {
+      "keywords": [
+        "bullying",
+        "exclusion",
+        "experiences",
+        "first",
+        "social"
+      ]
+    },
+    "M-140": {
+      "keywords": [
+        "alone",
+        "autonomy",
+        "biking",
+        "calibrate",
+        "first",
+        "friend's",
+        "independence",
+        "left",
+        "parents",
+        "periods",
+        "requests",
+        "require",
+        "safety",
+        "short"
+      ]
+    },
+    "M-141": {
+      "keywords": [
+        "boys",
+        "classified",
+        "clinically",
+        "girls",
+        "onset",
+        "precocious",
+        "puberty",
+        "these",
+        "window",
+        "windows",
+        "years"
+      ]
+    },
+    "M-142": {
+      "keywords": [
+        "acne",
+        "arrive",
+        "band",
+        "begin",
+        "body",
+        "breast",
+        "budding",
+        "changes",
+        "child's",
+        "enlargement",
+        "expect",
+        "girls",
+        "group",
+        "growth",
+        "odor",
+        "parents",
+        "peer",
+        "pubertal",
+        "spurts",
+        "testicular",
+        "visible",
+        "well",
+        "within"
+      ]
+    },
+    "M-143": {
+      "keywords": [
+        "abstract",
+        "begins",
+        "capacity",
+        "concrete",
+        "deductive",
+        "formal",
+        "hypothetical",
+        "just",
+        "onward",
+        "operational",
+        "piaget",
+        "possibilities",
+        "reality",
+        "reasoning",
+        "stage",
+        "thinking"
+      ]
+    },
+    "M-144": {
+      "keywords": [
+        "against",
+        "band",
+        "begins",
+        "but",
+        "child",
+        "classically",
+        "confusion",
+        "earlier",
+        "erikson",
+        "forms",
+        "group",
+        "identity",
+        "increasingly",
+        "independent",
+        "intensifies",
+        "onset",
+        "overlaps",
+        "parents'",
+        "peer",
+        "peers'",
+        "puberty",
+        "role",
+        "self",
+        "sense",
+        "starts",
+        "tests",
+        "values"
+      ]
+    },
+    "M-145": {
+      "keywords": [
+        "abstract",
+        "accessible",
+        "age",
+        "argumentation",
+        "become",
+        "debate",
+        "genuinely",
+        "hypothetical",
+        "increases",
+        "irony",
+        "kids",
+        "language",
+        "multiple",
+        "perspective",
+        "sarcasm",
+        "use"
+      ]
+    },
+    "M-146": {
+      "keywords": [
+        "child",
+        "conversations",
+        "developer",
+        "early",
+        "education",
+        "puberty",
+        "timing",
+        "puberty",
+        "the talk",
+        "period",
+        "early developer",
+        "growing up"
+      ],
+      "normal": "Yes — including the awkwardness. Worrying about when and how to have the puberty talk (especially with an early developer) is the expected pattern of this band, and the conversation landing imperfectly is normal; having it at all is the win."
+    },
+    "M-147": {
+      "keywords": [
+        "body",
+        "image",
+        "body",
+        "mirror",
+        "self conscious",
+        "comparing",
+        "changing body"
+      ],
+      "normal": "Yes. Body-image wobbles at this age are the expected pattern — the body is changing faster than the self-image can update, and that lag is the normal part, not a crisis you missed."
+    },
+    "M-148": {
+      "keywords": [
+        "autonomy",
+        "first",
+        "media",
+        "phone",
+        "privacy",
+        "requests",
+        "social",
+        "time",
+        "unsupervised",
+        "phone",
+        "social media",
+        "privacy",
+        "closed door",
+        "unsupervised"
+      ],
+      "normal": "Yes. The phone request, the closed door, the unsupervised time — wanting more autonomy and privacy is the expected pattern for this band. That's development knocking, not your kid shutting you out."
+    },
+    "M-149": {
+      "keywords": [
+        "begins",
+        "conflict",
+        "formation",
+        "identity",
+        "increased",
+        "mood",
+        "process",
+        "swings",
+        "mood swings",
+        "attitude",
+        "eye roll",
+        "slamming doors",
+        "talking back"
+      ],
+      "normal": "Yes. The mood swings and the pushback line up with the identity work underway — the self is under construction, and conflict is the expected pattern of the band, not a personality change to grieve. (Okay — maybe grieve a little.)"
+    },
+    "M-150": {
+      "keywords": [
+        "academic",
+        "intensifying",
+        "pressure",
+        "social",
+        "stress",
+        "grades",
+        "anxious",
+        "pressure",
+        "overwhelmed"
+      ],
+      "normal": "Yes. School and social pressure intensifying now is the expected pattern for this band — the stakes feel real to them because at this age they are real, and the intensifying is the age, not a sign they can't cope."
+    },
+    "M-151": {
+      "keywords": [
+        "child's",
+        "diverge",
+        "dynamics",
+        "needs",
+        "oldest",
+        "sharply",
+        "shifting",
+        "sibling",
+        "siblings'",
+        "younger",
+        "oldest",
+        "younger siblings",
+        "different needs",
+        "one on one time"
+      ],
+      "normal": "Yes. When the oldest kid's world pulls sharply away from the younger ones' and the house feels off-balance, that's the expected pattern for this band — needs diverging is development, not favoritism or failure."
+    },
+    "M-152": {
+      "keywords": [
+        "'the",
+        "acne",
+        "arrives",
+        "body",
+        "breast",
+        "budding",
+        "conversation",
+        "flagging",
+        "growth",
+        "had",
+        "has",
+        "high",
+        "odor",
+        "onset",
+        "parent",
+        "proactive",
+        "puberty",
+        "spurt",
+        "value",
+        "visible"
+      ]
+    },
+    "M-153": {
+      "keywords": [
+        "middle",
+        "school",
+        "transition"
+      ]
+    },
+    "M-154": {
+      "keywords": [
+        "first",
+        "media",
+        "phone",
+        "request",
+        "social"
+      ]
+    },
+    "M-155": {
+      "keywords": [
+        "authority",
+        "begins",
+        "first",
+        "formation",
+        "identity",
+        "parental",
+        "pushback",
+        "real"
+      ]
+    }
+  }
+}
