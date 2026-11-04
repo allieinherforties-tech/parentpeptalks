@@ -250,6 +250,63 @@ jobs:
                       "© 2026 parentpeptalks.com",
                   ],
               },
+              "normal.html": {
+                  "required": [
+                      "<!doctype html",
+                      "<title>Parent Pep Talks — Is This Normal? Checker</title>",
+                      'name="description" content="Free. Pick your kid\'s age, tell us what\'s going on, and get the short version — what\'s expected, and when to look closer. About 30 seconds."',
+                      'rel="canonical" href="https://parentpeptalks.com/normal"',
+                      'property="og:title" content="Is this normal? Find out in about 30 seconds."',
+                      'property="og:description" content="Pick your kid\'s age, tell us what\'s going on, and get the short version — what\'s expected, and when to look closer. Free."',
+                      'property="og:type" content="website"',
+                      'property="og:url" content="https://parentpeptalks.com/normal"',
+                      'property="og:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
+                      'name="twitter:card" content="summary_large_image"',
+                      'name="twitter:title" content="Is this normal? Find out in about 30 seconds."',
+                      'name="twitter:description" content="Pick your kid\'s age, tell us what\'s going on, and get the short version — what\'s expected, and when to look closer. Free."',
+                      'name="twitter:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
+                      # Plausible ships with the page (strategy prerequisite #2) —
+                      # event names live in normal.js; this pins the loader.
+                      'data-domain="parentpeptalks.com"',
+                      'src="https://plausible.io/js/script.js"',
+                      "Is this normal?",
+                      "How old is the kid?",
+                      "Or enter their age in months",
+                      "Close enough is close enough.",
+                      "What's going on?",
+                      "Or maybe it's something they're not doing yet",
+                      "Or type it in your own words",
+                      "Show me",
+                      # Honest off-ramp for ages past the Milestones sheet (13+).
+                      "13 and up — our youngest band so far, for now. The notes below still work for every age.",
+                      # The estimate footnote travels with the counter line — the honest
+                      # sourcing for every "you're one of roughly N" figure the tool shows.
+                      "How we estimate: counts are order-of-magnitude figures",
+                      # Capture — the homepage's verified contract, untouched. /normal
+                      # deliberately has no data-kit-redirect: success confirms on-page.
+                      "data-kit-form",
+                      "data-kit-fallback",
+                      'src="kit-form.js"',
+                      'src="normal.js"',
+                      'href="styles.css"',
+                      # Inline SVG lockup — standard variant (bone fold lines).
+                      'class="logo-mark"',
+                      'aria-label="Parent Pep Talks — home"',
+                      'stroke="#f5f1ea"',
+                      # Full favicon set (svg + png + apple-touch), as on /signup.
+                      'href="assets/favicon.svg"',
+                      'href="assets/favicon.png"',
+                      'href="assets/apple-touch-icon.png"',
+                      # While the UID is unwired, /normal's fallback hands off to Kit.
+                      "https://parent-pep-talks.kit.com",
+                      'placeholder="First name"',
+                      'placeholder="Email address"',
+                      "Send me the notes",
+                      "Free. No spam. Unsubscribe whenever.",
+                      "Made for the parents in the thick of it.",
+                      "© 2026 parentpeptalks.com",
+                  ],
+              },
               "notes/example/index.html": {
                   "required": [
                       "<!doctype html",
@@ -411,8 +468,7 @@ jobs:
                   print(f"  - {error}")
               sys.exit(1)
           print("check passed: tag balance + one h1 on every page, meta parity, page-relative links/assets, kit copy, welcome handoff, no Airo references")
-
           PY
 
       - name: JS syntax check
-        run: node --check kit-form.js && node --check sleep.js
+        run: node --check kit-form.js && node --check sleep.js && node --check normal.js
