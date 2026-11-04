@@ -297,7 +297,8 @@ jobs:
                       'href="assets/favicon.svg"',
                       'href="assets/favicon.png"',
                       'href="assets/apple-touch-icon.png"',
-                      # While the UID is unwired, /normal's fallback hands off to Kit.
+                      # Wired homepage form (UID 10d73dff83, verified end-to-end Oct 29);
+                      # the fallback link stays as the no-JS safety net.
                       "https://parent-pep-talks.kit.com",
                       'placeholder="First name"',
                       'placeholder="Email address"',
