@@ -62,23 +62,23 @@ jobs:
                   "required": [
                       "<!doctype html",
                       "<title>Parent Pep Talks — A daily note for tired parents</title>",
-                      'name="description" content="A thirty-second note in your inbox every morning. For the parent who\'s holding it together — mostly. Free daily email."',
+                      'name="description" content="A thirty-second note in your inbox every morning — coming soon. For the parent who\'s holding it together — mostly. Join the waitlist."',
                       'rel="canonical" href="https://parentpeptalks.com/"',
                       'property="og:title" content="Parent Pep Talks"',
-                      'property="og:description" content="A thirty-second note in your inbox every morning. For the parent who\'s holding it together — mostly."',
+                      'property="og:description" content="A thirty-second note in your inbox every morning — coming soon. For the parent who\'s holding it together — mostly."',
                       'property="og:type" content="website"',
                       'property="og:url" content="https://parentpeptalks.com"',
                       'property="og:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
                       'name="twitter:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
                       'name="twitter:card" content="summary_large_image"',
                       'name="twitter:title" content="Parent Pep Talks"',
-                      'name="twitter:description" content="A thirty-second note in your inbox every morning. For the parent who\'s holding it together — mostly."',
+                      'name="twitter:description" content="A thirty-second note in your inbox every morning — coming soon. For the parent who\'s holding it together — mostly."',
                       "You're doing better than you think.",
-                      "A thirty-second note in your inbox every morning.",
+                      "A thirty-second note in your inbox every morning — coming soon.",
                       "For the parent who's mostly holding it together.",
                       'placeholder="First name"',
                       'placeholder="Email address"',
-                      "Send me the notes",
+                      "Join the waitlist",
                       "Free. No spam. Unsubscribe whenever.",
                       "Made for the parents in the thick of it.",
                       "© 2026 parentpeptalks.com",
@@ -104,22 +104,22 @@ jobs:
               "signup.html": {
                   "required": [
                       "<!doctype html",
-                      "<title>Parent Pep Talks — Sign up for the daily notes</title>",
-                      'name="description" content="Sign up free — one short note in your inbox every morning, starting tomorrow."',
+                      "<title>Parent Pep Talks — Join the waitlist</title>",
+                      'name="description" content="Join the waitlist free — one short note in your inbox every morning when we launch."',
                       'rel="canonical" href="https://parentpeptalks.com/signup"',
                       'property="og:title" content="A thirty-second note every morning"',
-                      'property="og:description" content="Sign up free — one short note in your inbox every morning, starting tomorrow."',
+                      'property="og:description" content="Join the waitlist free — one short note in your inbox every morning when we launch."',
                       'property="og:type" content="website"',
                       'property="og:url" content="https://parentpeptalks.com/signup"',
                       'property="og:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
                       'name="twitter:card" content="summary_large_image"',
                       'name="twitter:title" content="A thirty-second note every morning"',
-                      'name="twitter:description" content="Sign up free — one short note in your inbox every morning, starting tomorrow."',
+                      'name="twitter:description" content="Join the waitlist free — one short note in your inbox every morning when we launch."',
                       'name="twitter:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
                       "You're doing better than you think.",
                       'placeholder="First name"',
                       'placeholder="Email address"',
-                      "Send me the notes",
+                      "Join the waitlist",
                       "Free. No spam. Unsubscribe whenever.",
                       "Made for the parents in the thick of it.",
                       "© 2026 parentpeptalks.com",
@@ -139,29 +139,29 @@ jobs:
               "welcome.html": {
                   "required": [
                       "<!doctype html",
-                      "<title>Parent Pep Talks — You're in</title>",
+                      "<title>Parent Pep Talks — You're on the list</title>",
                       # Post-signup page: kept crawlable but noindexed (robots.txt does
                       # not disallow it — a disallowed URL can still be indexed).
                       'name="robots" content="noindex"',
-                      'name="description" content="You\'re in — your first note lands tomorrow morning. Finish your profile (every question is optional) to unlock the weekly child-insights email."',
+                      'name="description" content="You\'re in — you\'re on the waitlist. Finish your profile (every question is optional) to unlock the weekly child-insights email."',
                       'rel="canonical" href="https://parentpeptalks.com/welcome"',
                       'property="og:title" content="You\'re in."',
-                      'property="og:description" content="You\'re in — your first note lands tomorrow morning. Finish your profile to unlock the weekly child-insights email."',
+                      'property="og:description" content="You\'re in — you\'re on the waitlist. Finish your profile to unlock the weekly child-insights email."',
                       'property="og:type" content="website"',
                       'property="og:url" content="https://parentpeptalks.com/welcome"',
                       'property="og:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
                       'name="twitter:card" content="summary_large_image"',
                       'name="twitter:title" content="You\'re in."',
-                      'name="twitter:description" content="You\'re in — your first note lands tomorrow morning. Finish your profile to unlock the weekly child-insights email."',
+                      'name="twitter:description" content="You\'re in — you\'re on the waitlist. Finish your profile to unlock the weekly child-insights email."',
                       'name="twitter:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
                       # Celebration header — the homepage's old on-page success line,
                       # verbatim, moved here when the handoff shipped (Build Sheet §2).
                       "You're in.",
-                      "Your first note lands tomorrow morning — one short note a day, not a course. Rest tonight.",
+                      "You're on the waitlist — one short note a day when we launch, not a course. Rest tonight.",
                       "Now make it yours.",
                       "Complete your profile to unlock the weekly child-insights email: one short email a week about your kid — what's normal for their age, what's worth a closer look, and what you can officially stop worrying about.",
                       "Every question is optional. The daily note doesn't change either way — this just makes the weekly email possible.",
-                      "Not seeing the first note by breakfast tomorrow? Check spam, then add us to your contacts — after that, everything lands on time.",
+                      "Wondering if it worked? Check your inbox for a confirmation — after that, everything lands on time.",
                       "This is where your notes go.",
                       "Your kid's first name (first names only)",
                       # Sibling rotation hint (Oct 22): one kid to start; siblings join
@@ -244,7 +244,7 @@ jobs:
                       "https://parent-pep-talks.kit.com",
                       'placeholder="First name"',
                       'placeholder="Email address"',
-                      "Send me the notes",
+                      "Join the waitlist",
                       "Free. No spam. Unsubscribe whenever.",
                       "Made for the parents in the thick of it.",
                       "© 2026 parentpeptalks.com",
@@ -302,7 +302,7 @@ jobs:
                       "https://parent-pep-talks.kit.com",
                       'placeholder="First name"',
                       'placeholder="Email address"',
-                      "Send me the notes",
+                      "Join the waitlist",
                       "Free. No spam. Unsubscribe whenever.",
                       "Made for the parents in the thick of it.",
                       "© 2026 parentpeptalks.com",
@@ -326,7 +326,7 @@ jobs:
                       'src="../../kit-form.js"',
                       'href="../../styles.css"',
                       'href="../../assets/favicon.png"',
-                      "Send me the notes",
+                      "Join the waitlist",
                       "Free. No spam. Unsubscribe whenever.",
                       "Made for the parents in the thick of it.",
                       "© 2026 parentpeptalks.com",
@@ -336,10 +336,10 @@ jobs:
               },
           }
 
-          # The confirmation must speak the Day-1 register (Onboarding Arc, Day 1):
-          # tomorrow's note, no course-speak.
+          # The confirmation must speak the waitlist register (content not wired yet):
+          # on the list, notes coming at launch, no course-speak.
           KIT_FORM_COPY = [
-              "You're in. Your first note lands tomorrow morning — one short note a day, not a course. Rest tonight.",
+              "You're in. You're on the waitlist — one short note a day when we launch. Rest tonight.",
               "That didn't go through. Give it a moment and try again.",
           ]
 
@@ -349,7 +349,7 @@ jobs:
           KIT_HANDOFF_COPY = ["data-kit-redirect"]
 
           WELCOME_FORM_COPY = [
-              "Saved. Your first note lands tomorrow morning — and the weekly child-insights email is on its way.",
+              "Saved. You're on the waitlist — and the weekly child-insights email is on its way.",
               "That didn't go through. Give it a moment and try again.",
           ]
 

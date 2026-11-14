@@ -26,7 +26,7 @@ const KIT_PROFILE_FORM_UID = "10d73dff83";
 const KIT_POST_TEMPLATE = "https://app.kit.com/forms/{uid}/subscriptions";
 
 const STATUS_MESSAGES = {
-  success: "Saved. Your first note lands tomorrow morning — and the weekly child-insights email is on its way.",
+  success: "Saved. You're on the waitlist — and the weekly child-insights email is on its way.",
   error: "That didn't go through. Give it a moment and try again.",
 };
 
