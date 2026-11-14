@@ -45,6 +45,7 @@ PAGES = {
             "© 2026 parentpeptalks.com",
             "data-kit-form",
             "data-kit-fallback",
+            '<a class="fallback-cta" href="https://parent-pep-talks.kit.com">Join the waitlist</a>',
             # Wired success leaves for page two; /welcome takes the handoff
             # (Two-Step Signup Build Sheet, Section 1).
             'data-kit-redirect="welcome"',
@@ -86,6 +87,7 @@ PAGES = {
             "© 2026 parentpeptalks.com",
             "data-kit-form",
             "data-kit-fallback",
+            '<a class="fallback-cta" href="https://parent-pep-talks.kit.com">Join the waitlist</a>',
             'src="kit-form.js"',
             'href="styles.css"',
             # Inline SVG lockup — standard variant (bone fold lines).
@@ -153,6 +155,7 @@ PAGES = {
             "Save my profile &amp; unlock the weekly insights",
             "data-kit-form",
             "data-kit-fallback",
+            '<a class="fallback-cta" href="https://parent-pep-talks.kit.com">Join the waitlist</a>',
             'src="welcome-form.js"',
             'href="styles.css"',
             # Inline SVG lockup — standard variant (bone fold lines).
