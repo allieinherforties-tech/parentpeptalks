@@ -23,7 +23,7 @@ const KIT_FORM_UID = "10d73dff83"; // homepage inline form — live POST verifie
 const KIT_POST_TEMPLATE = "https://app.kit.com/forms/{uid}/subscriptions";
 
 const STATUS_MESSAGES = {
-  success: "You're in. Your first note lands tomorrow morning — one short note a day, not a course. Rest tonight.",
+  success: "You're in. You're on the waitlist — one short note a day when we launch. Rest tonight.",
   error: "That didn't go through. Give it a moment and try again.",
 };
 
