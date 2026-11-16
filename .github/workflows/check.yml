@@ -166,21 +166,21 @@ jobs:
                       # Post-signup page: kept crawlable but noindexed (robots.txt does
                       # not disallow it — a disallowed URL can still be indexed).
                       'name="robots" content="noindex"',
-                      'name="description" content="You\'re in — you\'re on the waitlist. One short note a day when we launch. Rest tonight."',
+                      'name="description" content="You\'re on the waitlist! When we launch, you\'ll get one short note a day to help you jumpstart your morning."',
                       'rel="canonical" href="https://parentpeptalks.com/welcome"',
                       'property="og:title" content="You\'re in."',
-                      'property="og:description" content="You\'re in — you\'re on the waitlist. One short note a day when we launch."',
+                      'property="og:description" content="You\'re on the waitlist! When we launch, you\'ll get one short note a day to help you jumpstart your morning."',
                       'property="og:type" content="website"',
                       'property="og:url" content="https://parentpeptalks.com/welcome"',
                       'property="og:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
                       'name="twitter:card" content="summary_large_image"',
                       'name="twitter:title" content="You\'re in."',
-                      'name="twitter:description" content="You\'re in — you\'re on the waitlist. One short note a day when we launch."',
+                      'name="twitter:description" content="You\'re on the waitlist! When we launch, you\'ll get one short note a day to help you jumpstart your morning."',
                       'name="twitter:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
                       # The single thank-you page: pure celebration, no second form.
                       "You're in.",
-                      "You're on the waitlist — one short note a day when we launch, not a course. Rest tonight.",
-                      "Wondering if it worked? Check your inbox for a confirmation — after that, everything lands on time.",
+                      "You're on the waitlist! When we launch, you'll get one short note a day to help you jumpstart your morning. Parenting is hard. Our pep talks are meant to keep you steady and soft.",
+                      "Wondering if it worked? Check your inbox for a confirmation. We'll let you know when we launch!",
                       # The capture service's no-JS post lands here with ?status=invalid;
                       # the inline script reads the query param and shows the nudge.
                       "data-form-status",
