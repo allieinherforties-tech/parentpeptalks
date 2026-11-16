@@ -27,20 +27,20 @@ PAGES = {
     "index.html": {
         "required": [
             "<!doctype html",
-            "<title>Parent Pep Talks — A daily note for tired parents</title>",
-            'name="description" content="A thirty-second note in your inbox every morning — coming soon. For the parent who\'s holding it together — mostly. Join the waitlist."',
+            "<title>Parent Pep Talks: A daily note for tired parents</title>",
+            'name="description" content="A thirty-second note in your inbox every morning. Coming soon. For the parent who\'s holding it together, mostly. Join the waitlist."',
             'rel="canonical" href="https://parentpeptalks.com/"',
             'property="og:title" content="Parent Pep Talks"',
-            'property="og:description" content="A thirty-second note in your inbox every morning — coming soon. For the parent who\'s holding it together — mostly."',
+            'property="og:description" content="A thirty-second note in your inbox every morning. Coming soon. For the parent who\'s holding it together, mostly. Join the waitlist."',
             'property="og:type" content="website"',
             'property="og:url" content="https://parentpeptalks.com"',
             'property="og:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
             'name="twitter:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
             'name="twitter:card" content="summary_large_image"',
             'name="twitter:title" content="Parent Pep Talks"',
-            'name="twitter:description" content="A thirty-second note in your inbox every morning — coming soon. For the parent who\'s holding it together — mostly."',
+            'name="twitter:description" content="A thirty-second note in your inbox every morning. Coming soon. For the parent who\'s holding it together, mostly. Join the waitlist."',
             "You're doing better than you think.",
-            "A thirty-second note in your inbox every morning — coming soon.",
+            "A thirty-second note in your inbox every morning. Coming soon.",
             "For the parent who's mostly holding it together.",
             'placeholder="Email address"',
             "Join the waitlist",
@@ -61,7 +61,7 @@ PAGES = {
             'src="capture-form.js"',
             # Inline SVG lockup — cream variant over the band (navy fold lines).
             'class="logo-mark"',
-            'aria-label="Parent Pep Talks — home"',
+            'aria-label="Parent Pep Talks home"',
             'stroke="#0b192d"',
             'src="assets/hero-band.webp"',
             'href="assets/favicon.png"',
@@ -78,19 +78,19 @@ PAGES = {
     "signup.html": {
         "required": [
             "<!doctype html",
-            "<title>Parent Pep Talks — Join the waitlist</title>",
-            'name="description" content="Join the waitlist free — one short note in your inbox every morning when we launch."',
+            "<title>Parent Pep Talks: Join the waitlist</title>",
+            'name="description" content="Join the waitlist free. One short note in your inbox every morning when we launch."',
             'rel="canonical" href="https://parentpeptalks.com/signup"',
             'property="og:title" content="A thirty-second note every morning"',
-            'property="og:description" content="Join the waitlist free — one short note in your inbox every morning when we launch."',
+            'property="og:description" content="Join the waitlist free. One short note in your inbox every morning when we launch."',
             'property="og:type" content="website"',
             'property="og:url" content="https://parentpeptalks.com/signup"',
             'property="og:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
             'name="twitter:card" content="summary_large_image"',
             'name="twitter:title" content="A thirty-second note every morning"',
-            'name="twitter:description" content="Join the waitlist free — one short note in your inbox every morning when we launch."',
+            'name="twitter:description" content="Join the waitlist free. One short note in your inbox every morning when we launch."',
             'name="twitter:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
-            "You're doing better than you think.",
+            "See you in the morning.",
             'placeholder="Email address"',
             "Join the waitlist",
             "Free. No spam. Unsubscribe whenever.",
@@ -109,7 +109,7 @@ PAGES = {
             'href="styles.css"',
             # Inline SVG lockup — standard variant (bone fold lines).
             'class="logo-mark"',
-            'aria-label="Parent Pep Talks — home"',
+            'aria-label="Parent Pep Talks home"',
             'stroke="#f5f1ea"',
             'href="assets/favicon.png"',
         ],
@@ -164,16 +164,16 @@ PAGES = {
     "sleep.html": {
         "required": [
             "<!doctype html",
-            "<title>Is it a sleep regression — or the clock change? — Parent Pep Talks</title>",
-            'name="description" content="Enter your kid\'s birth date and what\'s happening at night. Get the likely window — the 4-month regression, the 18-month wave, the clock change — and one script for tonight. Free, about 30 seconds."',
+            "<title>Is it a sleep regression or the clock change? Parent Pep Talks</title>",
+            'name="description" content="Enter your kid\'s birth date and what\'s happening at night. Get the likely window (the 4-month regression, the 18-month wave, the clock change) and one script for tonight. Free, about 30 seconds."',
             'rel="canonical" href="https://parentpeptalks.com/sleep"',
-            'property="og:title" content="Is it a sleep regression — or the clock change?"',
+            'property="og:title" content="Is it a sleep regression or the clock change?"',
             'property="og:description" content="Enter your kid\'s birth date and what\'s happening at night. Get the likely window and one script for tonight. Free, about 30 seconds."',
             'property="og:type" content="website"',
             'property="og:url" content="https://parentpeptalks.com/sleep"',
             'property="og:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
             'name="twitter:card" content="summary_large_image"',
-            'name="twitter:title" content="Is it a sleep regression — or the clock change?"',
+            'name="twitter:title" content="Is it a sleep regression or the clock change?"',
             'name="twitter:description" content="Enter your kid\'s birth date and what\'s happening at night. Get the likely window and one script for tonight. Free, about 30 seconds."',
             'name="twitter:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
             # Plausible ships with the page (strategy prerequisite #2) —
@@ -185,7 +185,7 @@ PAGES = {
             "What's happening?",
             "The clock change scrambled everything",
             "Show me the likely window",
-            "We never send the birth date anywhere — it stays in your browser.",
+            "We never send the birth date anywhere; it stays in your browser.",
             # Capture — email-only, JS-disabled first; success leaves for the
             # thank-you page like the homepage form.
             "data-capture-form",
@@ -199,7 +199,7 @@ PAGES = {
             'href="styles.css"',
             # Inline SVG lockup — standard variant (bone fold lines).
             'class="logo-mark"',
-            'aria-label="Parent Pep Talks — home"',
+            'aria-label="Parent Pep Talks home"',
             'stroke="#f5f1ea"',
             'href="assets/favicon.png"',
             'placeholder="Email address"',
@@ -218,17 +218,17 @@ PAGES = {
     "normal.html": {
         "required": [
             "<!doctype html",
-            "<title>Parent Pep Talks — Is This Normal? Checker</title>",
-            'name="description" content="Free. Pick your kid\'s age, tell us what\'s going on, and get the short version — what\'s expected, and when to look closer. About 30 seconds."',
+            "<title>Parent Pep Talks: Is This Normal? Checker</title>",
+            'name="description" content="Free. Pick your kid\'s age, tell us what\'s going on, and get the short version: what\'s expected, and when to look closer. About 30 seconds."',
             'rel="canonical" href="https://parentpeptalks.com/normal"',
             'property="og:title" content="Is this normal? Find out in about 30 seconds."',
-            'property="og:description" content="Pick your kid\'s age, tell us what\'s going on, and get the short version — what\'s expected, and when to look closer. Free."',
+            'property="og:description" content="Pick your kid\'s age, tell us what\'s going on, and get the short version: what\'s expected, and when to look closer. Free."',
             'property="og:type" content="website"',
             'property="og:url" content="https://parentpeptalks.com/normal"',
             'property="og:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
             'name="twitter:card" content="summary_large_image"',
             'name="twitter:title" content="Is this normal? Find out in about 30 seconds."',
-            'name="twitter:description" content="Pick your kid\'s age, tell us what\'s going on, and get the short version — what\'s expected, and when to look closer. Free."',
+            'name="twitter:description" content="Pick your kid\'s age, tell us what\'s going on, and get the short version: what\'s expected, and when to look closer. Free."',
             'name="twitter:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
             # Plausible ships with the page (strategy prerequisite #2) —
             # event names live in normal.js; this pins the loader.
@@ -243,7 +243,7 @@ PAGES = {
             "Or type it in your own words",
             "Show me",
             # Honest off-ramp for ages past the Milestones sheet (13+).
-            "13 and up — our youngest band so far, for now. The notes below still work for every age.",
+            "13 and up, our youngest band so far. The notes below still work for every age.",
             # The estimate footnote travels with the counter line — the honest
             # sourcing for every "you're one of roughly N" figure the tool shows.
             "How we estimate: counts are order-of-magnitude figures",
@@ -259,7 +259,7 @@ PAGES = {
             'href="styles.css"',
             # Inline SVG lockup — standard variant (bone fold lines).
             'class="logo-mark"',
-            'aria-label="Parent Pep Talks — home"',
+            'aria-label="Parent Pep Talks home"',
             'stroke="#f5f1ea"',
             # Full favicon set (svg + png + apple-touch), as on /signup.
             'href="assets/favicon.svg"',

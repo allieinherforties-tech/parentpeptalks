@@ -31,7 +31,6 @@ const birthInput = document.querySelector("[data-birth-date]");
 const chipsBox = document.querySelector("[data-chips]");
 const computeButton = document.querySelector("[data-compute]");
 const resultBox = document.querySelector("[data-result]");
-const dstBanner = document.querySelector("[data-dst-banner]");
 
 function track(name, props) {
   if (typeof window.plausible === "function") window.plausible(name, { props });
@@ -293,7 +292,6 @@ window.fetch = function (input, init) {
 
   const now = new Date();
   if (isInDstWindow(now, timeline.dst)) {
-    dstBanner.hidden = false;
     const dstChip = chipsBox.querySelector('[data-trigger="clock-shift"]');
     if (dstChip) dstChip.classList.add("featured");
   }
