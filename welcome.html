@@ -9,16 +9,16 @@
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="canonical" href="https://parentpeptalks.com/welcome">
     <title>Parent Pep Talks — You're on the list</title>
-    <meta name="description" content="You're in — you're on the waitlist. Finish your profile (every question is optional) to unlock the weekly child-insights email.">
+    <meta name="description" content="You're in — you're on the waitlist. One short note a day when we launch. Rest tonight.">
     <meta property="og:site_name" content="Parent Pep Talks">
     <meta property="og:type" content="website">
     <meta property="og:title" content="You're in.">
-    <meta property="og:description" content="You're in — you're on the waitlist. Finish your profile to unlock the weekly child-insights email.">
+    <meta property="og:description" content="You're in — you're on the waitlist. One short note a day when we launch.">
     <meta property="og:url" content="https://parentpeptalks.com/welcome">
     <meta property="og:image" content="https://parentpeptalks.com/assets/og-hero.webp">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="You're in.">
-    <meta name="twitter:description" content="You're in — you're on the waitlist. Finish your profile to unlock the weekly child-insights email.">
+    <meta name="twitter:description" content="You're in — you're on the waitlist. One short note a day when we launch.">
     <meta name="twitter:image" content="https://parentpeptalks.com/assets/og-hero.webp">
     <link rel="stylesheet" href="styles.css">
   </head>
@@ -48,48 +48,6 @@
         <div class="signup-inner">
           <h1 class="welcome-title">You're in.</h1>
           <p class="welcome-lead">You're on the waitlist — one short note a day when we launch, not a course. Rest tonight.</p>
-          <div class="incentive">
-            <h2 class="incentive-title">Now make it yours.</h2>
-            <p class="incentive-copy">Complete your profile to unlock the weekly child-insights email: one short email a week about your kid — what's normal for their age, what's worth a closer look, and what you can officially stop worrying about.</p>
-            <p class="optionality">Every question is optional. The daily note doesn't change either way — this just makes the weekly email possible.</p>
-          </div>
-          <form data-kit-form class="welcome-form">
-            <div class="fields">
-              <label class="field-label" for="welcome-first-name">First name</label>
-              <input type="text" name="firstName" id="welcome-first-name" class="field" autocomplete="given-name">
-              <label class="field-label" for="welcome-email">Email address</label>
-              <input type="email" name="email" id="welcome-email" class="field" autocomplete="email" required>
-              <p class="field-help">This is where your notes go.</p>
-              <label class="field-label" for="welcome-child-name">Your kid's first name (first names only)</label>
-              <input type="text" name="childName" id="welcome-child-name" class="field" autocomplete="off">
-              <p class="field-help">Just one kid to start is plenty — if you've got more, reply to any note with their names and birthdays and we'll add them to the rotation.</p>
-              <label class="field-label" for="welcome-birth-date">Your kid's birthday?</label>
-              <input type="date" name="birthDate" id="welcome-birth-date" class="field" autocomplete="bday">
-              <p class="field-help">So the weekly note matches their exact age — and we never miss their birthday.</p>
-              <label class="field-label" for="welcome-hardest-part">What's the hardest part of most days right now?</label>
-              <select name="hardestPart" id="welcome-hardest-part" class="field">
-                <option value="">Choose one</option>
-                <option value="Bedtime">Bedtime</option>
-                <option value="Mornings">Mornings</option>
-                <option value="Mealtimes">Mealtimes</option>
-                <option value="The mess">The mess</option>
-                <option value="My own patience">My own patience</option>
-                <option value="Sibling fights">Sibling fights</option>
-                <option value="Screen time">Screen time</option>
-                <option value="Something else">Something else</option>
-              </select>
-              <label class="field-label" for="welcome-goal-2">Finish the sentence: “The kind of parent I’m trying to be is…”</label>
-              <input type="text" name="goal2" id="welcome-goal-2" class="field" maxlength="50" autocomplete="off">
-              <p class="field-help" data-char-counter>0 / 50</p>
-              <p class="field-help">50 characters is plenty.</p>
-              <label class="field-label" for="welcome-referral">How did you hear about us? (optional)</label>
-              <input type="text" name="referral" id="welcome-referral" class="field" autocomplete="off">
-            </div>
-            <button type="submit" class="submit">Save my profile &amp; unlock the weekly insights</button>
-          </form>
-          <template data-kit-fallback>
-            <a class="fallback-cta" href="https://parent-pep-talks.kit.com">Join the waitlist</a>
-          </template>
           <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
           <p class="fine-print">Wondering if it worked? Check your inbox for a confirmation — after that, everything lands on time.</p>
         </div>
@@ -99,6 +57,20 @@
       <p class="footer-note">Made for the parents in the thick of it.</p>
       <p class="footer-copyright">© 2026 parentpeptalks.com</p>
     </footer>
-    <script src="welcome-form.js"></script>
+    <script>
+      // The capture service's no-JS post lands here with ?status=invalid when
+      // the email didn't parse. A gentle nudge, then — no error banner, the
+      // page still reads as the thank-you it is. No JS, no message: the page
+      // simply shows its standard welcome.
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        if (params.get("status") !== "invalid") return;
+        var status = document.querySelector("[data-form-status]");
+        if (!status) return;
+        status.dataset.state = "error";
+        status.textContent = "That email didn't look right — head back and try again. Everything else went through.";
+        status.hidden = false;
+      })();
+    </script>
   </body>
 </html>
