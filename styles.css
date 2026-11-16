@@ -233,6 +233,8 @@ main { flex: 1; display: flex; flex-direction: column; }
 }
 .site-footer p { margin: 0; }
 .footer-note { font-size: .875rem; opacity: .85; }
+.footer-contact { font-size: .875rem; }
+.footer-contact a { color: inherit; }
 .footer-copyright { font-size: .75rem; opacity: .6; }
 
 /* /welcome — page two of the two-step signup. The celebration header carries
@@ -256,6 +258,29 @@ main { flex: 1; display: flex; flex-direction: column; }
   font-weight: 300;
   color: var(--muted-foreground);
 }
+/* /privacy — the one-screen note. Same centered column as /welcome, but the
+   note itself reads left-aligned so the paragraphs scan like prose. */
+.privacy-body {
+  margin: 0 auto;
+  max-width: 30rem;
+  text-align: left;
+}
+.privacy-body h2 {
+  margin: 1.25rem 0 .25rem;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+.privacy-body p {
+  margin: 0;
+  line-height: 1.625;
+  font-size: .9rem;
+  font-weight: 300;
+  color: var(--muted-foreground);
+}
+.privacy-body a { color: inherit; }
 .incentive { margin: 0 auto 2rem; max-width: 30rem; }
 .incentive-title {
   margin: 0 0 .5rem;
