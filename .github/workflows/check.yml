@@ -358,6 +358,46 @@ jobs:
                       'placeholder="First name"',
                   ],
               },
+              "privacy.html": {
+                  "required": [
+                      "<!doctype html",
+                      "<title>Parent Pep Talks: Privacy</title>",
+                      'name="description" content="What Parent Pep Talks collects when you join the waitlist, why we collect it, and how to reach us: hello@parentpeptalks.com."',
+                      'rel="canonical" href="https://parentpeptalks.com/privacy"',
+                      'property="og:title" content="Parent Pep Talks: Privacy"',
+                      'property="og:description" content="What Parent Pep Talks collects when you join the waitlist, why we collect it, and how to reach us: hello@parentpeptalks.com."',
+                      'property="og:type" content="website"',
+                      'property="og:url" content="https://parentpeptalks.com/privacy"',
+                      'property="og:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
+                      'name="twitter:card" content="summary_large_image"',
+                      'name="twitter:title" content="Parent Pep Talks: Privacy"',
+                      'name="twitter:description" content="What Parent Pep Talks collects when you join the waitlist, why we collect it, and how to reach us: hello@parentpeptalks.com."',
+                      'name="twitter:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
+                      # The verified facts, pinned verbatim: what the waitlist collects
+                      # and why, the browser-only birth date, no email until launch
+                      # (unsubscribe travels with the first notes), no selling/sharing.
+                      "email address, the page you signed up from, the site that sent you here, your browser user agent, and the time",
+                      "manage the waitlist and to learn which pages parents sign up from",
+                      "The birth date you enter stays in your browser.",
+                      "No emails go out until launch.",
+                      "every note will carry a way to unsubscribe",
+                      "never sold or shared",
+                      'href="mailto:hello@parentpeptalks.com"',
+                      'href="styles.css"',
+                      # Inline SVG lockup — standard variant (bone fold lines).
+                      'class="logo-mark"',
+                      'stroke="#f5f1ea"',
+                      'href="assets/favicon.png"',
+                      "Made for the parents in the thick of it.",
+                      "© 2026 parentpeptalks.com",
+                      'href="privacy"',
+                  ],
+                  # Plain-spoken copy, per the standing voice rules: no em dashes here.
+                  "forbidden": [
+                      "—",
+                      "kit.com",
+                  ],
+              },
           }
 
           # The capture script must own its two contracts: the on-page confirmation
