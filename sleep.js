@@ -4,18 +4,18 @@
 // sleep/data/regression-timeline.json (fetched same-origin); this file
 // computes the child's age in calendar months, filters the timeline, and
 // renders the result card. The birth date never leaves the page — see the
-// capture form below, which posts only the standard first name + email
-// through the shared kit-form.js contract.
+// capture form below, which posts only an email to our waitlist endpoint
+// through the shared capture-form.js contract.
 //
 // Analytics (strategy prerequisite #2): Plausible custom events, fired via
 // track() below. If the Plausible site doesn't exist on the account yet,
 // window.plausible is undefined and tracking is a silent no-op.
 //   sleep_result_shown      {mode: "regression"|"dst", window: <row id>}
 //   sleep_capture_submitted {window: <row id>, success: <bool>}
-// The capture outcome is observed by wrapping fetch — kit-form.js (shared
+// The capture outcome is observed by wrapping fetch — capture-form.js (shared
 // with the homepage) owns the POST itself and resolves `fetch` at submit
 // time, so this wrapper is in place long before any click. The wrapper
-// passes every request through untouched and only inspects the Kit POST.
+// passes every request through untouched and only inspects the waitlist POST.
 
 const DATA_URL = "sleep/data/regression-timeline.json";
 
@@ -243,24 +243,22 @@ function compute() {
 }
 
 // Capture outcome reporting: see the header comment. Every request passes
-// through untouched; only the Kit POST is inspected, and its own resolution
-// is never altered — kit-form.js keeps full ownership of success handling.
-const KIT_POST_URL = "https://app.kit.com/forms/10d73dff83/subscriptions";
+// through untouched; only the waitlist POST is inspected, and its own
+// resolution is never altered — capture-form.js keeps full ownership of
+// success handling.
+const CAPTURE_POST_URL = "https://1f7hywtqf3-8941.hosted.obvious.ai/waitlist";
 const nativeFetch = window.fetch;
 window.fetch = function (input, init) {
   const promise = nativeFetch.apply(this, arguments);
   try {
     const url = typeof input === "string" ? input : input && input.url;
-    if (init && init.method === "POST" && url === KIT_POST_URL) {
+    if (init && init.method === "POST" && url === CAPTURE_POST_URL) {
       promise
         .then(async (response) => {
           let worked = false;
           if (response.ok) {
             const data = await response.clone().json().catch(() => null);
-            worked =
-              data && typeof data.status === "string"
-                ? data.status === "success"
-                : response.url.includes("/forms/success");
+            worked = Boolean(data && data.ok === true);
           }
           track("sleep_capture_submitted", {
             window: lastWindowId || "unknown",

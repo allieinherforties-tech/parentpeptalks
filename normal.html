@@ -81,17 +81,17 @@
           <p class="result-footnote" data-counter-note hidden>How we estimate: counts are order-of-magnitude figures — US children per age band, from about 3.6 million births a year (CDC/NCHS, Births: Final Data for 2023), rounded to one significant figure. They are reassurance, not measurement.</p>
           <div class="capture">
             <h2 class="capture-title">Want a note like this every morning?</h2>
-            <form data-kit-form>
+            <form data-capture-form method="post" action="https://1f7hywtqf3-8941.hosted.obvious.ai/waitlist">
               <div class="fields">
-                <input type="text" name="firstName" placeholder="First name" aria-label="First name" autocomplete="given-name" required class="field first-name">
                 <input type="email" name="email" placeholder="Email address" aria-label="Email address" autocomplete="email" required class="field email">
+              </div>
+              <input type="hidden" name="source_url">
+              <div class="hp-field" aria-hidden="true">
+                <input type="text" name="website" tabindex="-1" autocomplete="off">
               </div>
               <button type="submit" class="submit">Join the waitlist</button>
               <p class="fine-print">Free. No spam. Unsubscribe whenever.</p>
             </form>
-            <template data-kit-fallback>
-              <a class="fallback-cta" href="https://parent-pep-talks.kit.com">Join the waitlist</a>
-            </template>
             <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
           </div>
         </div>
@@ -101,7 +101,7 @@
       <p class="footer-note">Made for the parents in the thick of it.</p>
       <p class="footer-copyright">© 2026 parentpeptalks.com</p>
     </footer>
-    <script src="kit-form.js"></script>
+    <script src="capture-form.js"></script>
     <script src="normal.js"></script>
   </body>
 </html>
