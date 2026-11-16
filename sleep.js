@@ -63,8 +63,14 @@ chipsBox.addEventListener("click", (event) => {
   const alreadySelected = chip.classList.contains("selected");
   chipsBox
     .querySelectorAll(".chip")
-    .forEach((c) => c.classList.remove("selected"));
-  if (!alreadySelected) chip.classList.add("selected");
+    .forEach((c) => {
+      c.classList.remove("selected");
+      c.setAttribute("aria-pressed", "false");
+    });
+  if (!alreadySelected) {
+    chip.classList.add("selected");
+    chip.setAttribute("aria-pressed", "true");
+  }
   selectedTrigger = alreadySelected ? null : chip.dataset.trigger;
 });
 
@@ -75,6 +81,24 @@ function showResultError(message) {
   p.className = "result-error";
   p.textContent = message;
   resultBox.append(p);
+}
+
+// The /normal safety net, verbatim (normal-editorial.json) and in the same
+// markup pattern as normal.js showSafetyNet — every sleep result closes on
+// the same trust-the-your-gut line, whatever the window.
+const SAFETY_NET =
+  "You know your kid. If your gut says something’s off — if they’re losing skills they had, in real distress, or you’re worried for their safety — that’s what pediatricians are for. Calling is never an overreaction.";
+
+function showSafetyNet() {
+  const label = document.createElement("p");
+  label.className = "script-label";
+  label.textContent = "And the one thing we always say:";
+  const block = document.createElement("div");
+  block.className = "script-block";
+  const line = document.createElement("p");
+  line.textContent = SAFETY_NET;
+  block.append(line);
+  return { label, block };
 }
 
 // The off-ramp is a real state, not an error: ages and symptoms the sourced
@@ -92,7 +116,9 @@ function showOffRamp() {
   body.className = "result-summary";
   body.textContent =
     "We built the eight windows we could source well first, and yours isn't one of them (yet). The daily notes are still for you.";
-  resultBox.append(kicker, title, body);
+  const safetyNet = showSafetyNet();
+  resultBox.append(kicker, title, body, safetyNet.label, safetyNet.block);
+  resultBox.focus({ preventScroll: true });
 }
 
 function renderResult(row, alternate, script) {
@@ -137,6 +163,7 @@ function renderResult(row, alternate, script) {
   scriptText.textContent = script.body;
   scriptBody.append(scriptText);
 
+  const safetyNet = showSafetyNet();
   resultBox.append(
     kicker,
     title,
@@ -145,7 +172,9 @@ function renderResult(row, alternate, script) {
     why,
     duration,
     scriptLabel,
-    scriptBody
+    scriptBody,
+    safetyNet.label,
+    safetyNet.block
   );
 
   if (alternate) {
@@ -156,6 +185,7 @@ function renderResult(row, alternate, script) {
     resultBox.append(alt);
   }
 
+  resultBox.focus({ preventScroll: true });
   lastWindowId = row.id;
   track("sleep_result_shown", { mode, window: row.id });
 }

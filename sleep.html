@@ -55,15 +55,15 @@
             <p class="field-help">We never send the birth date anywhere; it stays in your browser.</p>
             <p class="field-label" id="chips-label">What's happening?</p>
             <div class="chips" data-chips role="group" aria-labelledby="chips-label">
-              <button type="button" class="chip" data-trigger="night-waking">Waking at night</button>
-              <button type="button" class="chip" data-trigger="bedtime-fights">Fighting bedtime</button>
-              <button type="button" class="chip" data-trigger="short-naps">Naps fell apart</button>
-              <button type="button" class="chip" data-trigger="early-rising">Up before dawn</button>
-              <button type="button" class="chip" data-trigger="clock-shift">The clock change scrambled everything</button>
+              <button type="button" class="chip" aria-pressed="false" data-trigger="night-waking">Waking at night</button>
+              <button type="button" class="chip" aria-pressed="false" data-trigger="bedtime-fights">Fighting bedtime</button>
+              <button type="button" class="chip" aria-pressed="false" data-trigger="short-naps">Naps fell apart</button>
+              <button type="button" class="chip" aria-pressed="false" data-trigger="early-rising">Up before dawn</button>
+              <button type="button" class="chip" aria-pressed="false" data-trigger="clock-shift">The clock change scrambled everything</button>
             </div>
             <button type="button" class="submit" data-compute>Show me the likely window</button>
           </div>
-          <section class="result" data-result hidden aria-live="polite"></section>
+          <section class="result" data-result hidden aria-live="polite" tabindex="-1"></section>
           <div class="capture">
             <h2 class="capture-title">Want a note like this every morning?</h2>
             <form data-capture-form method="post" action="https://1f7hywtqf3-8941.hosted.obvious.ai/waitlist" data-capture-redirect="welcome">
