@@ -49,7 +49,7 @@
           <h1 class="welcome-title">You're in.</h1>
           <p class="welcome-lead">You're on the waitlist!<br>Parenting is hard. Our pep talks are meant to keep you steady and soft.</p>
           <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
-          <p class="fine-print">Wondering if it worked? Check your inbox for a confirmation. When we launch, you'll get one short note a day to help you jumpstart your morning.</p>
+          <p class="fine-print">We will be in touch when we launch. Nothing until then. When we launch, you'll get one short note a day to help you jumpstart your morning.</p>
         </div>
       </section>
     </main>
@@ -59,12 +59,15 @@
     </footer>
     <script>
       // The capture service's no-JS post lands here with ?status=invalid when
-      // the email didn't parse. A gentle nudge, then — no error banner, the
-      // page still reads as the thank-you it is. No JS, no message: the page
-      // simply shows its standard welcome.
+      // the email didn't parse. That URL is a rejection, so the success
+      // heading comes off the page and a gentle nudge takes its place — no
+      // error banner. No JS, no message: the page simply shows its standard
+      // welcome, which is what a valid signup sees.
       (function () {
         var params = new URLSearchParams(window.location.search);
         if (params.get("status") !== "invalid") return;
+        var title = document.querySelector(".welcome-title");
+        if (title) title.hidden = true;
         var status = document.querySelector("[data-form-status]");
         if (!status) return;
         status.dataset.state = "error";

@@ -188,6 +188,13 @@ main { flex: 1; display: flex; flex-direction: column; }
 .field::placeholder { color: var(--muted-foreground); opacity: 1; }
 /* Focus goes to ink, not gold — gold stays exclusively on the primary action. */
 .field:focus { border-color: var(--foreground); }
+/* The 1px border shift alone is invisible to many eyes: keyboard focus gets
+   the same 2px offset ring the site-nav uses (ink here, bone there, both
+   high-contrast against what sits behind them). */
+.field:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 2px;
+}
 @media (min-width: 640px) {
   .fields { flex-direction: row; }
   .field.email { flex: 2; }
@@ -373,7 +380,7 @@ main { flex: 1; display: flex; flex-direction: column; }
 }
 
 .chip {
-  padding: .5rem .875rem;
+  padding: .625rem 1.125rem;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--surface);
@@ -382,6 +389,10 @@ main { flex: 1; display: flex; flex-direction: column; }
   font-size: .8125rem;
   cursor: pointer;
   transition: border-color .2s ease, background .2s ease, color .2s ease;
+  /* Touch target: 44px minimum height on both tools, mobile included. */
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .chip:hover {
@@ -412,6 +423,11 @@ main { flex: 1; display: flex; flex-direction: column; }
   border-radius: .5rem;
   background: var(--surface);
 }
+
+/* The result section carries tabindex="-1" so rendering can focus it (the
+   below-the-fold scroll + screen-reader announce). That focus is programmatic,
+   never keyboard-navigated: no ring. */
+.result:focus { outline: none; }
 
 .result-kicker {
   margin: 0 0 .5rem;

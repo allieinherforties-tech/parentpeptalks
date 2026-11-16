@@ -180,9 +180,12 @@ jobs:
                       # The single thank-you page: pure celebration, no second form.
                       "You're in.",
                       "You're on the waitlist!<br>Parenting is hard. Our pep talks are meant to keep you steady and soft.",
-                      "Wondering if it worked? Check your inbox for a confirmation. When we launch, you'll get one short note a day to help you jumpstart your morning.",
+                      # The honest fine-print: nothing sends email, so the page never
+                      # promises one (no "check your inbox" — see forbidden below).
+                      "We will be in touch when we launch. Nothing until then. When we launch, you'll get one short note a day to help you jumpstart your morning.",
                       # The capture service's no-JS post lands here with ?status=invalid;
-                      # the inline script reads the query param and shows the nudge.
+                      # the inline script reads the query param, hides the success
+                      # heading, and shows the nudge.
                       "data-form-status",
                       'params.get("status") !== "invalid"',
                       'href="styles.css"',
@@ -194,10 +197,13 @@ jobs:
                   ],
                   # No form posting anywhere: the profile capture is gone, /welcome is
                   # the destination, never a second ask. No Kit either, no old script.
+                  # The inbox promise stays forbidden: nothing sends confirmation email,
+                  # so the page must never claim one is coming.
                   "forbidden": [
                       "<form",
                       "kit.com",
                       "welcome-form.js",
+                      "check your inbox",
                   ],
               },
               "sleep.html": {

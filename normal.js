@@ -128,7 +128,16 @@ function chipButton(label) {
   chip.type = "button";
   chip.className = "chip";
   chip.textContent = label;
+  chip.setAttribute("aria-pressed", "false");
   return chip;
+}
+
+// Chips carry a short label (2-4 words, authored in the editorial layer) so
+// a grid of buttons stays scannable; the full concern sentence appears as
+// the result-card title.
+function itemLabel(item) {
+  const editorial = state.editorial.items[item.id] || {};
+  return editorial.label || item.concern;
 }
 
 function setSelected(chips, target) {
@@ -166,7 +175,7 @@ function renderBehavior(band) {
   el.concernChips.replaceChildren();
   el.milestoneChips.replaceChildren();
   for (const item of bandItems(band)) {
-    const chip = chipButton(item.concern);
+    const chip = chipButton(itemLabel(item));
     chip.addEventListener("click", () => {
       setSelected(el.concernChips, chip);
       setSelected(el.milestoneChips, null);
@@ -192,6 +201,10 @@ const QUERY_STOPWORDS = new Set([
   "because", "should", "would", "could", "does", "doesn", "didn", "isn",
   "aren", "wasn", "won", "don", "cant", "wont", "not", "but", "from",
   "into", "onto", "over", "under", "then", "than", "ours",
+  // Age units: they describe how old, never what's going on. Matching on
+  // them alone is how "18 month old refuses bedtime" once landed on the
+  // Screen time card (its keywords say "months").
+  "month", "months", "year", "years", "week", "weeks", "old", "aged", "age",
 ]);
 
 function searchTokens(query) {
@@ -210,16 +223,25 @@ function findMatches(band, query) {
     const keywords = (editorial.keywords || []).join(" ").toLowerCase();
     const concern = item.concern.toLowerCase();
     const haystack = `${concern} ${keywords}`;
-    // Rank by how many of the parent's words land; requiring every word
-    // (tokens.every) made natural queries like "biting at daycare" return nothing.
+    const inConcern = tokens.filter((token) => concern.includes(token)).length;
     const inHaystack = tokens.filter((token) => haystack.includes(token)).length;
     if (inHaystack === 0) continue;
-    const inConcern = tokens.filter((token) => concern.includes(token)).length;
+    // A match is distinctive when a parent's own word lands in the concern
+    // text itself, or two or more words land anywhere. One keyword-only hit
+    // is a loose match at best — a single shared word like "day" or "high"
+    // is not a topic. Loose matches still come back, but the card says so.
+    const distinctive = inConcern > 0 || inHaystack >= 2;
     const isConcernRow = item.category === "Common parent concern" ? 5 : 0;
-    matches.push({ item, score: inConcern * 100 + inHaystack * 10 + isConcernRow });
+    matches.push({
+      item,
+      distinctive,
+      score: inConcern * 100 + inHaystack * 10 + isConcernRow,
+    });
   }
   matches.sort((a, b) => b.score - a.score || a.item.id.localeCompare(b.item.id));
-  return matches.map((match) => match.item);
+  const confident = matches.filter((match) => match.distinctive);
+  if (confident.length > 0) return confident;
+  return matches; // every match is loose; runSearch labels the card honestly
 }
 
 function normalLine(item) {
@@ -247,7 +269,7 @@ function showSafetyNet(result) {
   result.append(label, block);
 }
 
-function showResult(item, mode) {
+function showResult(item, mode, loose) {
   state.lastItem = item.id;
   const why = state.editorial.confidenceShort[item.confidence] || FALLBACK_WHY;
   const counter = state.editorial.counters[state.band.id] || "";
@@ -256,6 +278,13 @@ function showResult(item, mode) {
   addLine(el.result, "result-kicker", "The short version");
   addLine(el.result, "result-title", item.concern);
   addLine(el.result, "result-band", item.band);
+  if (loose) {
+    addLine(
+      el.result,
+      "result-alt",
+      "Closest thing we cover: your words landed near this one, not exactly on it."
+    );
+  }
   addLine(el.result, "result-summary", normalLine(item));
   addLine(el.result, "result-why", `Why we're not worried: ${why}`);
   if (counter) addLine(el.result, "result-counter", counter);
@@ -263,6 +292,9 @@ function showResult(item, mode) {
 
   el.result.hidden = false;
   el.counterNote.hidden = !counter;
+  // The card renders below the fold: focus (the section carries tabindex="-1")
+  // scrolls it into view and hands the announcement to assistive tech.
+  el.result.focus({ preventScroll: true });
   el.result.scrollIntoView({ behavior: "smooth", block: "nearest" });
   track("checker_result_show", { item: item.id, mode });
 }
@@ -281,6 +313,7 @@ function showNoMatch(query) {
 
   el.result.hidden = false;
   el.counterNote.hidden = !counter;
+  el.result.focus({ preventScroll: true });
   el.result.scrollIntoView({ behavior: "smooth", block: "nearest" });
   track("checker_no_match_show", { term: query.trim().slice(0, 100) });
 }
@@ -300,9 +333,17 @@ function runSearch() {
   }
   setSelected(el.concernChips, null);
   setSelected(el.milestoneChips, null);
-  showResult(matches[0], "search");
+  // findMatches returns confident matches first; when everything it found
+  // is a loose keyword overlap, the card says "closest thing we cover"
+  // instead of presenting a guess as certain.
+  const loose = !matches[0].distinctive;
+  const lead = matches[0].item;
+  showResult(lead, "search", loose);
   if (matches.length > 1) {
-    const alts = matches.slice(1, 4).map((match) => `"${match.concern}"`).join(" · ");
+    const alts = matches
+      .slice(1, 4)
+      .map((match) => `"${match.item.concern}"`)
+      .join(" · ");
     addLine(el.result, "result-alt", `Or maybe: ${alts}`);
   }
 }
