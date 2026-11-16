@@ -14,10 +14,15 @@ from pathlib import Path
 # embeds it) as a live Airo reference.
 AIRO_ASSET_PREFIX = "airo" + "-assets"
 
+# Our own capture service: email-only waitlist posts, JS-disabled markup
+# included (the endpoint answers a urlencoded post with a 303 to /welcome).
+CAPTURE_ENDPOINT = "https://1f7hywtqf3-8941.hosted.obvious.ai/waitlist"
+
 # Every page that must exist, and what each must contain. Strings match
 # case-insensitively; meta and copy strings are enforced verbatim so edits
 # that break shared tags or the signup copy fail here, not on the live site.
-# index.html's strings mirror the live Airo page (captured Oct 9, 2026).
+# "forbidden" strings must NOT appear — this is how the Kit decommission and
+# the form-free thank-you page stay enforced.
 PAGES = {
     "index.html": {
         "required": [
@@ -37,31 +42,38 @@ PAGES = {
             "You're doing better than you think.",
             "A thirty-second note in your inbox every morning — coming soon.",
             "For the parent who's mostly holding it together.",
-            'placeholder="First name"',
             'placeholder="Email address"',
             "Join the waitlist",
             "Free. No spam. Unsubscribe whenever.",
             "Made for the parents in the thick of it.",
             "© 2026 parentpeptalks.com",
-            "data-kit-form",
-            "data-kit-fallback",
-            '<a class="fallback-cta" href="https://parent-pep-talks.kit.com">Join the waitlist</a>',
-            # Wired success leaves for page two; /welcome takes the handoff
-            # (Two-Step Signup Build Sheet, Section 1).
-            'data-kit-redirect="welcome"',
-            'src="kit-form.js"',
+            # Email-only capture form: works with JS disabled (method + action),
+            # upgraded by capture-form.js (JSON post, source_url, fall-through).
+            "data-capture-form",
+            'method="post"',
+            f'action="{CAPTURE_ENDPOINT}"',
+            'name="source_url"',
+            'name="website"',
+            'tabindex="-1"',
+            'autocomplete="off"',
+            # Wired success leaves for the thank-you page.
+            'data-capture-redirect="welcome"',
+            'src="capture-form.js"',
             # Inline SVG lockup — cream variant over the band (navy fold lines).
             'class="logo-mark"',
             'aria-label="Parent Pep Talks — home"',
             'stroke="#0b192d"',
             'src="assets/hero-band.webp"',
             'href="assets/favicon.png"',
-            # While the UID is unwired, the homepage fallback hands off straight
-            # to Kit's hosted page — one hop, no /signup screen in between.
-            'href="https://parent-pep-talks.kit.com"',
         ],
         # The homepage carries structured-data blocks; /signup stays minimal.
         "jsonld_types": ["Organization", "WebSite"],
+        "forbidden": [
+            "kit.com",
+            "data-kit-form",
+            "kit-form.js",
+            'placeholder="First name"',
+        ],
     },
     "signup.html": {
         "required": [
@@ -79,24 +91,33 @@ PAGES = {
             'name="twitter:description" content="Join the waitlist free — one short note in your inbox every morning when we launch."',
             'name="twitter:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
             "You're doing better than you think.",
-            'placeholder="First name"',
             'placeholder="Email address"',
             "Join the waitlist",
             "Free. No spam. Unsubscribe whenever.",
             "Made for the parents in the thick of it.",
             "© 2026 parentpeptalks.com",
-            "data-kit-form",
-            "data-kit-fallback",
-            '<a class="fallback-cta" href="https://parent-pep-talks.kit.com">Join the waitlist</a>',
-            'src="kit-form.js"',
+            # Email-only capture form, JS-disabled first (no redirect: /signup
+            # confirms on-page, like /normal).
+            "data-capture-form",
+            'method="post"',
+            f'action="{CAPTURE_ENDPOINT}"',
+            'name="source_url"',
+            'name="website"',
+            'tabindex="-1"',
+            'autocomplete="off"',
+            'src="capture-form.js"',
             'href="styles.css"',
             # Inline SVG lockup — standard variant (bone fold lines).
             'class="logo-mark"',
             'aria-label="Parent Pep Talks — home"',
             'stroke="#f5f1ea"',
             'href="assets/favicon.png"',
-            # While the UID is unwired, /signup's fallback hands off to Kit.
-            "https://parent-pep-talks.kit.com",
+        ],
+        "forbidden": [
+            "kit.com",
+            "data-kit-form",
+            "kit-form.js",
+            'placeholder="First name"',
         ],
     },
     "welcome.html": {
@@ -106,65 +127,38 @@ PAGES = {
             # Post-signup page: kept crawlable but noindexed (robots.txt does
             # not disallow it — a disallowed URL can still be indexed).
             'name="robots" content="noindex"',
-            'name="description" content="You\'re in — you\'re on the waitlist. Finish your profile (every question is optional) to unlock the weekly child-insights email."',
+            'name="description" content="You\'re in — you\'re on the waitlist. One short note a day when we launch. Rest tonight."',
             'rel="canonical" href="https://parentpeptalks.com/welcome"',
             'property="og:title" content="You\'re in."',
-            'property="og:description" content="You\'re in — you\'re on the waitlist. Finish your profile to unlock the weekly child-insights email."',
+            'property="og:description" content="You\'re in — you\'re on the waitlist. One short note a day when we launch."',
             'property="og:type" content="website"',
             'property="og:url" content="https://parentpeptalks.com/welcome"',
             'property="og:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
             'name="twitter:card" content="summary_large_image"',
             'name="twitter:title" content="You\'re in."',
-            'name="twitter:description" content="You\'re in — you\'re on the waitlist. Finish your profile to unlock the weekly child-insights email."',
+            'name="twitter:description" content="You\'re in — you\'re on the waitlist. One short note a day when we launch."',
             'name="twitter:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
-            # Celebration header — the homepage's old on-page success line,
-            # verbatim, moved here when the handoff shipped (Build Sheet §2).
+            # The single thank-you page: pure celebration, no second form.
             "You're in.",
             "You're on the waitlist — one short note a day when we launch, not a course. Rest tonight.",
-            "Now make it yours.",
-            "Complete your profile to unlock the weekly child-insights email: one short email a week about your kid — what's normal for their age, what's worth a closer look, and what you can officially stop worrying about.",
-            "Every question is optional. The daily note doesn't change either way — this just makes the weekly email possible.",
             "Wondering if it worked? Check your inbox for a confirmation — after that, everything lands on time.",
-            "This is where your notes go.",
-            "Your kid's first name (first names only)",
-            # Sibling rotation hint (Oct 22): one kid to start; siblings join
-            # by replying to any note with names and birthdays.
-            "Just one kid to start is plenty — if you've got more, reply to any note with their names and birthdays and we'll add them to the rotation.",
-            "Your kid's birthday?",
-            # Birth-date field (Oct 20 decision): the optional date input
-            # replaces the age-band dropdown — the weekly child-insight derives
-            # the band at send time from the Milestones sheet, and BDAY-01
-            # triggers yearly off the collected date.
-            'type="date"',
-            "So the weekly note matches their exact age — and we never miss their birthday.",
-            "What's the hardest part of most days right now?",
-            # Hardest-part dropdown: the eight parent-facing chips, each saved
-            # as a Tag.
-            "Bedtime",
-            "Mornings",
-            "Mealtimes",
-            "The mess",
-            "My own patience",
-            "Sibling fights",
-            "Screen time",
-            "Something else",
-            "Finish the sentence: “The kind of parent I’m trying to be is…”",
-            'maxlength="50"',
-            "50 characters is plenty.",
-            "How did you hear about us? (optional)",
-            "Save my profile &amp; unlock the weekly insights",
-            "data-kit-form",
-            "data-kit-fallback",
-            '<a class="fallback-cta" href="https://parent-pep-talks.kit.com">Join the waitlist</a>',
-            'src="welcome-form.js"',
+            # The capture service's no-JS post lands here with ?status=invalid;
+            # the inline script reads the query param and shows the nudge.
+            "data-form-status",
+            'params.get("status") !== "invalid"',
             'href="styles.css"',
             # Inline SVG lockup — standard variant (bone fold lines).
             'class="logo-mark"',
             'aria-label="Parent Pep Talks — home"',
             'stroke="#f5f1ea"',
             'href="assets/favicon.png"',
-            # While the profile UID is unwired, /welcome hands off to Kit.
-            "https://parent-pep-talks.kit.com",
+        ],
+        # No form posting anywhere: the profile capture is gone, /welcome is
+        # the destination, never a second ask. No Kit either, no old script.
+        "forbidden": [
+            "<form",
+            "kit.com",
+            "welcome-form.js",
         ],
     },
     "sleep.html": {
@@ -192,11 +186,15 @@ PAGES = {
             "The clock change scrambled everything",
             "Show me the likely window",
             "We never send the birth date anywhere — it stays in your browser.",
-            # Capture — the homepage's verified contract, untouched.
-            "data-kit-form",
-            "data-kit-fallback",
-            'data-kit-redirect="welcome"',
-            'src="kit-form.js"',
+            # Capture — email-only, JS-disabled first; success leaves for the
+            # thank-you page like the homepage form.
+            "data-capture-form",
+            'method="post"',
+            f'action="{CAPTURE_ENDPOINT}"',
+            'name="source_url"',
+            'name="website"',
+            'data-capture-redirect="welcome"',
+            'src="capture-form.js"',
             'src="sleep.js"',
             'href="styles.css"',
             # Inline SVG lockup — standard variant (bone fold lines).
@@ -204,14 +202,17 @@ PAGES = {
             'aria-label="Parent Pep Talks — home"',
             'stroke="#f5f1ea"',
             'href="assets/favicon.png"',
-            # While the UID is unwired, /sleep's fallback hands off to Kit.
-            "https://parent-pep-talks.kit.com",
-            'placeholder="First name"',
             'placeholder="Email address"',
             "Join the waitlist",
             "Free. No spam. Unsubscribe whenever.",
             "Made for the parents in the thick of it.",
             "© 2026 parentpeptalks.com",
+        ],
+        "forbidden": [
+            "kit.com",
+            "data-kit-form",
+            "kit-form.js",
+            'placeholder="First name"',
         ],
     },
     "normal.html": {
@@ -246,11 +247,14 @@ PAGES = {
             # The estimate footnote travels with the counter line — the honest
             # sourcing for every "you're one of roughly N" figure the tool shows.
             "How we estimate: counts are order-of-magnitude figures",
-            # Capture — the homepage's verified contract, untouched. /normal
-            # deliberately has no data-kit-redirect: success confirms on-page.
-            "data-kit-form",
-            "data-kit-fallback",
-            'src="kit-form.js"',
+            # Capture — email-only, JS-disabled first. /normal deliberately has
+            # no data-capture-redirect: success confirms on-page.
+            "data-capture-form",
+            'method="post"',
+            f'action="{CAPTURE_ENDPOINT}"',
+            'name="source_url"',
+            'name="website"',
+            'src="capture-form.js"',
             'src="normal.js"',
             'href="styles.css"',
             # Inline SVG lockup — standard variant (bone fold lines).
@@ -261,15 +265,17 @@ PAGES = {
             'href="assets/favicon.svg"',
             'href="assets/favicon.png"',
             'href="assets/apple-touch-icon.png"',
-            # Wired homepage form (UID 10d73dff83, verified end-to-end Oct 29);
-            # the fallback link stays as the no-JS safety net.
-            "https://parent-pep-talks.kit.com",
-            'placeholder="First name"',
             'placeholder="Email address"',
             "Join the waitlist",
             "Free. No spam. Unsubscribe whenever.",
             "Made for the parents in the thick of it.",
             "© 2026 parentpeptalks.com",
+        ],
+        "forbidden": [
+            "kit.com",
+            "data-kit-form",
+            "kit-form.js",
+            'placeholder="First name"',
         ],
     },
     "notes/example/index.html": {
@@ -282,12 +288,15 @@ PAGES = {
             # The banner is what keeps the example honest — a page that has
             # stopped saying "template, not a real note" has stopped being one.
             "This page is the template, not a real note",
-            "data-kit-form",
-            "data-kit-fallback",
-            # Note CTAs hand off to /welcome like the homepage form does —
-            # a signup from any note gets the profile page too.
-            'data-kit-redirect="welcome"',
-            'src="../../kit-form.js"',
+            # Email-only capture form, JS-disabled first; note CTAs hand off to
+            # the thank-you page like the homepage form does.
+            "data-capture-form",
+            'method="post"',
+            f'action="{CAPTURE_ENDPOINT}"',
+            'name="source_url"',
+            'name="website"',
+            'data-capture-redirect="welcome"',
+            'src="../../capture-form.js"',
             'href="../../styles.css"',
             'href="../../assets/favicon.png"',
             "Join the waitlist",
@@ -297,24 +306,23 @@ PAGES = {
         ],
         # The Article block is the archive's structured-data pattern.
         "jsonld_types": ["Article"],
+        "forbidden": [
+            "kit.com",
+            "data-kit-form",
+            "kit-form.js",
+            'placeholder="First name"',
+        ],
     },
 }
 
-# The confirmation must speak the waitlist register (content not wired yet):
-# on the list, notes coming at launch, no course-speak.
-KIT_FORM_COPY = [
+# The capture script must own its two contracts: the on-page confirmation
+# register (waitlist honesty — on the list, notes at launch) and the JSON
+# payload that carries the source page. Strings match the source file
+# byte-for-byte.
+CAPTURE_FORM_COPY = [
     "You're in. You're on the waitlist — one short note a day when we launch. Rest tonight.",
-    "That didn't go through. Give it a moment and try again.",
-]
-
-# The wired homepage success redirects to /welcome with the signup fields in
-# the query string (Build Sheet Section 1); /welcome's confirmation copy lives
-# in welcome-form.js. Strings match the source files byte-for-byte.
-KIT_HANDOFF_COPY = ["data-kit-redirect"]
-
-WELCOME_FORM_COPY = [
-    "Saved. You're on the waitlist — and the weekly child-insights email is on its way.",
-    "That didn't go through. Give it a moment and try again.",
+    "source_url",
+    "form.submit()",
 ]
 
 errors = []
@@ -347,20 +355,11 @@ class Sanity(HTMLParser):
             errors.append(f"<{opened}> closed by </{tag}>")
 
 
-kit_form = Path("kit-form.js")
-kit_source = kit_form.read_text(encoding="utf-8") if kit_form.is_file() else ""
-for copy in KIT_FORM_COPY:
-    if copy not in kit_source:
-        errors.append(f"kit-form.js: missing required copy: {copy}")
-for needle in KIT_HANDOFF_COPY:
-    if needle not in kit_source:
-        errors.append(f"kit-form.js: missing handoff wiring: {needle}")
-
-welcome_form = Path("welcome-form.js")
-welcome_source = welcome_form.read_text(encoding="utf-8") if welcome_form.is_file() else ""
-for copy in WELCOME_FORM_COPY:
-    if copy not in welcome_source:
-        errors.append(f"welcome-form.js: missing required copy: {copy}")
+capture_form = Path("capture-form.js")
+capture_source = capture_form.read_text(encoding="utf-8") if capture_form.is_file() else ""
+for copy in CAPTURE_FORM_COPY:
+    if copy not in capture_source:
+        errors.append(f"capture-form.js: missing required string: {copy}")
 
 # Structural sanity runs for EVERY HTML file in the repo — the notes archive
 # included — so a broken page fails CI the day it lands, not when someone
@@ -405,6 +404,9 @@ for page_path, page in PAGES.items():
     for needle in page["required"]:
         if needle.lower() not in haystack:
             errors.append(f"{page_path}: missing required string: {needle}")
+    for needle in page.get("forbidden", []):
+        if needle.lower() in haystack:
+            errors.append(f"{page_path}: forbidden string present: {needle}")
 
     expected_types = page.get("jsonld_types")
     if expected_types is not None:
@@ -432,4 +434,4 @@ if errors:
     for error in errors:
         print(f"  - {error}")
     sys.exit(1)
-print("check passed: tag balance + one h1 on every page, meta parity, page-relative links/assets, kit copy, welcome handoff, no Airo references")
+print("check passed: tag balance + one h1 on every page, meta parity, page-relative links/assets, capture form pins, form-free welcome, no Airo references")
