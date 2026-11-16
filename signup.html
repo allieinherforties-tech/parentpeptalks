@@ -46,17 +46,20 @@
       <section class="signup signup-centered">
         <div class="signup-inner">
           <h1 class="signup-title">You're doing better than you think.</h1>
-          <form data-kit-form>
+          <form data-capture-form method="post" action="https://1f7hywtqf3-8941.hosted.obvious.ai/waitlist">
             <div class="fields">
-              <input type="text" name="firstName" placeholder="First name" aria-label="First name" autocomplete="given-name" required class="field first-name">
               <input type="email" name="email" placeholder="Email address" aria-label="Email address" autocomplete="email" required class="field email">
+            </div>
+            <!-- Filled by capture-form.js; a no-JS post ships it empty and the
+                 server records the destination page it knows. -->
+            <input type="hidden" name="source_url">
+            <!-- Honeypot: bots fill it, people never see it. -->
+            <div class="hp-field" aria-hidden="true">
+              <input type="text" name="website" tabindex="-1" autocomplete="off">
             </div>
             <button type="submit" class="submit">Join the waitlist</button>
             <p class="fine-print">Free. No spam. Unsubscribe whenever.</p>
           </form>
-          <template data-kit-fallback>
-            <a class="fallback-cta" href="https://parent-pep-talks.kit.com">Join the waitlist</a>
-          </template>
           <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
         </div>
       </section>
@@ -65,6 +68,6 @@
       <p class="footer-note">Made for the parents in the thick of it.</p>
       <p class="footer-copyright">© 2026 parentpeptalks.com</p>
     </footer>
-    <script src="kit-form.js"></script>
+    <script src="capture-form.js"></script>
   </body>
 </html>

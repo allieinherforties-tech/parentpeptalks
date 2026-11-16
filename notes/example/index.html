@@ -55,9 +55,9 @@
     <main>
       <article class="note">
         <p class="example-banner">This page is the template, not a real note. It shows how every daily pep talk will live at /notes/&lt;slug&gt;/ — when real notes publish, they look exactly like this one, minus this banner.</p>
-        <!-- FILL: date and category. Category comes from the welcome form's
-             eight hardest-part words (Bedtime, Mornings, Mealtimes, The mess,
-             My own patience, Sibling fights, Screen time, Something else). -->
+        <!-- FILL: date and category. Category comes from the eight
+             hardest-part words (Bedtime, Mornings, Mealtimes, The mess, My own
+             patience, Sibling fights, Screen time, Something else). -->
         <p class="note-kicker">October 27, 2026 · Bedtime</p>
         <!-- FILL: the note's title, in the voice below — plain, a little dry. -->
         <h1 class="note-title">The dishes can wait.</h1>
@@ -78,22 +78,22 @@
         -->
       </article>
       <!-- The signup CTA — the last thing on every note page, every time.
-           data-kit-redirect="welcome" sends the new subscriber to the profile
-           page, same as a homepage signup. -->
+           data-capture-redirect="welcome" sends the new subscriber to the
+           thank-you page, same as a homepage signup. -->
       <section class="signup">
         <div class="signup-inner">
           <p class="tagline">That was today's note. Tomorrow's lands in inboxes instead.<br>Thirty seconds, every morning, free.</p>
-          <form data-kit-form data-kit-redirect="welcome">
+          <form data-capture-form method="post" action="https://1f7hywtqf3-8941.hosted.obvious.ai/waitlist" data-capture-redirect="welcome">
             <div class="fields">
-              <input type="text" name="firstName" placeholder="First name" aria-label="First name" autocomplete="given-name" required class="field first-name">
               <input type="email" name="email" placeholder="Email address" aria-label="Email address" autocomplete="email" required class="field email">
+            </div>
+            <input type="hidden" name="source_url">
+            <div class="hp-field" aria-hidden="true">
+              <input type="text" name="website" tabindex="-1" autocomplete="off">
             </div>
             <button type="submit" class="submit">Join the waitlist</button>
             <p class="fine-print">Free. No spam. Unsubscribe whenever.</p>
           </form>
-          <template data-kit-fallback>
-            <a class="fallback-cta" href="https://parent-pep-talks.kit.com">Join the waitlist</a>
-          </template>
           <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
         </div>
       </section>
@@ -102,6 +102,6 @@
       <p class="footer-note">Made for the parents in the thick of it.</p>
       <p class="footer-copyright">© 2026 parentpeptalks.com</p>
     </footer>
-    <script src="../../kit-form.js"></script>
+    <script src="../../capture-form.js"></script>
   </body>
 </html>

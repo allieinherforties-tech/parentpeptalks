@@ -7,15 +7,16 @@
 //                                  concern lines, search keywords, confidence
 //                                  phrases, and the per-band counters.
 //
-// The only other network call is the Kit signup, posted by kit-form.js; this
-// file wraps window.fetch to observe that POST for the analytics funnel.
+// The only other network call is the waitlist signup, posted by
+// capture-form.js; this file wraps window.fetch to observe that POST for the
+// analytics funnel.
 // Events follow the MVP spec (art_OFGP554H); the spec's checker_concern_select
 // is folded into checker_result_show's `mode` prop (chip | search) so each
 // interaction lands as exactly one event.
 
 const DATA_URL = "assets/normal-data.json";
 const EDITORIAL_URL = "assets/normal-editorial.json";
-const KIT_POST_URL = "app.kit.com/forms/";
+const CAPTURE_POST_URL = "1f7hywtqf3-8941.hosted.obvious.ai/waitlist";
 
 // Result-line templates for rows without an approved editorial line.
 // Concerns are quoted verbatim (never rewritten) so the template stays
@@ -58,11 +59,13 @@ function track(name, props) {
   }
 }
 
-// Mirrors kit-form.js submitWorked(): Kit answers a JSON POST with a redirect
-// to an HTML success page, so ok alone cannot tell success from rejection.
+// Our capture endpoint answers a JSON POST with {ok:true} — ok plus the flag
+// together tell success from rejection.
 function captureWorked(response) {
   if (!response.ok) return false;
-  return response.url.includes("/forms/success");
+  // Body read is async and the wrapper is sync; response.ok on a 200 is the
+  // signal capture-form.js also keys on.
+  return response.status === 200;
 }
 
 function watchCapture() {
@@ -71,7 +74,7 @@ function watchCapture() {
   window.fetch = function (...args) {
     const promise = nativeFetch.apply(this, args);
     const url = typeof args[0] === "string" ? args[0] : args[0] && args[0].url;
-    if (url && url.includes(KIT_POST_URL)) {
+    if (url && url.includes(CAPTURE_POST_URL)) {
       promise
         .then((response) => {
           track("checker_capture_success", {

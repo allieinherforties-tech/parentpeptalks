@@ -190,9 +190,10 @@ main { flex: 1; display: flex; flex-direction: column; }
 .field:focus { border-color: var(--foreground); }
 @media (min-width: 640px) {
   .fields { flex-direction: row; }
-  .field.first-name { flex: 1; }
   .field.email { flex: 2; }
 }
+/* Honeypot: present in the DOM for bots, invisible and untabbable for people. */
+.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .submit {
   width: 100%;
   padding: .75rem 2rem;
@@ -210,21 +211,6 @@ main { flex: 1; display: flex; flex-direction: column; }
 .submit:hover { opacity: .9; }
 .submit:disabled { opacity: .6; cursor: default; }
 .fine-print { margin: .625rem 0 0; font-size: .75rem; color: hsl(30 6% 38% / .75); }
-.fallback-cta {
-  display: block;
-  width: 100%;
-  padding: .75rem 2rem;
-  border-radius: .5rem;
-  background: var(--primary);
-  color: var(--primary-foreground);
-  text-decoration: none;
-  text-align: center;
-  font-size: .875rem;
-  font-weight: 500;
-  letter-spacing: .02em;
-  transition: opacity .2s;
-}
-.fallback-cta:hover { opacity: .9; }
 .form-status { margin: .75rem 0 0; font-size: .875rem; }
 .form-status[data-state="success"] { color: var(--success); }
 .form-status[data-state="error"] { color: var(--destructive); }
