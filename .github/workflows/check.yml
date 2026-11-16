@@ -179,8 +179,8 @@ jobs:
                       'name="twitter:image" content="https://parentpeptalks.com/assets/og-hero.webp"',
                       # The single thank-you page: pure celebration, no second form.
                       "You're in.",
-                      "You're on the waitlist! When we launch, you'll get one short note a day to help you jumpstart your morning. Parenting is hard. Our pep talks are meant to keep you steady and soft.",
-                      "Wondering if it worked? Check your inbox for a confirmation. We'll let you know when we launch!",
+                      "You're on the waitlist!<br>Parenting is hard. Our pep talks are meant to keep you steady and soft.",
+                      "Wondering if it worked? Check your inbox for a confirmation. When we launch, you'll get one short note a day to help you jumpstart your morning.",
                       # The capture service's no-JS post lands here with ?status=invalid;
                       # the inline script reads the query param and shows the nudge.
                       "data-form-status",
