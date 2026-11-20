@@ -45,6 +45,9 @@ PAGES = {
             'placeholder="Email address"',
             "Join the waitlist",
             "Free. No spam. Unsubscribe whenever.",
+            # Privacy disclosure lives at the point of collection, in the fine
+            # print, not only in the footer.
+            '<a href="privacy">Privacy</a>',
             "Made for the parents in the thick of it.",
             "© 2026 parentpeptalks.com",
             # Email-only capture form: works with JS disabled (method + action),
@@ -94,6 +97,7 @@ PAGES = {
             'placeholder="Email address"',
             "Join the waitlist",
             "Free. No spam. Unsubscribe whenever.",
+            '<a href="privacy">Privacy</a>',
             "Made for the parents in the thick of it.",
             "© 2026 parentpeptalks.com",
             # Email-only capture form, JS-disabled first (no redirect: /signup
@@ -211,6 +215,7 @@ PAGES = {
             'placeholder="Email address"',
             "Join the waitlist",
             "Free. No spam. Unsubscribe whenever.",
+            '<a href="privacy">Privacy</a>',
             "Made for the parents in the thick of it.",
             "© 2026 parentpeptalks.com",
         ],
@@ -274,6 +279,7 @@ PAGES = {
             'placeholder="Email address"',
             "Join the waitlist",
             "Free. No spam. Unsubscribe whenever.",
+            '<a href="privacy">Privacy</a>',
             "Made for the parents in the thick of it.",
             "© 2026 parentpeptalks.com",
         ],
@@ -307,6 +313,7 @@ PAGES = {
             'href="../../assets/favicon.png"',
             "Join the waitlist",
             "Free. No spam. Unsubscribe whenever.",
+            '<a href="../../privacy">Privacy</a>',
             "Made for the parents in the thick of it.",
             "© 2026 parentpeptalks.com",
         ],
@@ -343,7 +350,16 @@ PAGES = {
             "No emails go out until launch.",
             "every note will carry a way to unsubscribe",
             "never sold or shared",
+            # Third-party processing, retention, and the deletion path, pinned
+            # when they joined the page.
+            "Signups are handled by a form service that stores them on our behalf",
+            "Your record is kept while the waitlist is active",
             'href="mailto:hello@parentpeptalks.com"',
+            # Analytics disclosure: scoped to the tools (the Plausible loader
+            # ships with sleep.html and normal.html only), cookieless.
+            "<h2>Analytics</h2>",
+            "which pages get visited and which results get opened",
+            "Plausible sets no cookies and does not identify anyone",
             'href="styles.css"',
             # Inline SVG lockup — standard variant (bone fold lines).
             'class="logo-mark"',
